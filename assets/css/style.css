@@ -473,11 +473,11 @@ h6 {
   }
 
   .footer-svg {
-    height: 27px !important;
+    height: 44px !important;
     margin-left: 22px !important;
-    margin-right: 9px;
+    margin-right: 6px;
     margin-top: 22px !important;
-  }
+}
 
   .fab__button {
     position: absolute;
@@ -494,6 +494,10 @@ h6 {
     z-index: 2;
     box-shadow: 0px 6px 14px 0px rgba(0, 0, 0, 0.3);
     transition: background-color 300ms ease;
+  }
+
+  #call-to-action .cta-btn{
+    margin-bottom: 50px !important;
   }
 }
 
@@ -699,6 +703,16 @@ section {
   padding: 60px 0 30px 0;
 }
 
+@media (max-width: 768px) {
+  #about {
+    margin-bottom: -93px;
+  }
+  #testimonials {
+    padding: 0px 0;
+}
+
+}
+
 #about .about-img {
   overflow: hidden;
 }
@@ -715,8 +729,15 @@ section {
 
   #about .about-img img {
     margin-left: 0;
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
   }
+  #call-to-action {
+    margin-bottom: -47px;
+    margin-top: 84px;
+}
+.section-header {
+  margin-bottom: 0;
+}
 }
 
 #about .content h2 {
@@ -1130,10 +1151,12 @@ section {
   color: #32EE88;
   font-size: 28px;
   font-weight: 700;
+  text-align: right;
 }
 
 #call-to-action .cta-text {
   color: #32EE88;
+  text-align: right;
 }
 
 @media (min-width: 769px) {
@@ -1156,6 +1179,7 @@ section {
   margin: 10px;
   border: 3px solid #32EE88;
   color: #32EE88;
+  margin-left: 100px;
 }
 
 #call-to-action .cta-btn:hover {
@@ -1402,9 +1426,13 @@ section {
 }
 
 .footer-svg {
-  height: 50px;
-  margin-left: 30px;
-  margin-top: 50px;
+  height: 70px;
+  margin-left: 20px;
+  margin-top: 30px;
+
+}
+#footer{
+  /* margin-top: 50px; */
 }
 
 
@@ -1583,4 +1611,24 @@ section {
   }
 }
 
+
+
+
+
+/*images*/
+.girl-car{
+  border: 2px solid #32EE88;
+  border-radius: 0 30px 30px 60px;  
+  overflow: hidden;
+  display: inline-block;
+}
+
+.man-car{
+  
+    border: 2px solid #32EE88;
+    border-radius: 0 20px 20px 50px;
+    overflow: hidden;
+    display: inline-block;
+
+}
 /* end whatsapp icone */
