@@ -28,13 +28,16 @@ function displayDrivers(drivers) {
         str = `      <tr>
         <td>
           <div class="d-flex align-items-center">
-            <img
-                src="assets/img/${element["personalPhoto"]}"
-                alt=""
-                style="width: 100px; height: 100px"
-                class="rounded-circle"
-                />
-            <div class="ms-3">
+          
+          <img
+          src="assets/img/${element["personalPhoto"]}"
+          alt=""
+          style="width: 100px; height: 100px"
+          class="rounded-circle"
+          data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="/assets/img/${element["personalPhoto"]}"
+           onClick="changeImgSrc(this)" />
+
+          <div class="ms-3">
               <p class="fw-bold mb-1">${element["firstName"]} ${element["lastName"]}  </p> <!-- من ال api هيجي داتا-->
               
             </div>
@@ -52,7 +55,7 @@ function displayDrivers(drivers) {
         </td>
 
         <td>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="/assets/img/${element["formImage"]}" onClick="changeImgSrc(this)">
         رؤية
         </button>
         </td>
@@ -63,6 +66,9 @@ function displayDrivers(drivers) {
           </button>
         </td>
       </tr>`
+
+
+
         document.getElementById("drivers-table-body").innerHTML+=str;
     });
 
