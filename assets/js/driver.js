@@ -16,14 +16,14 @@ reqisterbtn.addEventListener('submit', (e) => {
 
 
     const personlPhotofile = document.getElementById(`personlPhoto`).files[0];
-    formData.append(`personlPhoto`, personlPhotofile,`${firstNamevalue}${lastNamevalue}personlPhoto.jpg`);
+    formData.append(`personlPhoto`, personlPhotofile);
 
 
     const drivingLicenseImagefile = document.getElementById(`drivingLicenseImage`).files[0];
-    formData.append(`drivingLicenseImage`, drivingLicenseImagefile,`${firstNamevalue}${lastNamevalue}drivingLicenseImage.jpg`);
+    formData.append(`drivingLicenseImage`, drivingLicenseImagefile);
 
     const formImagefile = document.getElementById(`formImage`).files[0];
-    formData.append(`formImage`, formImagefile,`${firstNamevalue}${lastNamevalue}formImage.jpg`);
+    formData.append(`formImage`, formImagefile);
 
 
 

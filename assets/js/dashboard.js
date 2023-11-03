@@ -6,14 +6,14 @@ declare HttpRequest
 const xhr = new XMLHttpRequest()
 
 xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status == 200) {
+  if (xhr.readyState === 4 && xhr.status == 200) {
 
-        const Drivers = JSON.parse(xhr.responseText);
+    const Drivers = JSON.parse(xhr.responseText);
 
-        console.log("Drivers");
-        console.log(Drivers);
-        displayDrivers(Drivers)
-    }
+    console.log("Drivers");
+    console.log(Drivers);
+    displayDrivers(Drivers)
+  }
 }
 xhr.open("GET", "https://localhost:7047/GetAllDrivers", false);
 xhr.send();
@@ -22,10 +22,10 @@ xhr.send();
 displayDrivers function
 */
 function displayDrivers(drivers) {
-    // drivers is a json object
-    var str = ``
-    drivers.forEach(element => {
-        str = `      <tr>
+  // drivers is a json object
+  var str = ``
+  drivers.forEach(element => {
+    str = `      <tr>
         <td>
           <div class="d-flex align-items-center">
           
@@ -61,7 +61,7 @@ function displayDrivers(drivers) {
         </td>
 
         <td>
-          <button type="button" class="btn btn-link btn-sm btn-rounded">
+          <button type="button" class="btn btn-link btn-sm btn-rounded"   data-custom-property="${element["id"]}" onClick="viewEditPage(this)">
             تعديل
           </button>
         </td>
@@ -69,14 +69,21 @@ function displayDrivers(drivers) {
 
 
 
-        document.getElementById("drivers-table-body").innerHTML+=str;
-    });
+    document.getElementById("drivers-table-body").innerHTML += str;
+  });
 
 }
 
-function changeImgSrc(btn){
+function changeImgSrc(btn) {
   const newSrc = btn.dataset.customProperty;
   document.getElementById("dynamic-img").src = newSrc;
+}
+
+function viewEditPage(btn) {
+  var id = btn.dataset.customProperty;
+
+  localStorage.setItem("driverid", id);
+  window.location.href = "EditDriver.html";
 }
 
 
