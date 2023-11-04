@@ -104,13 +104,23 @@
                 <input type="text" name="lname" class="form-control" id="lastName" placeholder="اسم العائلة" required>
               </div>
             </div>
-            <div class="form-group mt-3">
-              <!--<input type="email" class="form-control" name="email" id="email" placeholder="البريد الالكتروني" required>-->
+            <!-- <div class="form-group mt-3">
+             <input type="email" class="form-control" name="email" id="email" placeholder="البريد الالكتروني" required>
 
+            </div> -->
+            <div class="row mt-3">
+            <div class="form-group col-md-6 mt-3 mt-md-0">
+              <input type="tel" class="form-control" name="phone" id="phone" placeholder="رقم الجوال" required dir="rtl">
             </div>
-            <div class="form-group mt-3">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="رقم الجوال" required>
+            <div class="form-group col-md-6 mt-3 mt-md-0">
+              <select class="form-control" name="gender" id="gender" required style="height: 52px;border-radius: 0;">
+                  <option value="" disabled selected>اختر الجنس</option>
+                  <option value="ذكر">ذكر</option>
+                  <option value="أنثى">أنثى</option>
+              </select>
+          </div>
             </div>
+         
 
             <div class="row mt-3">
 
@@ -128,49 +138,46 @@
                 <label style="margin-bottom: 6px;">الإستمارة</label>
                 <input type="file" name="name" class="form-control" id="formImage" placeholder="الإستمارة" required>
               </div>
-              <div class="form-group col-md-4 ">
-                <label style="margin-bottom: 6px;">صورة المركبة من الأمام</label>
-                <input type="file" name="name" class="form-control" id="personlPhoto" placeholder="الصورة الشخصية"
-                  required>
-              </div>
-              <div class="form-group col-md-4 ">
-                <label style="margin-bottom: 6px;">صورة المركبة من الخلف</label>
-                <input type="file" name="name" class="form-control" id="drivingLicenseImage" placeholder="رخصة القيادة"
-                  required>
-              </div>
+             
 
 
-              <div class="form-group col-md-6 mt-3">
-                <input type="password" name="password" class="form-control" id="password" placeholder="كلمة المرور" required>
-            </div>
             
+
+         
+          
             <div class="form-group col-md-6 mt-3">
                 <input type="text" name="nationalID" class="form-control" id="nationalID" placeholder="رقم الهوية" required>
             </div>
             
-            <div class="form-group col-md-6 mt-3">
-                <select class="form-control" name="gender" id="gender" required>
-                    <option value="" disabled selected>اختر الجنس</option>
-                    <option value="ذكر">ذكر</option>
-                    <option value="أنثى">أنثى</option>
-                </select>
-            </div>
+           
             
             <div class="form-group col-md-6 mt-3">
                 <input type="text" name="city" class="form-control" id="city" placeholder="المدينة" required>
             </div>
-            
+            <div class="form-group col-md-6 mt-3">
+              <input type="text" name="plateNumber" class="form-control" id="plateNumber" placeholder="بيانات لوحة المركبه (ثلاث أحرف وثلاث أرقام)" required>
+          </div>
+           
+
             <div class="form-group col-md-6 mt-3">
                 <input type="text" name="carModel" class="form-control" id="carModel" placeholder="موديل المركبة" required>
             </div>
             
-            <div class="form-group col-md-6 mt-3">
-                <input type="text" name="carColor" class="form-control" id="carColor" placeholder="اللون" required>
-            </div>
             
-            <div class="form-group col-md-6 mt-3">
-                <input type="text" name="plateNumber" class="form-control" id="plateNumber" placeholder="بيانات لوحة المركبه (ثلاث أحرف وثلاث أرقام)" required>
+          
+           
+            <div class="form-group col-md-4 ">
+              <label style="margin-bottom: 6px;">صورة المركبة من الأمام</label>
+              <input type="file" name="name" class="form-control" id="personlPhoto" 
+                required>
             </div>
+            <div class="form-group col-md-4 ">
+              <label style="margin-bottom: 6px;">صورة المركبة من الخلف</label>
+              <input type="file" name="name" class="form-control" id="drivingLicenseImage" required>
+            </div>
+            <div class="form-group col-md-4 mt-3">
+              <input type="text" name="carColor" class="form-control" id="carColor" placeholder="اللون" required style="height:38px;margin-top: 14px;">
+          </div>
             </div>
 
             <!--
@@ -194,7 +201,9 @@
                 <option>توفير</option>
               </select>
             </div>
-
+            <div class="form-group col-md-12 mt-3">
+              <input type="password" name="password" class="form-control" id="password" placeholder="كلمة المرور" required>
+          </div>
 
             <div class="my-3">
               <div class="loading">Loading</div>

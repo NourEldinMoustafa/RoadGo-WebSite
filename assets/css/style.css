@@ -168,6 +168,7 @@ h6 {
   #header #logo img {
     max-height: 40px;
   }
+
 }
 
 .scrolled-offset {
@@ -442,6 +443,7 @@ h6 {
   height: auto;
 }
 
+
 @media (max-width: 767px) {
   #hero video {
     width: 100%;
@@ -498,6 +500,10 @@ h6 {
 
   #call-to-action .cta-btn{
     margin-bottom: 50px !important;
+  }
+
+  #policy{
+    display: block;
   }
 }
 
@@ -1703,3 +1709,12 @@ body{margin-top:20px;
       margin-right: 1rem;
   }
 /* end editdriver page */
+
+
+
+
+/* =============================================================== */
+/* Dashboard */
+.ms-3{
+  margin-right: 15px;
+}
