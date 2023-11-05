@@ -94,8 +94,9 @@
         <div class="row" style="margin-bottom: 10px;">
           <img src="assets/img/hero-carousel/8.jpg">
         </div>
+
         <div class="form">
-          <form action="index.html" method="post" role="form" class="php-email-form">
+          <form action="index.html" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
             <div class="row">
 
               <div class="form-group col-md-6">
@@ -128,17 +129,17 @@
 
               <div class="form-group col-md-4 ">
                 <label style="margin-bottom: 6px;">الصورة الشخصية</label>
-                <input type="file" name="name" class="form-control" id="personlPhoto" placeholder="الصورة الشخصية"
+                <input type="file" name="personlPhoto" class="form-control" id="personlPhoto" placeholder="الصورة الشخصية"
                   required>
               </div>
               <div class="form-group col-md-4 ">
                 <label style="margin-bottom: 6px;">رخصة القيادة </label>
-                <input type="file" name="name" class="form-control" id="drivingLicenseImage" placeholder="رخصة القيادة"
+                <input type="file" name="drivingLicenseImage" class="form-control" id="drivingLicenseImage" placeholder="رخصة القيادة"
                   required>
               </div>
               <div class="form-group col-md-4  mt-md-0">
                 <label style="margin-bottom: 6px;">الإستمارة</label>
-                <input type="file" name="name" class="form-control" id="formImage" placeholder="الإستمارة" required>
+                <input type="file" name="formImage" class="form-control" id="formImage" placeholder="الإستمارة" required>
               </div>
 
 
@@ -173,11 +174,11 @@
 
               <div class="form-group col-md-4 ">
                 <label style="margin-bottom: 6px;">صورة المركبة من الأمام</label>
-                <input type="file" name="name" class="form-control" id="personlPhoto" required>
+                <input type="file" name="vehicleFrontImage" class="form-control" id="vehicleFrontImage" required>
               </div>
               <div class="form-group col-md-4 ">
                 <label style="margin-bottom: 6px;">صورة المركبة من الخلف</label>
-                <input type="file" name="name" class="form-control" id="drivingLicenseImage" required>
+                <input type="file" name="vehicleBackImage" class="form-control" id="vehicleBackImage" required>
               </div>
               <div class="form-group col-md-4 mt-3">
                 <input type="text" name="carColor" class="form-control" id="carColor" placeholder="اللون" required
