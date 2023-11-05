@@ -49,20 +49,20 @@ function displayDrivers(drivers) {
 
 
         <td>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="/assets/img/${element["drivingLicenseImage"]}" onClick="changeImgSrc(this)">
-        رؤية
-        </button>
+        <i class="bi bi-eye" style="font-size: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="/assets/img/${element["formImage"]}" onClick="changeImgSrc(this)"></i>
+
+        </td>
         </td>
 
         <td>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="/assets/img/${element["formImage"]}" onClick="changeImgSrc(this)">
-        رؤية
-        </button>
+
+        <i class="bi bi-eye" style="font-size: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="/assets/img/${element["formImage"]}" onClick="changeImgSrc(this)"></i>
+
         </td>
 
         <td>
           <button type="button" class="btn btn-link btn-sm btn-rounded"   data-custom-property="${element["id"]}" onClick="viewEditPage(this)">
-            تعديل
+            تفاصيل
           </button>
         </td>
       </tr>`

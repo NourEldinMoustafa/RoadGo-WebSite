@@ -73,59 +73,61 @@
         <nav class="nav nav-borders">
             <a class="nav-link active ms-0" href="EditDriver.html" target="__blank">التفاصيل</a>
 
-            <a class="nav-link" href="EditDriver.html" target="__blank">متطلبات هيئة النقل</a>
+            <a class="nav-link" href="EditDriver.html#goto" target="__blank">متطلبات هيئة النقل</a>
 
 
         </nav>
         <hr class="mt-0 mb-4">
         <div class="row">
-            <div class="col-xl-3">
-                <!-- Profile picture card-->
-                <div class="card mb-4 mb-xl-0">
-                    <div class="card-header">الصورة الشخصية</div>
-                    <div class="card-body text-center">
-                        <!-- Profile picture image-->
-                        <button type="button" id="personalPhotobtn" class="btn btn-link btn-sm btn-rounded" button
-                            type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property=""
-                            onClick="changeImgSrc(this)">
 
-                            <img class="img-account-profile img-fluid  mb-2"
-                                src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" id="personalPhoto">
-                        </button>
-
-                        <!-- Profile picture help block-->
-                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                        <!-- Profile picture upload button-->
-                        <input class="" type="file" placeholder="تغير الصورة" accept="image/*"></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-9">
+            <div class="col">
                 <!-- Account details card-->
                 <div class="card mb-4">
                     <div class="card-header">بيانات السائق</div>
                     <div class="card-body">
                         <form>
+
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
+                                <div class="col-xl-3">
+                                    <!-- Profile picture card-->
+                                    <div class="card mb-4 mb-xl-0">
+                                        <div class="card-header">الصورة الشخصية</div>
+                                        <div class="card-body text-center">
+                                            <!-- Profile picture image-->
+                                            <button type="button" id="personalPhotobtn" class="btn btn-link btn-sm btn-rounded" button
+                                                type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property=""
+                                                onClick="changeImgSrc(this)">
+                    
+                                                <img class="img-account-profile img-fluid  mb-2"
+                                                    src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" id="personalPhoto">
+                                            </button>
+                    
+                                            <!-- Profile picture help block-->
+                                            <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                                            <!-- Profile picture upload button-->
+                                            <input class="" type="file" placeholder="تغير الصورة" accept="image/*"></button>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- Form Group (first name)-->
-                                <div class="col-md-6">
+                                <div class="col-md-9">
                                     <label class="small mb-1" for="inputFirstName">الإسم الأول</label>
                                     <input class="form-control" id="inputFirstName" type="text"
                                         placeholder="الإسم الأول">
+                                        <label class="small mb-1" for="inputLastName">اسم العائلة </label>
+                                        <input class="form-control" id="inputLastName" type="text"
+                                            placeholder="اسم العائلة">
+
+                                            <label class="small mb-1" for="inputPhone">رقم الجوال</label>
+                                            <input class="form-control" id="inputPhone" type="text" placeholder="رقم الجوال">
                                 </div>
-                                <!-- Form Group (last name)-->
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputLastName">اسم العائلة </label>
-                                    <input class="form-control" id="inputLastName" type="text"
-                                        placeholder="اسم العائلة">
-                                </div>
+                                
+                                
+
                             </div>
-                            <!-- Form Group (username)-->
-                            <div class="mb-3">
-                                <label class="small mb-1" for="inputPhone">رقم الجوال</label>
-                                <input class="form-control" id="inputPhone" type="text" placeholder="رقم الجوال">
-                            </div>
+
+
                             <!-- Form Row        -->
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6">
@@ -185,10 +187,10 @@
                             </div>
 
 
-
+                            <hr class="mb-5 m">
                             <!---=================متطلبات هيئة النقل============-->
                             <div class="card mb-4">
-                                <div class="card-header">متطلبات هيئة النقل</div>
+                                <div id="goto" class="card-header">متطلبات هيئة النقل</div>
                                 <div class="card-body">
 
                                     <!-- Form Row-->
