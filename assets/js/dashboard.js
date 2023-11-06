@@ -1,22 +1,15 @@
 /*start zezo work*/
 
 /*
-declare HttpRequest
+declare fetch
 */
-const xhr = new XMLHttpRequest()
+fetch('https://localhost:7047/GetAllDrivers') // Replace with your server endpoint
+.then(response => response.json())
+.then(data => {
+    displayDrivers(data);
+})
+.catch(error => console.error('Error fetching data:', error));
 
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4 && xhr.status == 200) {
-
-    const Drivers = JSON.parse(xhr.responseText);
-
-    console.log("Drivers");
-    console.log(Drivers);
-    displayDrivers(Drivers)
-  }
-}
-xhr.open("GET", "https://localhost:7047/GetAllDrivers", false);
-xhr.send();
 
 /*
 displayDrivers function
@@ -30,11 +23,11 @@ function displayDrivers(drivers) {
           <div class="d-flex align-items-center">
           
           <img
-          src="assets/img/${element["personalPhoto"]}"
+          src="data:image/jpeg;base64,  ${element.personalPhoto}"
           alt=""
           style="width: 100px; height: 100px"
           class="rounded-circle"
-          data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="/assets/img/${element["personalPhoto"]}"
+          data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="data:image/jpeg;base64,  ${element.personalPhoto}"
            onClick="changeImgSrc(this)" />
 
           <div class="ms-3">
@@ -49,14 +42,14 @@ function displayDrivers(drivers) {
 
 
         <td>
-        <i class="bi bi-eye" style="font-size: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="/assets/img/${element["formImage"]}" onClick="changeImgSrc(this)"></i>
+        <i class="bi bi-eye" style="font-size: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="data:image/jpeg;base64, ${element.drivingLicenseImage}" onClick="changeImgSrc(this)"></i>
 
         </td>
         </td>
 
         <td>
 
-        <i class="bi bi-eye" style="font-size: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="/assets/img/${element["formImage"]}" onClick="changeImgSrc(this)"></i>
+        <i class="bi bi-eye" style="font-size: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="data:image/jpeg;base64, ${element.formImage}" onClick="changeImgSrc(this)"></i>
 
         </td>
 
@@ -88,3 +81,5 @@ function viewEditPage(btn) {
 
 
 /*end zezo work */
+
+

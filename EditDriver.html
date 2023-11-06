@@ -85,7 +85,7 @@
                 <div class="card mb-4">
                     <div class="card-header">بيانات السائق</div>
                     <div class="card-body">
-                        <form>
+                        <form class="saving-form" action="EditDriver.html" method="post">
 
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
@@ -95,18 +95,22 @@
                                         <div class="card-header">الصورة الشخصية</div>
                                         <div class="card-body text-center">
                                             <!-- Profile picture image-->
-                                            <button type="button" id="personalPhotobtn" class="btn btn-link btn-sm btn-rounded" button
-                                                type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property=""
-                                                onClick="changeImgSrc(this)">
-                    
+                                            <button type="button" id="personalPhotobtn"
+                                                class="btn btn-link btn-sm btn-rounded" button type="button"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                data-custom-property="1" onclick="changeImgSrc(this)">
+
                                                 <img class="img-account-profile img-fluid  mb-2"
-                                                    src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" id="personalPhoto">
+                                                    src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                                                    id="personalPhoto">
                                             </button>
-                    
+
                                             <!-- Profile picture help block-->
-                                            <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                                            <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5
+                                                MB</div>
                                             <!-- Profile picture upload button-->
-                                            <input class="" type="file" placeholder="تغير الصورة" accept="image/*"></button>
+                                            <input class="" type="file" placeholder="تغير الصورة"
+                                                accept="image/*"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -115,18 +119,18 @@
                                     <label class="small mb-1" for="inputFirstName">الإسم الأول</label>
                                     <input class="form-control" id="inputFirstName" type="text"
                                         placeholder="الإسم الأول">
-                                        <label class="small mb-1" for="inputLastName">اسم العائلة </label>
-                                        <input class="form-control" id="inputLastName" type="text"
-                                            placeholder="اسم العائلة">
+                                    <label class="small mb-1" for="inputLastName">اسم العائلة </label>
+                                    <input class="form-control" id="inputLastName" type="text"
+                                        placeholder="اسم العائلة">
 
-                                            <label class="small mb-1" for="inputPhone">رقم الجوال</label>
-                                            <input class="form-control" id="inputPhone" type="text" placeholder="رقم الجوال">
+                                    <label class="small mb-1" for="inputPhone">رقم الجوال</label>
+                                    <input class="form-control" id="inputPhone" type="text" placeholder="رقم الجوال">
                                 </div>
-                                
-                                
+
+
 
                             </div>
-                            
+
 
                             <!-- Form Row        -->
                             <div class="row gx-3 mb-3">
@@ -139,7 +143,7 @@
                                             <button type="button" id="formImagebtn" button type="button"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                 class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                                onClick="changeImgSrc(this)">
+                                                onclick="changeImgSrc(this)">
 
                                                 <img class="img-fluid mb-2"
                                                     src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
@@ -163,7 +167,7 @@
                                             <button type="button" id="drivingLicenseImagebtn" button type="button"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                 class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                                onClick="changeImgSrc(this)">
+                                                onclick="changeImgSrc(this)">
 
                                                 <img class="img-fluid  mb-2"
                                                     src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
@@ -218,13 +222,19 @@
                                                 placeholder="المدينة">
                                         </div>
                                         <!-- Form Group (last name)-->
-                                        <div class="col-md-6">
-                                            <label class="small mb-1" for="inputPassword">الجنس</label>
-                                            <br>
-                                            <label class="small mb-1" for="inputPassword">الجنس</label>
-                                            
-                                            
+
+                                        <div class="form-group col-md-6 mt-3 mt-md-0">
+                                            <label style="margin-bottom: 6px;"> الجنس </label>
+                                            <select class="form-control" name="gender" id="gender" required
+                                                style="height: 52px;border-radius: 0;">
+                                                <option value="" disabled selected>اختر الجنس</option>
+                                                <option value="ذكر">ذكر</option>
+                                                <option value="أنثى">أنثى</option>
+                                            </select>
                                         </div>
+
+
+
                                     </div>
 
                                     <!-- Form Row        -->
@@ -232,13 +242,13 @@
                                         <div class="col-md-6">
                                             <!-- Profile picture card-->
                                             <div class="card mb-4 mb-xl-0">
-                                                <div class="card-header">صورة الإستمارة</div>
+                                                <div class="card-header">صورةالمركبة من الخلف</div>
                                                 <div class="card-body text-center">
                                                     <!-- Profile picture image-->
                                                     <button type="button" id="formImagebtn" button type="button"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                         class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                                        onClick="changeImgSrc(this)">
+                                                        onclick="changeImgSrc(this)">
 
                                                         <img class="img-fluid mb-2"
                                                             src="http://bootdey.com/img/Content/avatar/avatar1.png"
@@ -257,14 +267,14 @@
                                         <div class="col-md-6">
                                             <!-- Profile picture card-->
                                             <div class="card mb-4 mb-xl-0">
-                                                <div class="card-header"> صورة الرخصة</div>
+                                                <div class="card-header">صورة المركبة من الأمام</div>
                                                 <div class="card-body text-center">
                                                     <!-- Profile picture image-->
                                                     <button type="button" id="drivingLicenseImagebtn" button
                                                         type="button" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModal"
                                                         class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                                        onClick="changeImgSrc(this)">
+                                                        onclick="changeImgSrc(this)">
 
                                                         <img class="img-fluid  mb-2"
                                                             src="http://bootdey.com/img/Content/avatar/avatar1.png"
