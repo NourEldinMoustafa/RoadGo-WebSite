@@ -3,7 +3,7 @@
 /*
 declare fetch
 */
-fetch('https://localhost:44302/GetAllDrivers') // Replace with your server endpoint
+fetch('https://localhost:44302/api/Driver/GetAllDrivers') // Replace with your server endpoint
 .then(response => response.json())
 .then(data => {
     displayDrivers(data);

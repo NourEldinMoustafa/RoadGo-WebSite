@@ -1,34 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=v, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
 </head>
-
 <body>
-    <p id="otherDataElement"></p>
-    <img id="imageElement" alt="Image">
+    <input type="file" id="fileInput" accept="image/*">
+    <img id="previewImage" alt="Image Preview" style="max-width: 100%; max-height: 200px;">
+    <button id="uploadButton">Upload Image</button>
 
+    <script src="script.js"></script>
 </body>
 <script>
-    fetch('https://localhost:7047/GetDriver?id=1') // Replace with your server endpoint
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            // Extract the image data and other data from the response
-            const personalPhoto = data.personalPhoto; // Assuming 'imageData' is the key for the image data
-            const otherData = data.firstName; // Assuming 'otherData' is the key for other data
+    document.getElementById('fileInput').addEventListener('change', function (event) {
+    const fileInput = event.target;
 
-            // Display the other data as needed
-            document.getElementById('otherDataElement').textContent = otherData;
+    if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
 
-            // Create a data URI from the image data and set it as the source of the <img> element
-            const imageElement = document.getElementById('imageElement');
-            imageElement.src = 'data:image/jpeg;base64,' + personalPhoto; // Adjust the content type based on the image type
+        reader.onload = function (e) {
+            const previewImage = document.getElementById('previewImage');
+            previewImage.src = e.target.result;
+        };
+
+        reader.readAsDataURL(fileInput.files[0]);
+    }
+});
+
+document.getElementById('uploadButton').addEventListener('click', function () {
+    const fileInput = document.getElementById('fileInput');
+
+    if (fileInput.files && fileInput.files[0]) {
+        const formData = new FormData();
+        formData.append('image', fileInput.files[0]);
+
+        fetch('https://example.com/upload-endpoint', {
+            method: 'POST',
+            body: formData
         })
-        .catch(error => console.error('Error fetching data:', error));
-</script>
+        .then(response => {
+            if (response.ok) {
+                return response.json(); // Assuming the server sends back JSON data
+            } else {
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+        })
+        .then(data => {
+            // Handle the response data
+            console.log('Image uploaded:', data);
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('Error uploading image:', error);
+        });
+    }
+});
 
+</script>
 </html>

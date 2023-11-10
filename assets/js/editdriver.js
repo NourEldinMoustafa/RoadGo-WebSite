@@ -1,7 +1,7 @@
 /// on load page 
 console.log(JSON.stringify(localStorage))
 
-fetch(`https://localhost:44302/GetDriver?id=${localStorage.getItem("driverid")}`) // Replace with your server endpoint
+fetch(`https://localhost:44302/api/Driver/GetDriver?id=${localStorage.getItem("driverid")}`) // Replace with your server endpoint
     .then(response => response.json())
     .then(data => {
         displayDriver(data);
@@ -48,10 +48,11 @@ function changeImgSrc(btn) {
     document.getElementById("dynamic-img").src = newSrc;
 }
 
-document.getElementById("save-btn").addEventListener("submit",(e)=>{
+document.getElementById("save-btn").addEventListener("click", function(e) {
+
     e.preventDefault();
-    
-    
+
+
     // Gather form data
     var firstName = document.getElementById("inputFirstName").value;
     var lastName = document.getElementById("inputLastName").value;
@@ -66,89 +67,97 @@ document.getElementById("save-btn").addEventListener("submit",(e)=>{
 
     // Assuming the file inputs have unique IDs like "personalPhoto", "formImage", etc.
     var personalPhoto
-    if(document.getElementById("personalPhotoFile").files !==null)
-    personalPhoto =  document.getElementById("personalPhotoFile").files[0];
+    if (document.getElementById("personalPhotoFile").files !== null)
+        personalPhoto = document.getElementById("personalPhotoFile").files[0];
 
-var formImage = document.getElementById("formImageFile").files[0];
+    var formImage = document.getElementById("formImageFile").files[0];
+    console.log(
+        formImage
+
+    )
     var drivingLicenseImage = document.getElementById("drivingLicenseImageFile").files[0];
     var vehicleFrontImage = document.getElementById("VehicleFrontImageFile").files[0];
     var vehicleBackImage = document.getElementById("VehicleBackImageFile").files[0];
-    
+
     // Create FormData object to handle files
-    var formData = new FormData();
-    formData.append("firstName", firstName);
-    formData.append("lastName", lastName);
-    formData.append("phone", phone);
-    formData.append("nationalId", nationalId);
-    formData.append("password", password);
-    formData.append("city", city);
-    formData.append("gender", gender);
-    formData.append("vehiclePlate", vehiclePlate);
-    formData.append("vehicleModel", vehicleModel);
-    formData.append("vehicleColor", vehicleColor);
-    formData.append("personalPhoto", personalPhoto);
-    formData.append("formImage", formImage);
-    formData.append("drivingLicenseImage", drivingLicenseImage);
-    formData.append("vehicleFrontImage", vehicleFrontImage);
-    formData.append("vehicleBackImage", vehicleBackImage);
-    console.log(formData.vehicleColor)
+    var formData = 
+        {
+            "firstName": firstName,
+            "lastName": lastName,
+            "phone": phone,
+            "nationalId": nationalId,
+            "password": password,
+            "city": city,
+            "gender": gender,
+            "vehiclePlate": vehiclePlate,
+            "vehicleModel": vehicleModel,
+            "vehicleColor": vehicleColor,
+            "personalPhoto": personalPhoto,
+            "formImage": formImage,
+            "drivingLicenseImage": drivingLicenseImage,
+            "vehicleFrontImage": vehicleFrontImage,
+            "vehicleBackImage": vehicleBackImage
+        };
+    
+
+        console.log(JSON.stringify( formData));
+        
     // Make PUT request
-    fetch(`https://localhost:44302/UpdateDriver?id=${localStorage.getItem("driverid")}`, {
-        body: formData
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.json(); // Assuming the server sends back JSON data
-        } else {
-            throw new Error(`${response.status} ${response.statusText}`);
+    fetch(`https://localhost:44302/Driver/UpdateDriver?id=${localStorage.getItem("driverid")}`, {
+        body:JSON.stringify( formData),
+        headers:{
+            "Content-Type":"application/josn; charset=UTF-8"
         }
     })
-    .then(data => {
-        // Handle the response data
-        console.log('Driver updated:', data);
-    })
-    .catch(error => {
-        // Handle errors
-        console.error('Error updating driver:', error);
-    });
+        .then(response => {
+            if (response.ok) {
+                return response.json(); // Assuming the server sends back JSON data
+            } else {
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+        })
+        .then(data => {
+            // Handle the response data
+            console.log('Driver updated:', data);
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('Error updating driver:', error);
+        });
 
-})
+});
 
-// function updateDriver(){
-//     // var fname = document.getElementById("inputFirstName").value ;
-//     // var lname = document.getElementById("inputLastName").value ;
-//     // var phone = document.getElementById("inputPhone").value
-//     // var drivingLicenseImage = document.getElementById("drivingLicenseImage")
-//     // var formImage = document.getElementById("formImage")
-//     // var personalPhoto = document.getElementById("personalPhoto")
+function showSelectedImage(event, imgid){
+    // console.log("changeedfunc")
 
+    
+    const fileInput = event.target;
+    
+    if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        
+        reader.onload = function (e) {
+            const previewImage = document.getElementById(imgid);
+            previewImage.src = e.target.result;
+            document.getElementById(imgid+"btn").dataset.customProperty= e.target.result;
+        };  
 
-//     // var id= localStorage.getItem("driverid");
-//     // const formData = new FormData();
+        reader.readAsDataURL(fileInput.files[0]);
+    }
+}
+// document.getElementById('VehicleBackImageFile').addEventListener('change', function (event) {
 
-//     // formData.append(`formImage`, formImage);
-//     // formData.append(`drivingLicenseImage`, drivingLicenseImage);
-//     // formData.append(`personlPhoto`, personalPhoto);
-//     // formData.append(`phone`, phone);
-//     // formData.append(`lastName`, lname);
-//     // formData.append(`firstName`, fname);
+//     console.log("changeed")
+//     const fileInput = event.target;
+    
+//     if (fileInput.files && fileInput.files[0]) {
+//         const reader = new FileReader();
 
-//     var formElements = document.querySelector(".saving-form");
-//     var data = new formData(formElements);
+//         reader.onload = function (e) {
+//             const previewImage = document.getElementById('VehicleBackImage');
+//             previewImage.src = e.target.result;
+//         };  
 
-
-//     fetch(`https://localhost:7047/Driver/UpdateDriver?id=${id}`, {
-//         method: 'PUT',
-//         body: formData
-//     })
-//         .then(response => response.json())
-//         .then(data => {
-//             // Handle the response from the server
-//             console.log(data);
-//         })
-//         .catch(error => {
-//             console.error('Error uploading images:', error);
-//         });
-
-
-// }
+//         reader.readAsDataURL(fileInput.files[0]);
+//     }
+// });

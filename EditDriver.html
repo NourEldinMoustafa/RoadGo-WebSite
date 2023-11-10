@@ -85,7 +85,7 @@
                 <div class="card mb-4">
                     <div class="card-header">بيانات السائق</div>
                     <div class="card-body">
-                        <form class="saving-form" action="EditDriver.html" method="PUT" >
+                        <form class="saving-form" action="EditDriver.html" method="PUT">
 
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
@@ -109,8 +109,8 @@
                                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5
                                                 MB</div>
                                             <!-- Profile picture upload button-->
-                                            <input class=""id="personalPhotoFile" type="file" placeholder="تغير الصورة"
-                                                accept="image/*"></button>
+                                            <input class="" id="personalPhotoFile" type="file" placeholder="تغير الصورة"
+                                                accept="image/*" onchange="showSelectedImage(event, 'personalPhoto')"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -153,8 +153,8 @@
                                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5
                                                 MB</div>
                                             <!-- Profile picture upload button-->
-                                            <input class=""id="formImageFile" type="file" placeholder="تغير الصورة"
-                                                accept="image/*"></button>
+                                            <input class="" id="formImageFile" type="file" placeholder="تغير الصورة"
+                                                accept="image/*" onchange="showSelectedImage(event, 'formImage')"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -178,8 +178,8 @@
                                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5
                                                 MB</div>
                                             <!-- Profile picture upload button-->
-                                            <input class="" id="drivingLicenseImageFile" type="file" placeholder="تغير الصورة" accept="image/*"
-                                                id="drivingLicenseImage">
+                                            <input class="" id="drivingLicenseImageFile" type="file"
+                                                placeholder="تغير الصورة" accept="image/*" onchange="showSelectedImage(event, 'drivingLicenseImage')">
                                             </button>
                                         </div>
                                     </div>
@@ -280,8 +280,8 @@
                                                         than 5
                                                         MB</div>
                                                     <!-- Profile picture upload button-->
-                                                    <input class="" id="VehicleFrontImageFile" type="file" placeholder="تغير الصورة"
-                                                        accept="image/*"></button>
+                                                    <input class="" id="VehicleFrontImageFile" type="file"
+                                                        placeholder="تغير الصورة" accept="image/*" onchange="showSelectedImage(event, 'VehicleFrontImage')"></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -299,6 +299,7 @@
                                                         <img class="img-fluid  mb-2"
                                                             src="http://bootdey.com/img/Content/avatar/avatar1.png"
                                                             alt="" id="VehicleBackImage">
+
                                                     </button>
 
                                                     <!-- Profile picture help block-->
@@ -306,8 +307,8 @@
                                                         than 5
                                                         MB</div>
                                                     <!-- Profile picture upload button-->
-                                                    <input class=""id="VehicleBackImageFile"  type="file" placeholder="تغير الصورة"
-                                                        accept="image/*" id="drivingLicenseImage">
+                                                    <input class="" id="VehicleBackImageFile" type="file"
+                                                        placeholder="تغير الصورة" accept="image/*" onchange="showSelectedImage(event, 'VehicleBackImage')">
                                                     </button>
                                                 </div>
                                             </div>
@@ -318,7 +319,7 @@
                             <!---=================متطلبات هيئة النقل============-->
 
                             <!-- Save changes button-->
-                            <button class="btn btn-primary" type="submit" id="save-btn">Save changes</button>
+                            <button class="btn btn-primary" type="submit" id="save-btn">Save</button>
 
                         </form>
                     </div>

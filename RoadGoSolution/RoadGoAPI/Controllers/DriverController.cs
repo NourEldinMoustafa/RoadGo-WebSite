@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using RoadGoAPI.Models;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RoadGoAPI.Dtos;
-using static System.Net.Mime.MediaTypeNames;
-using System;
+using RoadGoAPI.Models;
 
 namespace RoadGoAPI.Controllers
 {
-    public class DriverController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DriverController : ControllerBase
     {
         private readonly ApplicationDbContext _AppContext;
         public DriverController(ApplicationDbContext AppContext)
@@ -125,7 +124,7 @@ namespace RoadGoAPI.Controllers
                 {
 
                     dto.DrivingLicenseImage.CopyTo(memoryStream);
-                existingDriver.DrivingLicenseImage = memoryStream.ToArray();
+                    existingDriver.DrivingLicenseImage = memoryStream.ToArray();
                 }
             }
 
@@ -164,7 +163,6 @@ namespace RoadGoAPI.Controllers
             _AppContext.SaveChanges();
             return Ok(existingDriver);
         }
-
 
     }
 }

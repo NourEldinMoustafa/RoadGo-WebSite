@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RoadGoAPI.Dtos;
 using RoadGoAPI.Models;
 
 namespace RoadGoAPI.Controllers
 {
-    public class CityController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CityController : ControllerBase
     {
         private readonly ApplicationDbContext _AppContext;
         public CityController(ApplicationDbContext AppContext)
@@ -35,12 +38,12 @@ namespace RoadGoAPI.Controllers
         [Route("AddNewCity")]
         public async Task<IActionResult> AddNewCityAsync([FromBody] CityDto dto)
         {
-            if(dto.Name.Length == 0)
+            if (dto.Name.Length == 0)
             {
                 return BadRequest();
             }
             var city = new City { Name = dto.Name };
-            await _AppContext.Cities.AddAsync(city); 
+            await _AppContext.Cities.AddAsync(city);
             _AppContext.SaveChanges();
             return Ok(city);
         }

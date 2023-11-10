@@ -24,7 +24,7 @@ namespace RoadGoAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("RoadGoAPI.Models.City", b =>
+            modelBuilder.Entity("RoadGoAPI.Models.CityController", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -119,13 +119,13 @@ namespace RoadGoAPI.Migrations
 
             modelBuilder.Entity("RoadGoAPI.Models.Driver", b =>
                 {
-                    b.HasOne("RoadGoAPI.Models.City", "City")
+                    b.HasOne("RoadGoAPI.Models.CityController", "CityController")
                         .WithMany()
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("City");
+                    b.Navigation("CityController");
                 });
 #pragma warning restore 612, 618
         }
