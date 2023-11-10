@@ -32,7 +32,11 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-
+<style>
+  label{
+    color: #002232;
+  }
+</style>
 </head>
 
 <body dir="rtl">
@@ -94,31 +98,34 @@
         <div class="row" style="margin-bottom: 10px;">
           <img src="assets/img/hero-carousel/8.jpg">
         </div>
+
         <div class="form">
-          <form action="index.html" method="post" role="form" class="php-email-form">
+          <form action="index.html" method="POST" role="form" class="php-email-form" id="driver-form" >
             <div class="row">
 
               <div class="form-group col-md-6">
+                <label style="margin-bottom: 6px;">الاسم الاول</label>
                 <input type="text" name="fname" class="form-control" id="firstName" placeholder="الاسم الاول" required>
               </div>
-              <div class="form-group col-md-6 mt-3 mt-md-0">
+               <div class="form-group col-md-6 mt-3 mt-md-0"> 
+                <label style="margin-bottom: 6px;">اسم العائلة</label>
                 <input type="text" name="lname" class="form-control" id="lastName" placeholder="اسم العائلة" required>
               </div>
             </div>
-            <!-- <div class="form-group mt-3">
-             <input type="email" class="form-control" name="email" id="email" placeholder="البريد الالكتروني" required>
 
-            </div> -->
             <div class="row mt-3">
               <div class="form-group col-md-6 mt-3 mt-md-0">
+                <label style="margin-bottom: 6px;">رقم الجوال</label>
                 <input type="tel" class="form-control" name="phone" id="phone" placeholder="رقم الجوال" required
                   dir="rtl">
               </div>
+              
               <div class="form-group col-md-6 mt-3 mt-md-0">
+                <label style="margin-bottom: 6px;">إختر الجنس </label>
                 <select class="form-control" name="gender" id="gender" required style="height: 52px;border-radius: 0;">
-                  <option value="" disabled selected>اختر الجنس</option>
-                  <option value="ذكر">ذكر</option>
-                  <option value="أنثى">أنثى</option>
+                  <option value="" disabled selected >اختر الجنس</option>
+                  <option value="1">ذكر</option>
+                  <option value="0">أنثى</option>
                 </select>
               </div>
             </div>
@@ -128,17 +135,17 @@
 
               <div class="form-group col-md-4 ">
                 <label style="margin-bottom: 6px;">الصورة الشخصية</label>
-                <input type="file" name="name" class="form-control" id="personlPhoto" placeholder="الصورة الشخصية"
+                <input type="file" name="personlPhoto" class="form-control" id="personlPhoto" placeholder="الصورة الشخصية"
                   required>
               </div>
               <div class="form-group col-md-4 ">
                 <label style="margin-bottom: 6px;">رخصة القيادة </label>
-                <input type="file" name="name" class="form-control" id="drivingLicenseImage" placeholder="رخصة القيادة"
+                <input type="file" name="drivingLicenseImage" class="form-control" id="drivingLicenseImage" placeholder="رخصة القيادة"
                   required>
               </div>
               <div class="form-group col-md-4  mt-md-0">
                 <label style="margin-bottom: 6px;">الإستمارة</label>
-                <input type="file" name="name" class="form-control" id="formImage" placeholder="الإستمارة" required>
+                <input type="file" name="formImage" class="form-control" id="formImage" placeholder="الإستمارة" required>
               </div>
 
 
@@ -147,75 +154,85 @@
 
 
 
-              <div class="form-group col-md-6 mt-3">
-                <input type="text" name="nationalID" class="form-control" id="nationalID" placeholder="رقم الهوية"
-                  required>
+              <div class="row mt-3">
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label style="margin-bottom: 6px;">رقم الهوية </label>
+                  <input type="text" name="nationalId" class="form-control" id="nationalId" placeholder="رقم الهوية"
+                    required>
+                </div>
+                <div class="form-group col-md-6 mt-3 mt-md-0">
+                  <label style="margin-bottom: 6px;">إختر المدينة </label>
+
+                  <select class="form-control" id="city-select" required="" style="height: 52px;border-radius: 0;">
+
+                  </select>
+                </div>
               </div>
 
-
-
-              <div class="form-group col-md-6 mt-3">
-                <input type="text" name="city" class="form-control" id="city" placeholder="المدينة" required>
-              </div>
-              <div class="form-group col-md-6 mt-3">
-                <input type="text" name="plateNumber" class="form-control" id="plateNumber"
-                  placeholder="بيانات لوحة المركبه (ثلاث أحرف وثلاث أرقام)" required>
-              </div>
-
-
-              <div class="form-group col-md-6 mt-3">
-                <input type="text" name="carModel" class="form-control" id="carModel" placeholder="موديل المركبة"
-                  required>
-              </div>
+             
 
 
 
+             
 
-              <div class="form-group col-md-4 ">
-                <label style="margin-bottom: 6px;">صورة المركبة من الأمام</label>
-                <input type="file" name="name" class="form-control" id="personlPhoto" required>
-              </div>
-              <div class="form-group col-md-4 ">
-                <label style="margin-bottom: 6px;">صورة المركبة من الخلف</label>
-                <input type="file" name="name" class="form-control" id="drivingLicenseImage" required>
+              <div class="row mt-3">
+                <label > بيانات لوحة المركبة</label>
+                  <div class="form-group col-md-1 mt-3">
+                    <label for="rightPart" class="sr-only">الأيمن</label>
+                    <input type="text" class="form-control" id="rightPart" placeholder=" الأيمن">
+                  </div>
+                  <div class="form-group col-md-1 mt-3">
+                    <label for="middlePart" class="sr-only"> الأوسط</label>
+                    <input type="text" class="form-control" id="middlePart" placeholder="الأوسط">
+                  </div>
+                  <div class="form-group col-md-1 mt-3">
+                    <label for="leftPart" class="sr-only"> الأيسر</label>
+                    <input type="text" class="form-control" id="leftPart" placeholder="الأيسر">
+                  </div>
+                  <div class="form-group col-md-3 mt-3" >
+                    <label for="number" class="sr-only">الرقم</label>
+                    <input type="text" class="form-control" id="number" placeholder="الرقم" style="width: 312px;">
+                  </div>  
+                  <div class="form-group col-md-6 mt-3" style="padding-right: 27px;">
+                    <label > موديل المركبة </label>
+                    <input type="text" name="vehicleModel" class="form-control" id="vehicleModel" placeholder="موديل المركبة"
+                      required>
+                  </div>              
+            </div>
+
+              
+
+
+
+
+              <div class="form-group col-md-4 mt-3">
+                <label >صورة المركبة من الأمام</label>
+                <input type="file" name="vehicleFrontImage" class="form-control" id="vehicleFrontImage" required>
               </div>
               <div class="form-group col-md-4 mt-3">
-                <input type="text" name="carColor" class="form-control" id="carColor" placeholder="اللون" required
-                  style="height:38px;margin-top: 14px;">
+                <label >صورة المركبة من الخلف</label>
+                <input type="file" name="vehicleBackImage" class="form-control" id="vehicleBackImage" required>
+              </div>
+              <div class="form-group col-md-4 mt-3">
+                <label >اللون </label>
+                <input type="text" name="vehicleColor" class="form-control" id="vehicleColor" placeholder="اللون" required
+                  style="height:38px;">
               </div>
             </div>
 
-            <!--
 
-<<<<<<< HEAD
-              <div class="form-group mt-3">
-                <select class="form-control mt-4" required="">
-                  <option selected="" disabled="">اختر نوع الخدمة</option>
-                  <option>تاكسي</option>
-                  <option>إيكونومي</option>
-                  <option>توفير</option>
-                </select>
-              </div>
-            -->
-
-            <div class="form-group mt-3">
-              <select class="form-control mt-4" required="">
-                <option selected="" disabled="">اختر نوع الخدمة</option>
-                <option>تاكسي</option>
-                <option>إيكونومي</option>
-                <option>توفير</option>
-              </select>
-            </div>
+            
             <div class="form-group col-md-12 mt-3">
               <input type="password" name="password" class="form-control" id="password" placeholder="كلمة المرور"
                 required>
             </div>
+          
 
             <div class="my-3">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
               <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
+            </div> 
 
             <div class="text-center">
               <button type="submit" id="reqister-btn">سجل الان</button>
@@ -288,6 +305,7 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->

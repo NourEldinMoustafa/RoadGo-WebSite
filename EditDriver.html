@@ -73,56 +73,65 @@
         <nav class="nav nav-borders">
             <a class="nav-link active ms-0" href="EditDriver.html" target="__blank">التفاصيل</a>
 
+            <a class="nav-link" href="EditDriver.html#goto" target="__blank">متطلبات هيئة النقل</a>
+
+
         </nav>
         <hr class="mt-0 mb-4">
         <div class="row">
-            <div class="col-xl-3">
-                <!-- Profile picture card-->
-                <div class="card mb-4 mb-xl-0">
-                    <div class="card-header">الصورة الشخصية</div>
-                    <div class="card-body text-center">
-                        <!-- Profile picture image-->
-                        <button type="button" id="personalPhotobtn" class="btn btn-link btn-sm btn-rounded" button
-                            type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property=""
-                            onClick="changeImgSrc(this)">
 
-                            <img class="img-account-profile  mb-2"
-                                src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" id="personalPhoto">
-                        </button>
-
-                        <!-- Profile picture help block-->
-                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                        <!-- Profile picture upload button-->
-                        <input class="" type="file" placeholder="تغير الصورة" accept="image/*"></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-9">
+            <div class="col">
                 <!-- Account details card-->
                 <div class="card mb-4">
                     <div class="card-header">بيانات السائق</div>
                     <div class="card-body">
-                        <form>
+                        <form class="saving-form" action="EditDriver.html" method="PUT">
+
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
+                                <div class="col-xl-3">
+                                    <!-- Profile picture card-->
+                                    <div class="card mb-4 mb-xl-0">
+                                        <div class="card-header">الصورة الشخصية</div>
+                                        <div class="card-body text-center">
+                                            <!-- Profile picture image-->
+                                            <button type="button" id="personalPhotobtn"
+                                                class="btn btn-link btn-sm btn-rounded" button type="button"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                data-custom-property="1" onclick="changeImgSrc(this)">
+
+                                                <img class="img-account-profile img-fluid  mb-2"
+                                                    src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                                                    id="personalPhoto">
+                                            </button>
+
+                                            <!-- Profile picture help block-->
+                                            <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5
+                                                MB</div>
+                                            <!-- Profile picture upload button-->
+                                            <input class="" id="personalPhotoFile" type="file" placeholder="تغير الصورة"
+                                                accept="image/*" onchange="showSelectedImage(event, 'personalPhoto')"></button>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- Form Group (first name)-->
-                                <div class="col-md-6">
+                                <div class="col-md-9">
                                     <label class="small mb-1" for="inputFirstName">الإسم الأول</label>
                                     <input class="form-control" id="inputFirstName" type="text"
                                         placeholder="الإسم الأول">
-                                </div>
-                                <!-- Form Group (last name)-->
-                                <div class="col-md-6">
                                     <label class="small mb-1" for="inputLastName">اسم العائلة </label>
                                     <input class="form-control" id="inputLastName" type="text"
                                         placeholder="اسم العائلة">
+
+                                    <label class="small mb-1" for="inputPhone">رقم الجوال</label>
+                                    <input class="form-control" id="inputPhone" type="text" placeholder="رقم الجوال">
                                 </div>
+
+
+
                             </div>
-                            <!-- Form Group (username)-->
-                            <div class="mb-3">
-                                <label class="small mb-1" for="inputPhone">رقم الجوال</label>
-                                <input class="form-control" id="inputPhone" type="text" placeholder="رقم الجوال">
-                            </div>
+
+
                             <!-- Form Row        -->
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6">
@@ -134,9 +143,9 @@
                                             <button type="button" id="formImagebtn" button type="button"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                 class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                                onClick="changeImgSrc(this)">
+                                                onclick="changeImgSrc(this)">
 
-                                                <img class="mb-2"
+                                                <img class="img-fluid mb-2"
                                                     src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                                                     id="formImage">
                                             </button>
@@ -144,8 +153,8 @@
                                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5
                                                 MB</div>
                                             <!-- Profile picture upload button-->
-                                            <input class="" type="file" placeholder="تغير الصورة"
-                                                accept="image/*"></button>
+                                            <input class="" id="formImageFile" type="file" placeholder="تغير الصورة"
+                                                accept="image/*" onchange="showSelectedImage(event, 'formImage')"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -158,9 +167,9 @@
                                             <button type="button" id="drivingLicenseImagebtn" button type="button"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                 class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                                onClick="changeImgSrc(this)">
+                                                onclick="changeImgSrc(this)">
 
-                                                <img class="  mb-2"
+                                                <img class="img-fluid  mb-2"
                                                     src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                                                     id="drivingLicenseImage">
                                             </button>
@@ -169,8 +178,9 @@
                                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5
                                                 MB</div>
                                             <!-- Profile picture upload button-->
-                                            <input class="" type="file" placeholder="تغير الصورة"
-                                                accept="image/*"></button>
+                                            <input class="" id="drivingLicenseImageFile" type="file"
+                                                placeholder="تغير الصورة" accept="image/*" onchange="showSelectedImage(event, 'drivingLicenseImage')">
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -181,11 +191,144 @@
                             </div>
 
 
+                            <hr class="mb-5 m">
+                            <!---=================متطلبات هيئة النقل============-->
+                            <div class="card mb-4">
+                                <div id="goto" class="card-header">متطلبات هيئة النقل</div>
+                                <div class="card-body">
+
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (first name)-->
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputNationalId">رقم الهوية</label>
+                                            <input class="form-control" id="inputNationalId" type="text"
+                                                placeholder="رقم الهوية">
+                                        </div>
+                                        <!-- Form Group (last name)-->
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputPassword">كلمة المرور </label>
+                                            <input class="form-control" id="inputPassword" type="text"
+                                                placeholder="كلمة المرور">
+                                        </div>
+                                    </div>
+
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (first name)-->
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputCity">المدينة</label>
+                                            <input class="form-control" id="inputCity" type="text"
+                                                placeholder="المدينة">
+                                        </div>
+                                        <!-- Form Group (last name)-->
+
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputGender">الجنس</label>
+                                            <input class="form-control" id="inputGender" type="text"
+                                                placeholder="الجنس">
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (first name)-->
+                                        <div class="col">
+                                            <label class="small mb-1" for="inputVehiclePlate">لوحة المركبة</label>
+                                            <input class="form-control" id="inputVehiclePlate" type="text"
+                                                placeholder="لوحة المركبة">
+                                        </div>
+
+                                    </div>
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (last name)-->
+
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputVehicleModel">موديل المركبة</label>
+                                            <input class="form-control" id="inputVehicleModel" type="text"
+                                                placeholder="موديل المركبة">
+                                        </div>
+                                        <!-- Form Group (last name)-->
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputVehicleColor">اللون</label>
+                                            <input class="form-control" id="inputVehicleColor" type="text"
+                                                placeholder="اللون">
+                                        </div>
+                                    </div>
+
+                                    <!-- Form Row        -->
+                                    <div class="row gx-3 mb-3">
+                                        <div class="col-md-6">
+                                            <!-- Profile picture card-->
+                                            <div class="card mb-4 mb-xl-0">
+                                                <div class="card-header">صورةالمركبة من الخلف</div>
+                                                <div class="card-body text-center">
+                                                    <!-- Profile picture image-->
+                                                    <button type="button" id="VehicleFrontImagebtn" button type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                        class="btn btn-link btn-sm btn-rounded" data-custom-property=""
+                                                        onclick="changeImgSrc(this)">
+
+                                                        <img class="img-fluid mb-2"
+                                                            src="http://bootdey.com/img/Content/avatar/avatar1.png"
+                                                            alt="" id="VehicleFrontImage">
+                                                    </button>
+                                                    <!-- Profile picture help block-->
+                                                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger
+                                                        than 5
+                                                        MB</div>
+                                                    <!-- Profile picture upload button-->
+                                                    <input class="" id="VehicleFrontImageFile" type="file"
+                                                        placeholder="تغير الصورة" accept="image/*" onchange="showSelectedImage(event, 'VehicleFrontImage')"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <!-- Profile picture card-->
+                                            <div class="card mb-4 mb-xl-0">
+                                                <div class="card-header">صورة المركبة من الأمام</div>
+                                                <div class="card-body text-center">
+                                                    <!-- Profile picture image-->
+                                                    <button type="button" id="VehicleBackImagebtn" button type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                        class="btn btn-link btn-sm btn-rounded" data-custom-property=""
+                                                        onclick="changeImgSrc(this)">
+
+                                                        <img class="img-fluid  mb-2"
+                                                            src="http://bootdey.com/img/Content/avatar/avatar1.png"
+                                                            alt="" id="VehicleBackImage">
+
+                                                    </button>
+
+                                                    <!-- Profile picture help block-->
+                                                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger
+                                                        than 5
+                                                        MB</div>
+                                                    <!-- Profile picture upload button-->
+                                                    <input class="" id="VehicleBackImageFile" type="file"
+                                                        placeholder="تغير الصورة" accept="image/*" onchange="showSelectedImage(event, 'VehicleBackImage')">
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!---=================متطلبات هيئة النقل============-->
+
                             <!-- Save changes button-->
-                            <button class="btn btn-primary" type="button">Save changes</button>
+                            <button class="btn btn-primary" type="submit" id="save-btn">Save</button>
+
                         </form>
                     </div>
                 </div>
+
+
+
+
+
             </div>
         </div>
     </div>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+</head>
+<body>
+    <input type="file" id="fileInput" accept="image/*">
+    <img id="previewImage" alt="Image Preview" style="max-width: 100%; max-height: 200px;">
+    <button id="uploadButton">Upload Image</button>
+
+    <script src="script.js"></script>
+</body>
+<script>
+    document.getElementById('fileInput').addEventListener('change', function (event) {
+    const fileInput = event.target;
+
+    if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const previewImage = document.getElementById('previewImage');
+            previewImage.src = e.target.result;
+        };
+
+        reader.readAsDataURL(fileInput.files[0]);
+    }
+});
+
+document.getElementById('uploadButton').addEventListener('click', function () {
+    const fileInput = document.getElementById('fileInput');
+
+    if (fileInput.files && fileInput.files[0]) {
+        const formData = new FormData();
+        formData.append('image', fileInput.files[0]);
+
+        fetch('https://example.com/upload-endpoint', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json(); // Assuming the server sends back JSON data
+            } else {
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+        })
+        .then(data => {
+            // Handle the response data
+            console.log('Image uploaded:', data);
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('Error uploading image:', error);
+        });
+    }
+});
+
+</script>
+</html>
