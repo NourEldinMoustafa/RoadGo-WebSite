@@ -85,7 +85,7 @@
                 <div class="card mb-4">
                     <div class="card-header">بيانات السائق</div>
                     <div class="card-body">
-                        <form class="saving-form" action="EditDriver.html" method="post">
+                        <form class="saving-form" action="EditDriver.html" method="PUT" >
 
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
@@ -109,7 +109,7 @@
                                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5
                                                 MB</div>
                                             <!-- Profile picture upload button-->
-                                            <input class="" type="file" placeholder="تغير الصورة"
+                                            <input class=""id="personalPhotoFile" type="file" placeholder="تغير الصورة"
                                                 accept="image/*"></button>
                                         </div>
                                     </div>
@@ -153,7 +153,7 @@
                                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5
                                                 MB</div>
                                             <!-- Profile picture upload button-->
-                                            <input class="" type="file" placeholder="تغير الصورة"
+                                            <input class=""id="formImageFile" type="file" placeholder="تغير الصورة"
                                                 accept="image/*"></button>
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@
                                             <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5
                                                 MB</div>
                                             <!-- Profile picture upload button-->
-                                            <input class="" type="file" placeholder="تغير الصورة" accept="image/*"
+                                            <input class="" id="drivingLicenseImageFile" type="file" placeholder="تغير الصورة" accept="image/*"
                                                 id="drivingLicenseImage">
                                             </button>
                                         </div>
@@ -201,8 +201,8 @@
                                     <div class="row gx-3 mb-3">
                                         <!-- Form Group (first name)-->
                                         <div class="col-md-6">
-                                            <label class="small mb-1" for="inputIdNumber">رقم الهوية</label>
-                                            <input class="form-control" id="inputIdNumber" type="text"
+                                            <label class="small mb-1" for="inputNationalId">رقم الهوية</label>
+                                            <input class="form-control" id="inputNationalId" type="text"
                                                 placeholder="رقم الهوية">
                                         </div>
                                         <!-- Form Group (last name)-->
@@ -223,18 +223,39 @@
                                         </div>
                                         <!-- Form Group (last name)-->
 
-                                        <div class="form-group col-md-6 mt-3 mt-md-0">
-                                            <label style="margin-bottom: 6px;"> الجنس </label>
-                                            <select class="form-control" name="gender" id="gender" required
-                                                style="height: 52px;border-radius: 0;">
-                                                <option value="" disabled selected>اختر الجنس</option>
-                                                <option value="ذكر">ذكر</option>
-                                                <option value="أنثى">أنثى</option>
-                                            </select>
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputGender">الجنس</label>
+                                            <input class="form-control" id="inputGender" type="text"
+                                                placeholder="الجنس">
                                         </div>
 
 
 
+                                    </div>
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (first name)-->
+                                        <div class="col">
+                                            <label class="small mb-1" for="inputVehiclePlate">لوحة المركبة</label>
+                                            <input class="form-control" id="inputVehiclePlate" type="text"
+                                                placeholder="لوحة المركبة">
+                                        </div>
+
+                                    </div>
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (last name)-->
+
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputVehicleModel">موديل المركبة</label>
+                                            <input class="form-control" id="inputVehicleModel" type="text"
+                                                placeholder="موديل المركبة">
+                                        </div>
+                                        <!-- Form Group (last name)-->
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputVehicleColor">اللون</label>
+                                            <input class="form-control" id="inputVehicleColor" type="text"
+                                                placeholder="اللون">
+                                        </div>
                                     </div>
 
                                     <!-- Form Row        -->
@@ -245,21 +266,21 @@
                                                 <div class="card-header">صورةالمركبة من الخلف</div>
                                                 <div class="card-body text-center">
                                                     <!-- Profile picture image-->
-                                                    <button type="button" id="formImagebtn" button type="button"
+                                                    <button type="button" id="VehicleFrontImagebtn" button type="button"
                                                         data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                         class="btn btn-link btn-sm btn-rounded" data-custom-property=""
                                                         onclick="changeImgSrc(this)">
 
                                                         <img class="img-fluid mb-2"
                                                             src="http://bootdey.com/img/Content/avatar/avatar1.png"
-                                                            alt="" id="formImage">
+                                                            alt="" id="VehicleFrontImage">
                                                     </button>
                                                     <!-- Profile picture help block-->
                                                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger
                                                         than 5
                                                         MB</div>
                                                     <!-- Profile picture upload button-->
-                                                    <input class="" type="file" placeholder="تغير الصورة"
+                                                    <input class="" id="VehicleFrontImageFile" type="file" placeholder="تغير الصورة"
                                                         accept="image/*"></button>
                                                 </div>
                                             </div>
@@ -270,15 +291,14 @@
                                                 <div class="card-header">صورة المركبة من الأمام</div>
                                                 <div class="card-body text-center">
                                                     <!-- Profile picture image-->
-                                                    <button type="button" id="drivingLicenseImagebtn" button
-                                                        type="button" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal"
+                                                    <button type="button" id="VehicleBackImagebtn" button type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                         class="btn btn-link btn-sm btn-rounded" data-custom-property=""
                                                         onclick="changeImgSrc(this)">
 
                                                         <img class="img-fluid  mb-2"
                                                             src="http://bootdey.com/img/Content/avatar/avatar1.png"
-                                                            alt="" id="drivingLicenseImage">
+                                                            alt="" id="VehicleBackImage">
                                                     </button>
 
                                                     <!-- Profile picture help block-->
@@ -286,7 +306,7 @@
                                                         than 5
                                                         MB</div>
                                                     <!-- Profile picture upload button-->
-                                                    <input class="" type="file" placeholder="تغير الصورة"
+                                                    <input class=""id="VehicleBackImageFile"  type="file" placeholder="تغير الصورة"
                                                         accept="image/*" id="drivingLicenseImage">
                                                     </button>
                                                 </div>
@@ -298,7 +318,7 @@
                             <!---=================متطلبات هيئة النقل============-->
 
                             <!-- Save changes button-->
-                            <button class="btn btn-primary" type="button" onclick="updateDriver()">Save changes</button>
+                            <button class="btn btn-primary" type="submit" id="save-btn">Save changes</button>
 
                         </form>
                     </div>
