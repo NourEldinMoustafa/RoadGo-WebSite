@@ -12,7 +12,7 @@ using RoadGoAPI.Models;
 namespace RoadGoAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231109193227_step0")]
+    [Migration("20231110134840_step0")]
     partial class step0
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace RoadGoAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("RoadGoAPI.Models.CityController", b =>
+            modelBuilder.Entity("RoadGoAPI.Models.City", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -119,13 +119,13 @@ namespace RoadGoAPI.Migrations
 
             modelBuilder.Entity("RoadGoAPI.Models.Driver", b =>
                 {
-                    b.HasOne("RoadGoAPI.Models.CityController", "CityController")
+                    b.HasOne("RoadGoAPI.Models.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CityController");
+                    b.Navigation("City");
                 });
 #pragma warning restore 612, 618
         }

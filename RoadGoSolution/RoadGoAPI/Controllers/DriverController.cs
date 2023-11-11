@@ -35,6 +35,7 @@ namespace RoadGoAPI.Controllers
             driver.City = await _AppContext.Cities.FirstOrDefaultAsync(c => c.Id == driver.CityId);
             return Ok(driver);
         }
+
         [HttpPost("AddNewDriver")]
         public async Task<IActionResult> AddNewDriverAsync(DriverDto dto)
         {
@@ -88,7 +89,7 @@ namespace RoadGoAPI.Controllers
 
         [HttpPut]
         [Route("UpdateDriver")]
-        public async Task<IActionResult> UpdateDriverAsync(int id, [FromBody] DriverDto dto)
+        public async Task<IActionResult> UpdateDriverAsync(int id,  DriverDto dto)
         {
             var existingDriver = await _AppContext.Drivers.FirstOrDefaultAsync(d => d.Id == id);
 

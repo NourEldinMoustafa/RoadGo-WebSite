@@ -2439,11 +2439,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Freelancing\\Road Go\\Final\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+      "projectUniqueName": "D:\\Freelancing\\Road Go\\Final\\VS code\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
       "projectName": "RoadGoAPI",
-      "projectPath": "D:\\Freelancing\\Road Go\\Final\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+      "projectPath": "D:\\Freelancing\\Road Go\\Final\\VS code\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
       "packagesPath": "C:\\Users\\zez32\\.nuget\\packages\\",
-      "outputPath": "D:\\Freelancing\\Road Go\\Final\\RoadGoSolution\\RoadGoAPI\\obj\\",
+      "outputPath": "D:\\Freelancing\\Road Go\\Final\\VS code\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\zez32\\AppData\\Roaming\\NuGet\\NuGet.Config",

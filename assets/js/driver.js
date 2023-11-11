@@ -1,5 +1,5 @@
 
-fetch('https://localhost:44302/GetAllCitis') // Replace with your server endpoint
+fetch('https://localhost:44302/api/city/GetAllCitis') // Replace with your server endpoint
     .then(response => response.json())
     .then(data => {
         fillcitySelect(data);
