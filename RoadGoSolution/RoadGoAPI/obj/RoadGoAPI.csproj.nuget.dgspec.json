@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Downloads\\my-github\\RoadGo-WebSite\\RoadGo API\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj": {}
+    "C:\\Users\\User\\Downloads\\my-github\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Downloads\\my-github\\RoadGo-WebSite\\RoadGo API\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj": {
+    "C:\\Users\\User\\Downloads\\my-github\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Downloads\\my-github\\RoadGo-WebSite\\RoadGo API\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Downloads\\my-github\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
         "projectName": "RoadGoAPI",
-        "projectPath": "C:\\Users\\User\\Downloads\\my-github\\RoadGo-WebSite\\RoadGo API\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+        "projectPath": "C:\\Users\\User\\Downloads\\my-github\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Downloads\\my-github\\RoadGo-WebSite\\RoadGo API\\RoadGoSolution\\RoadGoAPI\\obj\\",
+        "outputPath": "C:\\Users\\User\\Downloads\\my-github\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
