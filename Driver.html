@@ -268,8 +268,8 @@
                                                 <option value="الأفلاج">الأفلاج</option>
                                             </select>
                                         </div>
-
                                         <!-- Form Group (end city)-->
+
 
                                         <div class="col-md-6">
                                             <label class="small mb-1" for="inputGender">النوع</label>
@@ -280,133 +280,158 @@
                                                 <option value="0">أنثى</option>
                                             </select>
                                         </div>
-
-
                                     </div>
+
+                                    <script>
+                                        function displayLetter() {
+                                            var selectedRight = document.getElementById("rightPart").value;
+                                            var selectedMiddle = document.getElementById("middlePart").value;
+                                            var selectedLift = document.getElementById("leftPart").value;
+                                            var selectedNum = document.getElementById("number").value;
+                                            document.getElementById("VehiclePlate").textContent =  selectedRight + " " + selectedMiddle + " " + selectedLift + " " + selectedNum;
+                                        }
+                                    </script>
+
+
+
+
+
                                     <div class="row gx-3 mb-3">
-                                        <div class="row mt-3">
-                                            <label> بيانات لوحة المركبة</label>
-                                            <!-- start of rightPart letters -->
-                                            <div class="form-group col-md-1 mt-3">
-                                                <label for="rightPart" class="sr-only">الأيمن</label>
-                                                <select type="text" class="form-control" id="rightPart"
-                                                    placeholder="الأيمن" onchange="displayLetter()">
-                                                    <option selected disabled>الأيمن</option>
-                                                    <option value="أ">أ</option>
-                                                    <option value="ب">ب</option>
-                                                    <option value="ت">ت</option>
-                                                    <option value="ث">ث</option>
-                                                    <option value="ج">ج</option>
-                                                    <option value="ح">ح</option>
-                                                    <option value="خ">خ</option>
-                                                    <option value="د">د</option>
-                                                    <option value="ذ">ذ</option>
-                                                    <option value="ر">ر</option>
-                                                    <option value="ز">ز</option>
-                                                    <option value="س">س</option>
-                                                    <option value="ش">ش</option>
-                                                    <option value="ص">ص</option>
-                                                    <option value="ض">ض</option>
-                                                    <option value="ط">ط</option>
-                                                    <option value="ظ">ظ</option>
-                                                    <option value="ع">ع</option>
-                                                    <option value="غ">غ</option>
-                                                    <option value="ف">ف</option>
-                                                    <option value="ق">ق</option>
-                                                    <option value="ك">ك</option>
-                                                    <option value="ل">ل</option>
-                                                    <option value="م">م</option>
-                                                    <option value="ن">ن</option>
-                                                    <option value="ه">ه</option>
-                                                    <option value="و">و</option>
-                                                    <option value="ي">ي</option>
-                                                </select>
-                                            </div>
-                                            <!-- End of rightPart letters -->
-                                            <!-- start of middlePart letters -->
-                                            <div class="form-group col-md-1 mt-3">
-                                                <label for="middlePart" class="sr-only"> الأوسط</label>
-                                                <select type="text" class="form-control" id="middlePart"
-                                                    placeholder="الأوسط" onchange="displayLetter()">
-                                                    <option selected disabled>الأوسط</option>
-                                                    <option value="أ">أ</option>
-                                                    <option value="ب">ب</option>
-                                                    <option value="ت">ت</option>
-                                                    <option value="ث">ث</option>
-                                                    <option value="ج">ج</option>
-                                                    <option value="ح">ح</option>
-                                                    <option value="خ">خ</option>
-                                                    <option value="د">د</option>
-                                                    <option value="ذ">ذ</option>
-                                                    <option value="ر">ر</option>
-                                                    <option value="ز">ز</option>
-                                                    <option value="س">س</option>
-                                                    <option value="ش">ش</option>
-                                                    <option value="ص">ص</option>
-                                                    <option value="ض">ض</option>
-                                                    <option value="ط">ط</option>
-                                                    <option value="ظ">ظ</option>
-                                                    <option value="ع">ع</option>
-                                                    <option value="غ">غ</option>
-                                                    <option value="ف">ف</option>
-                                                    <option value="ق">ق</option>
-                                                    <option value="ك">ك</option>
-                                                    <option value="ل">ل</option>
-                                                    <option value="م">م</option>
-                                                    <option value="ن">ن</option>
-                                                    <option value="ه">ه</option>
-                                                    <option value="و">و</option>
-                                                    <option value="ي">ي</option>
-                                                </select>
-                                            </div>
-                                            <!-- end of middlePart letters -->
+                                        <div class="col-md-6">
+                                            <div class="row mt-3">
+                                                <label>بيانات لوحة المركبة</label>
+                                                <!-- start of rightPart letters -->
+                                                <div class="form-group col-md-1 mt-3">
+                                                    <label for="rightPart" class="sr-only">الأيمن</label>
+                                                    <select type="text" class="form-control" id="rightPart"
+                                                        placeholder="الأيمن" onchange="displayLetter()">
+                                                        <option selected disabled>الأيمن</option>
+                                                        <option value="أ">أ</option>
+                                                        <option value="ب">ب</option>
+                                                        <option value="ت">ت</option>
+                                                        <option value="ث">ث</option>
+                                                        <option value="ج">ج</option>
+                                                        <option value="ح">ح</option>
+                                                        <option value="خ">خ</option>
+                                                        <option value="د">د</option>
+                                                        <option value="ذ">ذ</option>
+                                                        <option value="ر">ر</option>
+                                                        <option value="ز">ز</option>
+                                                        <option value="س">س</option>
+                                                        <option value="ش">ش</option>
+                                                        <option value="ص">ص</option>
+                                                        <option value="ض">ض</option>
+                                                        <option value="ط">ط</option>
+                                                        <option value="ظ">ظ</option>
+                                                        <option value="ع">ع</option>
+                                                        <option value="غ">غ</option>
+                                                        <option value="ف">ف</option>
+                                                        <option value="ق">ق</option>
+                                                        <option value="ك">ك</option>
+                                                        <option value="ل">ل</option>
+                                                        <option value="م">م</option>
+                                                        <option value="ن">ن</option>
+                                                        <option value="ه">ه</option>
+                                                        <option value="و">و</option>
+                                                        <option value="ي">ي</option>
+                                                    </select>
+                                                </div>
+                                                <!-- End of rightPart letters -->
+                                                <!-- start of middlePart letters -->
+                                                <div class="form-group col-md-1 mt-3">
+                                                    <label for="middlePart" class="sr-only"> الأوسط</label>
+                                                    <select type="text" class="form-control" id="middlePart"
+                                                        placeholder="الأوسط" onchange="displayLetter()">
+                                                        <option selected disabled>الأوسط</option>
+                                                        <option value="أ">أ</option>
+                                                        <option value="ب">ب</option>
+                                                        <option value="ت">ت</option>
+                                                        <option value="ث">ث</option>
+                                                        <option value="ج">ج</option>
+                                                        <option value="ح">ح</option>
+                                                        <option value="خ">خ</option>
+                                                        <option value="د">د</option>
+                                                        <option value="ذ">ذ</option>
+                                                        <option value="ر">ر</option>
+                                                        <option value="ز">ز</option>
+                                                        <option value="س">س</option>
+                                                        <option value="ش">ش</option>
+                                                        <option value="ص">ص</option>
+                                                        <option value="ض">ض</option>
+                                                        <option value="ط">ط</option>
+                                                        <option value="ظ">ظ</option>
+                                                        <option value="ع">ع</option>
+                                                        <option value="غ">غ</option>
+                                                        <option value="ف">ف</option>
+                                                        <option value="ق">ق</option>
+                                                        <option value="ك">ك</option>
+                                                        <option value="ل">ل</option>
+                                                        <option value="م">م</option>
+                                                        <option value="ن">ن</option>
+                                                        <option value="ه">ه</option>
+                                                        <option value="و">و</option>
+                                                        <option value="ي">ي</option>
+                                                    </select>
+                                                </div>
+                                                <!-- end of middlePart letters -->
 
-                                            <!-- start of leftPart letters -->
-                                            <div class="form-group col-md-1 mt-3">
-                                                 <label for="leftPart" class="sr-only"> الأيسر</label>
-                                                 <select type="text" class="form-control" id="leftPart"
+                                                <!-- start of leftPart letters -->
+                                                <div class="form-group col-md-1 mt-3">
+                                                    <label for="leftPart" class="sr-only"> الأيسر</label>
+                                                    <select type="text" class="form-control" id="leftPart"
                                                         placeholder="الأيسر" onchange="displayLetter()">
-                                                    <option selected disabled>الأيسر</option>
-                                                    <option value="أ">أ</option>
-                                                    <option value="ب">ب</option>
-                                                    <option value="ت">ت</option>
-                                                    <option value="ث">ث</option>
-                                                    <option value="ج">ج</option>
-                                                    <option value="ح">ح</option>
-                                                    <option value="خ">خ</option>
-                                                    <option value="د">د</option>
-                                                    <option value="ذ">ذ</option>
-                                                    <option value="ر">ر</option>
-                                                    <option value="ز">ز</option>
-                                                    <option value="س">س</option>
-                                                    <option value="ش">ش</option>
-                                                    <option value="ص">ص</option>
-                                                    <option value="ض">ض</option>
-                                                    <option value="ط">ط</option>
-                                                    <option value="ظ">ظ</option>
-                                                    <option value="ع">ع</option>
-                                                    <option value="غ">غ</option>
-                                                    <option value="ف">ف</option>
-                                                    <option value="ق">ق</option>
-                                                    <option value="ك">ك</option>
-                                                    <option value="ل">ل</option>
-                                                    <option value="م">م</option>
-                                                    <option value="ن">ن</option>
-                                                    <option value="ه">ه</option>
-                                                    <option value="و">و</option>
-                                                    <option value="ي">ي</option>
-                                                </select>
-                                            </div>
-                                            <!-- end of leftPart letters -->
+                                                        <option selected disabled>الأيسر</option>
+                                                        <option value="أ">أ</option>
+                                                        <option value="ب">ب</option>
+                                                        <option value="ت">ت</option>
+                                                        <option value="ث">ث</option>
+                                                        <option value="ج">ج</option>
+                                                        <option value="ح">ح</option>
+                                                        <option value="خ">خ</option>
+                                                        <option value="د">د</option>
+                                                        <option value="ذ">ذ</option>
+                                                        <option value="ر">ر</option>
+                                                        <option value="ز">ز</option>
+                                                        <option value="س">س</option>
+                                                        <option value="ش">ش</option>
+                                                        <option value="ص">ص</option>
+                                                        <option value="ض">ض</option>
+                                                        <option value="ط">ط</option>
+                                                        <option value="ظ">ظ</option>
+                                                        <option value="ع">ع</option>
+                                                        <option value="غ">غ</option>
+                                                        <option value="ف">ف</option>
+                                                        <option value="ق">ق</option>
+                                                        <option value="ك">ك</option>
+                                                        <option value="ل">ل</option>
+                                                        <option value="م">م</option>
+                                                        <option value="ن">ن</option>
+                                                        <option value="ه">ه</option>
+                                                        <option value="و">و</option>
+                                                        <option value="ي">ي</option>
+                                                    </select>
+                                                </div>
+                                                <!-- end of leftPart letters -->
 
-                                            <!-- start of number letters -->
-                                            <div class="form-group col-md-3 mt-3">
-                                                <label for="number" class="sr-only">رقم اللوحة</label>
-                                                <input type="text" class="form-control" id="number" placeholder="رقم اللوحة"
-                                                    style="width: 312px;">
+                                                <!-- start of number letters -->
+                                                <div class="form-group col-md-3 mt-3">
+                                                    <label for="number" class="sr-only">رقم اللوحة</label>
+                                                    <input type="text" class="form-control" id="number"
+                                                        placeholder="رقم اللوحة" style="width: 312px;">
+                                                </div>
+                                                <!-- end of number letters -->
+
                                             </div>
-                                            <!-- start of number letters -->
                                         </div>
+
+
+                                        <div class="col-md-6">
+
+                                            <label>بيانات لوحة المركبة</label>
+                                            <p id="VehiclePlate"></p>
+
+                                        </div>
+
                                     </div>
 
                                     <!-- Form Row-->
@@ -414,7 +439,8 @@
                                         <!-- Form Group (last name)-->
 
                                         <div class="col-md-6">
-                                            <label class="small mb-1" for="inputVehicleModel">موديل المركبة</label>
+                                            <label class="small mb-1" for="inputVehicleModel">موديل
+                                                المركبة</label>
                                             <input class="form-control" id="inputVehicleModel" type="text"
                                                 placeholder="موديل المركبة">
                                         </div>
@@ -443,7 +469,8 @@
                                                             id="VehicleFrontImage">
                                                     </button>
                                                     <!-- Profile picture help block-->
-                                                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger
+                                                    <div class="small font-italic text-muted mb-4">JPG or PNG no
+                                                        larger
                                                         than 5
                                                         MB</div>
                                                     <!-- Profile picture upload button-->
@@ -470,7 +497,8 @@
                                                     </button>
 
                                                     <!-- Profile picture help block-->
-                                                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger
+                                                    <div class="small font-italic text-muted mb-4">JPG or PNG no
+                                                        larger
                                                         than 5
                                                         MB</div>
                                                     <!-- Profile picture upload button-->
