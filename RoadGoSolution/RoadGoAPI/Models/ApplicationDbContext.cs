@@ -9,5 +9,7 @@ namespace RoadGoAPI.Models
         }
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<VehicleModel> VehiclesModels { get; set; }
+        public DbSet<VehicleColor> VehiclesColors { get; set; }
     }
 }

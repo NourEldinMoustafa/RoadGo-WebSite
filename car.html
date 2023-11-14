@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل لوحة السيارة السعودية</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<style>
+
+    /* .form-control{
+      direction: rtl;
+      width: 50%;
+      border-radius: 29.25rem;
+      height: 5.5em
+    }  */
+    .form-inline .form-control {
+        direction: rtl;
+      width: 50%;
+      border-radius: 29.25rem;
+      height: 5.5em
+  }
+      </style>
+<body>
+
+<div class="container mt-5">
+  <form class="form-inline flex-row-reverse justify-content-center">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="rightPart" class="sr-only">الأيمن</label>
+      <input type="text" class="form-control" id="rightPart" placeholder=" الأيمن">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="middlePart" class="sr-only">الجزء الأوسط:</label>
+      <input type="text" class="form-control" id="middlePart" placeholder="الأوسط">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="leftPart" class="sr-only">الجزء الأيسر:</label>
+      <input type="text" class="form-control" id="leftPart" placeholder="الأيسر">
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="number" class="sr-only">الرقم:</label>
+      <input type="text" class="form-control" id="number" placeholder="الرقم">
+    </div>
+    <button type="button" class="btn btn-primary mb-2" onclick="displayLicensePlate()">إرسال</button>
+  </form>
+</div>
+
+<script>
+  function displayLicensePlate() {
+    var right = document.getElementById("rightPart").value;
+    var middle = document.getElementById("middlePart").value;
+    var left = document.getElementById("leftPart").value;
+    var number = document.getElementById("number").value;
+    var plate = right + "-" + middle + "-" + left + "-" + number;
+    alert("لوحة السيارة السعودية: " + plate);
+  }
+</script>
+
+</body>
+</html>

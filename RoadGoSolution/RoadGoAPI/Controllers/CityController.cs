@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RoadGoAPI.Dtos;
@@ -10,54 +14,96 @@ namespace RoadGoAPI.Controllers
     [ApiController]
     public class CityController : ControllerBase
     {
-        private readonly ApplicationDbContext _AppContext;
-        public CityController(ApplicationDbContext AppContext)
+        private readonly ApplicationDbContext _context;
+
+        public CityController(ApplicationDbContext context)
         {
-            _AppContext = AppContext;
+            _context = context;
         }
-        [HttpGet("GetAllCitis")]
-        public async Task<IActionResult> GetAllCitisAsync()
+
+        // GET: api/City
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<City>>> GetCities()
         {
-            var cities = await _AppContext.Cities.ToListAsync();
-            if (cities.Count == 0)
+            return Ok(await _context.Cities.ToListAsync());
+        }
+
+        // GET: api/City/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<City>> GetCity(int id)
+        {
+            var city = await _context.Cities.FindAsync(id);
+
+            if (city == null)
             {
                 return NotFound();
             }
 
-            return Ok(cities);
-        }
-
-        [HttpGet("GetCity")]
-        public async Task<IActionResult> GetCityAsync(int id)
-        {
-            var city = await _AppContext.Cities.FirstOrDefaultAsync(c => c.Id == id);
             return Ok(city);
         }
 
-        [HttpPost]
-        [Route("AddNewCity")]
-        public async Task<IActionResult> AddNewCityAsync([FromBody] CityDto dto)
+        // PUT: api/City/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> AddCity(int id, City city)
         {
-            if (dto.Name.Length == 0)
+            if (id != city.Id)
             {
                 return BadRequest();
             }
-            var city = new City { Name = dto.Name };
-            await _AppContext.Cities.AddAsync(city);
-            _AppContext.SaveChanges();
+
+            _context.Entry(city).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CityExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
             return Ok(city);
         }
 
-        [HttpPut]
-        [Route("UpdateCity")]
-        public async Task<IActionResult> UpdateCityAsync(int id, CityDto dto)
+        // POST: api/City
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<City>> AddCity(NameDto citydto)
         {
-            var existingCity = await _AppContext.Cities.FirstOrDefaultAsync(d => d.Id == id);
+            var city = new City() { Name = citydto.Name };
+            _context.Cities.Add(city);
+            await _context.SaveChangesAsync();
 
-            existingCity.Name = dto.Name;
-            _AppContext.SaveChanges();
+            return CreatedAtAction("GetCity", new { id = city.Id }, city);
+        }
 
-            return Ok(existingCity);
+        // DELETE: api/City/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCity(int id)
+        {
+            var city = await _context.Cities.FindAsync(id);
+            if (city == null)
+            {
+                return NotFound();
+            }
+
+            _context.Cities.Remove(city);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool CityExists(int id)
+        {
+            return _context.Cities.Any(e => e.Id == id);
         }
     }
 }

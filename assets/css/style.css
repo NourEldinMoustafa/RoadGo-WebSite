@@ -479,7 +479,7 @@ h6 {
     margin-left: 22px !important;
     margin-right: 6px;
     margin-top: 22px !important;
-}
+  }
 
   .fab__button {
     position: absolute;
@@ -498,11 +498,11 @@ h6 {
     transition: background-color 300ms ease;
   }
 
-  #call-to-action .cta-btn{
+  #call-to-action .cta-btn {
     margin-bottom: 50px !important;
   }
 
-  #policy{
+  #policy {
     display: block;
   }
 }
@@ -713,9 +713,10 @@ section {
   #about {
     margin-bottom: -93px;
   }
+
   #testimonials {
     padding: 0px 0;
-}
+  }
 
 }
 
@@ -737,13 +738,15 @@ section {
     margin-left: 0;
     /* padding-bottom: 30px; */
   }
+
   #call-to-action {
     margin-bottom: -47px;
     margin-top: 84px;
-}
-.section-header {
-  margin-bottom: 0;
-}
+  }
+
+  .section-header {
+    margin-bottom: 0;
+  }
 }
 
 #about .content h2 {
@@ -1437,7 +1440,8 @@ section {
   margin-top: 30px;
 
 }
-#footer{
+
+#footer {
   /* margin-top: 50px; */
 }
 
@@ -1622,92 +1626,114 @@ section {
 
 
 /*images*/
-.girl-car{
+.girl-car {
   border: 2px solid #32EE88;
-  border-radius: 0 30px 30px 60px;  
+  border-radius: 0 30px 30px 60px;
   overflow: hidden;
   display: inline-block;
 }
 
-.man-car{
-  
-    border: 2px solid #32EE88;
-    border-radius: 0 20px 20px 50px;
-    overflow: hidden;
-    display: inline-block;
+.man-car {
+
+  border: 2px solid #32EE88;
+  border-radius: 0 20px 20px 50px;
+  overflow: hidden;
+  display: inline-block;
 
 }
+
 /* end whatsapp icone */
 
 /* start policy privacy page */
-.ppolicy{
+.ppolicy {
   margin-right: 30px;
   color: #002232;
 }
+
 /* end policy privacy page */
 
 
 
 /* start editdriver page */
-body{margin-top:20px;
-  background-color:#f2f6fc;
-  color:#69707a;
-  }
-  .img-account-profile {
-      height: 10rem;
-  }
-  .rounded-circle {
-      border-radius: 50% !important;
-  }
-  .card {
-      box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
-  }
-  .card .card-header {
-      font-weight: 500;
-  }
-  .card-header:first-child {
-      border-radius: 0.35rem 0.35rem 0 0;
-  }
-  .card-header {
-      padding: 1rem 1.35rem;
-      margin-bottom: 0;
-      background-color: rgba(33, 40, 50, 0.03);
-      border-bottom: 1px solid rgba(33, 40, 50, 0.125);
-  }
-  .form-control, .dataTable-input {
-      display: block;
-      width: 100%;
-      padding: 0.875rem 1.125rem;
-      font-size: 0.875rem;
-      font-weight: 400;
-      line-height: 1;
-      color: #69707a;
-      background-color: #fff;
-      background-clip: padding-box;
-      border: 1px solid #c5ccd6;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      border-radius: 0.35rem;
-      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  }
-  
-  .nav-borders .nav-link.active {
-      color: #0061f2;
-      border-bottom-color: #0061f2;
-  }
-  .nav-borders .nav-link {
-      color: #69707a;
-      border-bottom-width: 0.125rem;
-      border-bottom-style: solid;
-      border-bottom-color: transparent;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      padding-left: 0;
-      padding-right: 0;
-      margin-left: 1rem;
-      margin-right: 1rem;
-  }
+body {
+  margin-top: 20px;
+  background-color: #f2f6fc;
+  color: #69707a;
+}
+
+.img-account-profile {
+  height: 10rem;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.card {
+  box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}
+
+.card .card-header {
+  font-weight: 500;
+}
+
+.card-header:first-child {
+  border-radius: 0.35rem 0.35rem 0 0;
+}
+
+.card-header {
+  padding: 1rem 1.35rem;
+  margin-bottom: 0;
+  background-color: rgba(33, 40, 50, 0.03);
+  border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+}
+
+.form-control,
+.dataTable-input {
+  display: block;
+  width: 100%;
+  padding: 0.875rem 1.125rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #69707a;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #c5ccd6;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.35rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  height: 50px;
+}
+
+.nav-borders .nav-link.active {
+  color: #0061f2;
+  border-bottom-color: #0061f2;
+}
+
+.nav-borders .nav-link {
+  color: #69707a;
+  border-bottom-width: 0.125rem;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+#personalPhoto,
+#drivingLicenseImage,
+#formImage,
+#VehicleBackImage,
+#VehicleFrontImage {
+  opacity: 50%;
+}
+
 /* end editdriver page */
 
 
@@ -1715,6 +1741,6 @@ body{margin-top:20px;
 
 /* =============================================================== */
 /* Dashboard */
-.ms-3{
+.ms-3 {
   margin-right: 15px;
 }

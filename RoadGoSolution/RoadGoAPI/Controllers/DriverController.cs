@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RoadGoAPI.Dtos;
@@ -10,160 +14,141 @@ namespace RoadGoAPI.Controllers
     [ApiController]
     public class DriverController : ControllerBase
     {
-        private readonly ApplicationDbContext _AppContext;
-        public DriverController(ApplicationDbContext AppContext)
+        private readonly ApplicationDbContext _context;
+
+        public DriverController(ApplicationDbContext context)
         {
-            _AppContext = AppContext;
+            _context = context;
         }
 
-
-        [HttpGet("GetAllDrivers")]
-        public async Task<IActionResult> GetAllDriversAsync()
+        // GET: api/Driver
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Driver>>> GetDrivers()
         {
-            var drivers = await _AppContext.Drivers.ToListAsync();
-            if (drivers.Count == 0)
+            return await _context.Drivers.ToListAsync();
+        }
+
+        // GET: api/Driver/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Driver>> GetDriver(int id)
+        {
+            var driver = await _context.Drivers.FindAsync(id);
+
+            if (driver == null)
             {
                 return NotFound();
             }
 
-            return Ok(drivers);
-        }
-        [HttpGet("GetDriver")]
-        public async Task<IActionResult> GetDriverAsync(int id)
-        {
-            var driver = await _AppContext.Drivers.FirstOrDefaultAsync(d => d.Id == id);
-            driver.City = await _AppContext.Cities.FirstOrDefaultAsync(c => c.Id == driver.CityId);
-            return Ok(driver);
+            return driver;
         }
 
-        [HttpPost("AddNewDriver")]
-        public async Task<IActionResult> AddNewDriverAsync(DriverDto dto)
+        // PUT: api/Driver/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutDriver(int id, Driver driver)
         {
-            var driver = new Driver
+            if (id != driver.Id)
             {
-                CityId = dto.CityId,
-                FirstName = dto.FirstName,
-                LastName = dto.LastName,
-                Password = dto.Password,
-                Gender = dto.Gender,
-                NationalId = dto.NationalId,
-                VehicleColor = dto.VehicleColor,
-                Phone = dto.Phone,
-                VehiclePlate = dto.VehiclePlate,
-                VehicleModel = dto.VehicleModel,
+                return BadRequest();
+            }
 
+            _context.Entry(driver).State = EntityState.Modified;
 
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!DriverExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // POST: api/Driver
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<Driver>> PostDriver([FromForm] DriverDto driver)
+        {
+            var newdriver = new Driver()
+            {
+                FirstName = driver.FirstName,
+                LastName = driver.LastName,
+                Phone = driver.Phone,
+
+         
+                Password = driver.Password,
+                NationalId = driver.NationalId,
+                Gender = driver.Gender,
+                CityId = driver.CityId,
+                VehicleModelId = driver.VehicleModelId,
+                VehicleColorId = driver.VehicleColorId,
+                VehiclePlateRight = driver.VehiclePlateRight,
+                VehiclePlateMiddle = driver.VehiclePlateMiddle,
+                VehiclePlateLeft = driver.VehiclePlateLeft,
+                VehiclePlateNumber = driver.VehiclePlateNumber,
             };
 
             using (var memoryStream = new MemoryStream())
             {
-                dto.DrivingLicenseImage.CopyTo(memoryStream);
-                driver.DrivingLicenseImage = memoryStream.ToArray();
+                await driver.PersonalPhoto.CopyToAsync(memoryStream);
+                newdriver.PersonalPhoto = memoryStream.ToArray();
             }
 
             using (var memoryStream = new MemoryStream())
             {
-                dto.VehicleFrontImage.CopyTo(memoryStream);
-                driver.VehicleFrontImage = memoryStream.ToArray();
+                await driver.DrivingLicenseImage.CopyToAsync(memoryStream);
+                newdriver.DrivingLicenseImage = memoryStream.ToArray();
             }
-            using (var memoryStream = new MemoryStream())
-            {
-                dto.VehicleBackImage.CopyTo(memoryStream);
-                driver.VehicleBackImage = memoryStream.ToArray();
-            }
-            using (var memoryStream = new MemoryStream())
-            {
-                dto.PersonalPhoto.CopyTo(memoryStream);
-                driver.PersonalPhoto = memoryStream.ToArray();
-            }
-            using (var memoryStream = new MemoryStream())
-            {
-                dto.FormImage.CopyTo(memoryStream);
-                driver.FormImage = memoryStream.ToArray();
-            }
-            await _AppContext.AddAsync(driver);
-            _AppContext.SaveChanges();
 
-            return Ok(driver);
+            using (var memoryStream = new MemoryStream())
+            {
+                await driver.FormImage.CopyToAsync(memoryStream);
+                newdriver.FormImage = memoryStream.ToArray();
+            }
+            using (var memoryStream = new MemoryStream())
+            {
+                await driver.VehicleFrontImage.CopyToAsync(memoryStream);
+                newdriver.VehicleFrontImage = memoryStream.ToArray();
+            }
+            using (var memoryStream = new MemoryStream())
+            {
+                await driver.VehicleBackImage.CopyToAsync(memoryStream);
+                newdriver.VehicleBackImage = memoryStream.ToArray();
+            }
+            _context.Drivers.Add(newdriver);
+            await _context.SaveChangesAsync();
+
+            return Ok(newdriver);
         }
 
-        [HttpPut]
-        [Route("UpdateDriver")]
-        public async Task<IActionResult> UpdateDriverAsync(int id,  DriverDto dto)
+        // DELETE: api/Driver/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteDriver(int id)
         {
-            var existingDriver = await _AppContext.Drivers.FirstOrDefaultAsync(d => d.Id == id);
-
-            if (dto.CityId != 0)
-                existingDriver.CityId = dto.CityId;
-            if (dto.FirstName != null)
-                existingDriver.FirstName = dto.FirstName;
-            if (dto.LastName != null)
-                existingDriver.LastName = dto.LastName;
-            if (dto.Password != null)
-                existingDriver.Password = dto.Password;
-
-            if (dto.Gender != null)
-
-                existingDriver.Gender = dto.Gender;
-
-            if (dto.NationalId != null)
-                existingDriver.NationalId = dto.NationalId;
-            if (dto.VehicleColor != null)
-                existingDriver.VehicleColor = dto.VehicleColor;
-            if (dto.Phone != null)
-                existingDriver.Phone = dto.Phone;
-            if (dto.VehiclePlate != null)
-                existingDriver.VehiclePlate = dto.VehiclePlate;
-            if (dto.VehicleModel != null)
-                existingDriver.VehicleModel = dto.VehicleModel;
-
-
-
-            using (var memoryStream = new MemoryStream())
+            var driver = await _context.Drivers.FindAsync(id);
+            if (driver == null)
             {
-                if (dto.DrivingLicenseImage != null)
-                {
-
-                    dto.DrivingLicenseImage.CopyTo(memoryStream);
-                    existingDriver.DrivingLicenseImage = memoryStream.ToArray();
-                }
+                return NotFound();
             }
 
-            using (var memoryStream = new MemoryStream())
-            {
-                if (dto.VehicleFrontImage != null)
-                {
-                    dto.VehicleFrontImage.CopyTo(memoryStream);
-                    existingDriver.VehicleFrontImage = memoryStream.ToArray();
-                }
-            }
-            using (var memoryStream = new MemoryStream())
-            {
-                if (dto.VehicleBackImage != null)
-                {
-                    dto.VehicleBackImage.CopyTo(memoryStream);
-                    existingDriver.VehicleBackImage = memoryStream.ToArray();
-                }
-            }
-            using (var memoryStream = new MemoryStream())
-            {
-                if (dto.PersonalPhoto != null)
-                {
-                    dto.PersonalPhoto.CopyTo(memoryStream);
-                    existingDriver.PersonalPhoto = memoryStream.ToArray();
-                }
-            }
-            using (var memoryStream = new MemoryStream())
-            {
-                if (dto.FormImage != null)
-                {
-                    dto.FormImage.CopyTo(memoryStream);
-                    existingDriver.FormImage = memoryStream.ToArray();
-                }
-            }
-            _AppContext.SaveChanges();
-            return Ok(existingDriver);
+            _context.Drivers.Remove(driver);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
+        private bool DriverExists(int id)
+        {
+            return _context.Drivers.Any(e => e.Id == id);
+        }
     }
 }
