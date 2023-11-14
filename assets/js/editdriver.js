@@ -21,7 +21,7 @@ function fillcustomProparty(driver) {
 }
 
 function displayDriver(driver) {
-    console.log(driver)
+    
     document.getElementById("inputFirstName").value = driver["firstName"];
     document.getElementById("inputLastName").value = driver["lastName"];
     document.getElementById("inputPhone").value = driver["phone"];

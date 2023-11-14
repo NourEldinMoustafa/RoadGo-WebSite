@@ -3,7 +3,9 @@
 /*
 declare fetch
 */
-fetch('https://localhost:44302/api/Driver/GetAllDrivers') // Replace with your server endpoint
+fetch('https://localhost:44302/api/Driver',{
+  method:'GET'
+}) // Replace with your server endpoint
 .then(response => response.json())
 .then(data => {
     displayDrivers(data);
@@ -76,7 +78,7 @@ function viewEditPage(btn) {
   var id = btn.dataset.customProperty;
 
   localStorage.setItem("driverid", id);
-  window.location.href = "EditDriver.html";
+  window.location.href = "Driver.html";
 }
 
 
