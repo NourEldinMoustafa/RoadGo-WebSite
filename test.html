@@ -31,6 +31,11 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Add your other head elements here -->
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
@@ -58,6 +63,8 @@ body{
 	color: var(--text-clr);
 	font-size: 16px;
 	position: relative;
+    width: 100%;
+    overflow-x: hidden; /* To prevent horizontal scroll on smaller screens */
 }
 
 .wrapper{
@@ -840,7 +847,12 @@ otp style
         </div>
     </div>
 
+    <!-- start Bootstrap JS and Popper.js script links here -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-Uo7be1v8p8FtFkzqKv/2DlJR9QOp6Qmj8Lv+slz9UZlHRLIqyUNwF68WYUnnq9sN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+   <!-- end Bootstrap JS and Popper.js script links here -->
 
     <script>
 var form_1 = document.querySelector(".form_1");
@@ -969,5 +981,7 @@ shadow.addEventListener("click", function(){
 			})
 		}
 	</script>
+
+    
 </body>
 </html>

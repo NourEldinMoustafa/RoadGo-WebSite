@@ -1687,6 +1687,9 @@ body {
   background-color: rgba(33, 40, 50, 0.03);
   border-bottom: 1px solid rgba(33, 40, 50, 0.125);
 }
+.card-body{
+  overflow: hidden;
+}
 
 .form-control,
 .dataTable-input {
