@@ -45,12 +45,122 @@ namespace RoadGoAPI.Controllers
         // PUT: api/Driver/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDriver(int id, Driver driver)
+        public async Task<IActionResult> PutDriver(int id, [FromForm] UpdataDriverDto dto)
         {
-            if (id != driver.Id)
+            var driver = await _context.Drivers.FindAsync(id);
+
+
+            if (dto.FirstName != null)
             {
-                return BadRequest();
+                driver.FirstName = dto.FirstName;
             }
+
+            if (dto.LastName != null)
+            {
+                driver.LastName = dto.LastName;
+            }
+
+            if (dto.Phone != null)
+            {
+                driver.Phone = dto.Phone;
+            }
+
+            if (dto.Password != null)
+            {
+                driver.Password = dto.Password;
+            }
+
+            if (dto.NationalId != null)
+            {
+                driver.NationalId = dto.NationalId;
+            }
+
+            if (dto.Gender != null)
+            {
+                driver.Gender = dto.Gender;
+            }
+
+            if (dto.CityId != null)
+            {
+                driver.CityId = dto.CityId;
+            }
+
+            if (dto.VehicleModelId != null)
+            {
+                driver.VehicleModelId = dto.VehicleModelId;
+            }
+
+            if (dto.VehicleColorId != null)
+            {
+                driver.VehicleColorId = dto.VehicleColorId;
+            }
+
+            if (dto.VehiclePlateRight != null)
+            {
+                driver.VehiclePlateRight = dto.VehiclePlateRight;
+            }
+
+            if (dto.VehiclePlateMiddle != null)
+            {
+                driver.VehiclePlateMiddle = dto.VehiclePlateMiddle;
+            }
+
+            if (dto.VehiclePlateLeft != null)
+            {
+                driver.VehiclePlateLeft = dto.VehiclePlateLeft;
+            }
+
+            if (dto.VehiclePlateNumber != null)
+            {
+                driver.VehiclePlateNumber = dto.VehiclePlateNumber;
+            }
+
+
+
+            if (dto.PersonalPhoto != null && dto.PersonalPhoto.Length > 0)
+                using (var memoryStream = new MemoryStream())
+                {
+                    {
+                        await dto.PersonalPhoto.CopyToAsync(memoryStream);
+                        driver.PersonalPhoto = memoryStream.ToArray();
+                    }
+                }
+
+            if (dto.DrivingLicenseImage != null && dto.DrivingLicenseImage.Length > 0)
+                using (var memoryStream = new MemoryStream())
+                {
+                    {
+                        await dto.DrivingLicenseImage.CopyToAsync(memoryStream);
+                        driver.DrivingLicenseImage = memoryStream.ToArray();
+                    }
+                }
+
+            if (dto.FormImage != null && dto.FormImage.Length > 0)
+                using (var memoryStream = new MemoryStream())
+                {
+                    {
+                        await dto.FormImage.CopyToAsync(memoryStream);
+                        driver.FormImage = memoryStream.ToArray();
+                    }
+                }
+
+            if (dto.VehicleFrontImage != null && dto.VehicleFrontImage.Length > 0)
+                using (var memoryStream = new MemoryStream())
+                {
+                    {
+                        await dto.VehicleFrontImage.CopyToAsync(memoryStream);
+                        driver.VehicleFrontImage = memoryStream.ToArray();
+                    }
+                }
+
+            if (dto.VehicleBackImage != null && dto.VehicleBackImage.Length > 0)
+                using (var memoryStream = new MemoryStream())
+                {
+                    {
+                        await dto.VehicleBackImage.CopyToAsync(memoryStream);
+                        driver.VehicleBackImage = memoryStream.ToArray();
+                    }
+                }
 
             _context.Entry(driver).State = EntityState.Modified;
 
@@ -70,7 +180,7 @@ namespace RoadGoAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(driver);
         }
 
         // POST: api/Driver
@@ -83,8 +193,6 @@ namespace RoadGoAPI.Controllers
                 FirstName = driver.FirstName,
                 LastName = driver.LastName,
                 Phone = driver.Phone,
-
-         
                 Password = driver.Password,
                 NationalId = driver.NationalId,
                 Gender = driver.Gender,
@@ -124,10 +232,12 @@ namespace RoadGoAPI.Controllers
                 await driver.VehicleBackImage.CopyToAsync(memoryStream);
                 newdriver.VehicleBackImage = memoryStream.ToArray();
             }
+
             _context.Drivers.Add(newdriver);
             await _context.SaveChangesAsync();
 
             return Ok(newdriver);
+
         }
 
         // DELETE: api/Driver/5

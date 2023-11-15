@@ -76,7 +76,7 @@ namespace RoadGoAPI.Controllers
         // POST: api/City
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<City>> AddCity(NameDto citydto)
+        public async Task<ActionResult<City>> AddCity([FromForm] NameDto citydto)
         {
             var city = new City() { Name = citydto.Name };
             _context.Cities.Add(city);

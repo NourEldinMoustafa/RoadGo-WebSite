@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9j0H16XXYjeA4wLX8/U0XhK80mk1vxrIdJL1qwXed58Bay857wVA5zYAE7PJQ6LijlrjppMNA8sc08kaozrEdQ==",
+  "dgSpecHash": "Z452o4Hd8XwherXRekRQkBxKvlTa8X6hyYj3bGotN8GId04MmG3NUut7TenB0dmmO2JgXdM40jy+7UWkKXWeYQ==",
   "success": true,
   "projectFilePath": "D:\\Freelancing\\Road Go\\Final\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
   "expectedPackageFiles": [
@@ -182,7 +182,11 @@
     "C:\\Users\\zez32\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\zez32\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
     "C:\\Users\\zez32\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\zez32\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\zez32\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\zez32\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\zez32\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\zez32\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\zez32\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.25\\microsoft.netcore.app.host.win-x64.6.0.25.nupkg.sha512"
   ],
   "logs": []
 }

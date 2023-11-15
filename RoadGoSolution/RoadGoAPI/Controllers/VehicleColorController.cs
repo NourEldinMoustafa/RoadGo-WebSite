@@ -76,7 +76,7 @@ namespace RoadGoAPI.Controllers
         // POST: api/VehicleColor
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<VehicleColor>> AddVehicleColor(NameDto vehicleColordto)
+        public async Task<ActionResult<VehicleColor>> AddVehicleColor([FromForm] NameDto vehicleColordto)
         {
             var vehicleColor = new VehicleColor() { Name= vehicleColordto.Name };
             _context.VehiclesColors.Add(vehicleColor);

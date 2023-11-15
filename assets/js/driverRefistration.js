@@ -35,6 +35,23 @@ fetch('https://localhost:44302/api/VehicleColor', {
 
 
 
+
+
+
+
+
+
+document.getElementById("nxt-btn").addEventListener('click', function (event) {
+    event.preventDefault();
+    OTPwindow = window.open('OTPValidation.html', '_blank', 'width=500,height=600');
+
+
+
+    document.getElementById("third-form").style.display = 'block';
+    document.getElementById("save-btn").style.display = 'block';
+})
+
+
 document.getElementById("saving-form").addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -62,11 +79,11 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     const VehicleFrontImage = document.getElementById("VehicleFrontImageFile").files[0];
     const VehicleBackImage = document.getElementById("VehicleBackImageFile").files[0];
 
-    console.log(PlateRight,PlateMiddle,PlateLeft)
+    console.log(PlateRight, PlateMiddle, PlateLeft)
     console.log(Platenumber)
 
     console.log(Gender)
-    
+
     // console.log(CityId);
     var formData = new FormData();
 
@@ -97,7 +114,7 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     })
         .then(response => response.json())
         .then(data => {
-            
+
             console.log(data);
         })
         .catch(error => console.error('Error fetching data:', error));
