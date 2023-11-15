@@ -70,20 +70,20 @@
     <!-- start Bootstrap edit form -->
     <div class="container-xl px-4 mt-4">
         <!-- Account page navigation-->
-        <nav class="nav nav-borders">
-            <a class="nav-link active ms-0" href="#card-header"onclick="activate()" id="a-driver-data" >بيانات السائق</a>
+        <!-- <nav class="nav nav-borders sticky-top">
+            <a class="nav-link active ms-0" href="#driver-data"onclick="activate()" id="a-driver-data" >بيانات السائق</a>
 
             <a class="nav-link" href="#goto" onclick="activate()" id="a-reg-data">متطلبات التسجيل</a>
 
 
-        </nav>
+        </nav> -->
         <hr class="mt-0 mb-4">
         <div class="row">
 
             <div class="col">
                 <!-- Account details card-->
                 <div class="card mb-4">
-                    <div class="card-header">بيانات السائق</div>
+                    <div class="card-header" id="driver-data">بيانات السائق</div>
                     <div class="card-body">
                         <form id="saving-form" action="index.html">
 
@@ -633,7 +633,7 @@
         crossorigin="anonymous"></script>
 
 
-    <script src="assets/js/driver.js">  </script>
+    
 </body>
 
 </html>

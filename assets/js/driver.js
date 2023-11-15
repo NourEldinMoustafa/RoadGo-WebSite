@@ -1,4 +1,5 @@
-document.getElementById("third-form").style.display= 'none';
+// document.getElementById("third-form").style.display= 'none';
+
 
 fetch('https://localhost:44302/api/City', {
     method: 'GET'

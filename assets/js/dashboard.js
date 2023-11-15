@@ -78,7 +78,7 @@ function viewEditPage(btn) {
   var id = btn.dataset.customProperty;
 
   localStorage.setItem("driverid", id);
-  window.location.href = "Driver.html";
+  window.location.href = "DriverDetails.html";
 }
 
 
