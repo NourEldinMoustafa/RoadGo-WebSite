@@ -37,8 +37,6 @@
 
 <body dir="rtl">
 
-
-
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex justify-content-between">
@@ -63,7 +61,49 @@
 
     </div>
   </header><!-- End Header -->
+  <br>
 
+  <div class="row">
+    <div class="col-3">
+      <label class="mb-1" for="city-select">المدن</label>
+      <br>
+      <select class="form-control w-75 d-inline" id="city-select" type="text">
+
+
+      </select>
+      
+        <img src="assets/plus.png"data-bs-toggle="modal" data-bs-target="#exampleModal1" style="height:25px; width: 25px;"  onclick="changeWordinPopup('المدينة')">
+        
+
+
+    </div>
+
+    <div class="col-3">
+      <label class="mb-1" for="colors-select">الالوان</label>
+      <br>
+      <select class="form-control w-75 d-inline" id="color-select" type="text">
+        <!-- Add the cities dynamically here -->
+
+
+      </select>
+      <img src="assets/plus.png"data-bs-toggle="modal" data-bs-target="#exampleModal1" style="height:25px; width: 25px;"onclick="changeWordinPopup('اللون')">
+      
+    </div>
+
+    <div class="col-3">
+      <label class="mb-1" for="model-select">الموديلات</label>
+      <br>
+      <select class="form-control w-75 d-inline" id="model-select" type="text">
+
+
+      </select>
+      <img src="assets/plus.png"data-bs-toggle="modal" data-bs-target="#exampleModal1" style="height:25px; width: 25px;"onclick="changeWordinPopup('الموديل')">
+      
+
+    </div>
+
+  </div>
+  <hr class="mb-5 mt-5">
 
   <table class="table align-middle mb-0 bg-white">
     <thead class="bg-light">
@@ -86,7 +126,7 @@
               class="rounded-circle" />
             <div class="ms-3">
               <p class="fw-bold mb-1">احمد عبد العزيز </p>من ال api هيجي داتا
-              
+
             </div>
           </div>
         </td>
@@ -155,60 +195,6 @@
 
 
 
-  <!--=====footer=====
-
-
-    <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5 d-flex justify-content-between ">
-          <nav id="navbar" class="navbar">
-            <ul>
-              <li><a class="nav-link scrollto" href="Driver.html">السائق<img height="20px" style="margin-right: 5px;"
-                    src="assets/Road Go Icon Set/driver/driver 3.svg"></a></li>
-              <li><a class="nav-link scrollto" href="Contact.html">تواصل معنا<img height="20px"
-                    style="margin-right: 5px;" src="assets/contact us.svg"></a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="col-md-7   footer-img" dir="ltr">
-          
-          <a href="https://apps.apple.com">
-            <img class="footer-svg" src="/assets/app-store.png" alt="">
-          </a>
-          <a href="https://play.google.com">
-            <img class="footer-svg" src="/assets/play-store.png" alt="">
-          </a>
-        </div>
-      </div>
-      <div class="copyright">
-        &copy; Copyright <img src="assets/Road Go Pattern&Board/logo/logo 2.svg" height="10px"
-          style="margin-bottom: 3px;">. All Rights Reserved
-
-      </div>
-    </div>
-  -->
-
-
-
-  <!--start whatsapp icone -->
-  <div class="fab">
-    <a href="https://api.whatsapp.com/send?phone=+966550703269&text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C+%D8%A3%D9%86%D8%A7+%D9%85%D9%87%D8%AA%D9%85+%D8%A8%D8%A7%D9%84%D8%B9%D9%85%D9%84+%D9%85%D8%B9%D9%83%D9%85.+%D9%84%D9%82%D8%AF+%D8%B1%D8%A3%D9%8A%D8%AA+%D8%A5%D8%B9%D9%84%D8%A7%D9%86%D9%83%D9%85+%D9%88%D8%A7%D8%B1%D8%BA%D8%A8+%D9%81%D9%8A+%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84+%D9%85%D8%B9%D9%83%D9%85&oq=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C+%D8%A3%D9%86%D8%A7+%D9%85%D9%87%D8%AA%D9%85+%D8%A8%D8%A7%D9%84%D8%B9%D9%85%D9%84+%D9%85%D8%B9%D9%83%D9%85.+%D9%84%D9%82%D8%AF+%D8%B1%D8%A3%D9%8A%D8%AA+%D8%A5%D8%B9%D9%84%D8%A7%D9%86%D9%83%D9%85+%D9%88%D8%A7%D8%B1%D8%BA%D8%A8+%D9%81%D9%8A+%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84+%D9%85%D8%B9%D9%83%D9%85&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg80gEIMTczNmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8"
-      target="_blank" class="fab__button">
-      <i class="lp-icon">
-        <img src="./assets/whatsapp& call logos/whatsappn.png" alt="Your Image"
-          style="width: 100%; height: 100%; object-fit: contain;">
-      </i>
-    </a>
-    <div class="pulse-rings">
-      <div class="pulse pulse-1"></div>
-      <div class="pulse pulse-2"></div>
-      <div class="pulse pulse-3"></div>
-    </div>
-  </div>
-  <!--end whatsapp icone-->
-
-  </footer><!-- End Footer -->
 
 
 
@@ -254,6 +240,32 @@
   <!--end Pop Model -->
 
 
+  <!-- start model take input-->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label" id="popup-label">المدينة</label>
+              <input type="text" class="form-control" id="recipient-name" >
+              <label   id="popup-validation-label" style="color: green; display: none;">تمت الاضافة بنجاح </label>
+              
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+          <button type="button" class="btn btn-primary" id="popoup-add-btn">ادخال</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end model take input-->
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
