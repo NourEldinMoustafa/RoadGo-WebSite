@@ -79,6 +79,7 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     // if(ok === true){
 
     // }
+alert(`تريد تعديل السائق`);
 
     var formData = new FormData();
 
@@ -145,10 +146,13 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     })
         .then(response => response.json())
         .then(data => {
+            
+            alert(`تم التعديل بنجاح`);
 
             console.log(data);
         })
         .catch(error => console.error('Error fetching data:', error));
+
 
 });
 
