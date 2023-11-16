@@ -57,8 +57,8 @@
             box-sizing: border-box;
             list-style: none;
             outline: none;
-            font-family: 'cairo','Open Sans', sans-serif;
-            
+            font-family: 'cairo', 'Open Sans', sans-serif;
+
         }
 
         body {
@@ -69,7 +69,7 @@
             width: 100%;
             overflow-x: hidden;
             /* To prevent horizontal scroll on smaller screens */
-            
+            text-align: right;
         }
 
         .wrapper {
@@ -307,7 +307,7 @@ otp style
             margin: auto;
         }
 
-        #sender{
+        #sender {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -355,7 +355,12 @@ otp style
             line-height: 1.2;
             text-align: center;
         }
-        
+
+
+        .card-header:first-child {
+            border-radius: 0.35rem 0.35rem 0 0;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -535,54 +540,33 @@ otp style
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputCity">المدينة</label>
                                 <select class="form-control" id="inputCity" type="text" placeholder="اختر مدينتك">
-                                    <!-- Add the cities dynamically here -->
                                     <option selected disabled>اختر مدينتك</option>
-                                    <option value="الرياض">الرياض</option>
-                                    <option value="جدة">جدة</option>
-                                    <option value="المدينة المنورة">المدينة المنورة</option>
-                                    <option value="تبوك">تبوك</option>
-                                    <option value="الدمام">الدمام</option>
-                                    <option value="الاحساء">الاحساء</option>
-                                    <option value="القطيف">القطيف</option>
-                                    <option value="خميس مشيط">خميس مشيط</option>
-                                    <option value="المظيلف">المظيلف</option>
-                                    <option value="الهفوف">الهفوف</option>
-                                    <option value="المبرز">المبرز</option>
-                                    <option value="الطائف">الطائف</option>
-                                    <option value="نجران">نجران</option>
-                                    <option value="حفر الباطن">حفر الباطن</option>
-                                    <option value="الجبيل">الجبيل</option>
-                                    <option value="ضباء">ضباء</option>
-                                    <option value="الخرج">الخرج</option>
-                                    <option value="الثقبة">الثقبة</option>
-                                    <option value="ينبع البحر">ينبع البحر</option>
-                                    <option value="الخبر">الخبر</option>
-                                    <option value="عرعر">عرعر</option>
-                                    <option value="الحوية">الحوية</option>
-                                    <option value="عنيزه">عنيزه</option>
-                                    <option value="سكاكا">سكاكا</option>
-                                    <option value="جيزان">جيزان</option>
-                                    <option value="القريات">القريات</option>
-                                    <option value="الظهران">الظهران</option>
-                                    <option value="الباحة">الباحة</option>
-                                    <option value="الزلفي">الزلفي</option>
-                                    <option value="الرس">الرس</option>
-                                    <option value="وادي الدواسر">وادي الدواسر</option>
-                                    <option value="بيشه">بيشه</option>
-                                    <option value="سيهات">سيهات</option>
-                                    <option value="شروره">شروره</option>
-                                    <option value="بحره">بحره</option>
-                                    <option value="تاروت">تاروت</option>
-                                    <option value="الدوادمي">الدوادمي</option>
-                                    <option value="صبياء">صبياء</option>
-                                    <option value="بيش">بيش</option>
-                                    <option value="أحد رفيدة">أحد رفيدة</option>
-                                    <option value="الفريش">الفريش</option>
-                                    <option value="بارق">بارق</option>
-                                    <option value="الحوطة">الحوطة</option>
-                                    <option value="الأفلاج">الأفلاج</option>
                                 </select>
                             </div>
+
+                            <script>
+                                // Array of cities
+                                var cities = [
+                                    "الرياض", "جدة", "المدينة المنورة", "تبوك", "الدمام", "الاحساء", "القطيف",
+                                    "خميس مشيط", "المظيلف", "الهفوف", "المبرز", "الطائف", "نجران", "حفر الباطن",
+                                    "الجبيل", "ضباء", "الخرج", "الثقبة", "ينبع البحر", "الخبر", "عرعر", "الحوية",
+                                    "عنيزه", "سكاكا", "جيزان", "القريات", "الظهران", "الباحة", "الزلفي", "الرس",
+                                    "وادي الدواسر", "بيشه", "سيهات", "شروره", "بحره", "تاروت", "الدوادمي", "صبياء",
+                                    "بيش", "أحد رفيدة", "الفريش", "بارق", "الحوطة", "الأفلاج"
+                                ];
+
+                                // Select dropdown element
+                                var dropdown = document.getElementById("inputCity");
+
+                                // Add cities to the dropdown
+                                cities.forEach(function (city) {
+                                    var option = document.createElement("option");
+                                    option.value = city;
+                                    option.text = city;
+                                    dropdown.add(option);
+                                });
+                            </script>
+
                             <!-- Form Group (end city)-->
 
 
@@ -599,139 +583,48 @@ otp style
 
 
 
-
+                        <!-- start of alphapetic options in dropdown menue -->
                         <div class="row gx-3 mb-3">
                             <div class="col-md-6">
                                 <div class="row mt-3">
                                     <label style="font-size: larger;"> لوحة المركبة</label>
-                                    <!-- start of rightPart letters -->
-                                    <div class="form-group col-md-1 mt-3">
-                                        <label for="rightPart" class="sr-only">الأيمن</label>
-                                        <select type="text" class="form-control" placeholder="الأيمن"
-                                            id="inputPlateRight">
-                                            <option selected disabled>-</option>
-                                            <option value="أ">أ</option>
-                                            <option value="ب">ب</option>
-                                            <option value="ت">ت</option>
-                                            <option value="ث">ث</option>
-                                            <option value="ج">ج</option>
-                                            <option value="ح">ح</option>
-                                            <option value="خ">خ</option>
-                                            <option value="د">د</option>
-                                            <option value="ذ">ذ</option>
-                                            <option value="ر">ر</option>
-                                            <option value="ز">ز</option>
-                                            <option value="س">س</option>
-                                            <option value="ش">ش</option>
-                                            <option value="ص">ص</option>
-                                            <option value="ض">ض</option>
-                                            <option value="ط">ط</option>
-                                            <option value="ظ">ظ</option>
-                                            <option value="ع">ع</option>
-                                            <option value="غ">غ</option>
-                                            <option value="ف">ف</option>
-                                            <option value="ق">ق</option>
-                                            <option value="ك">ك</option>
-                                            <option value="ل">ل</option>
-                                            <option value="م">م</option>
-                                            <option value="ن">ن</option>
-                                            <option value="ه">ه</option>
-                                            <option value="و">و</option>
-                                            <option value="ي">ي</option>
-                                        </select>
-                                    </div>
-                                    <!-- End of rightPart letters -->
-                                    <!-- start of middlePart letters -->
-                                    <div class="form-group col-md-1 mt-3">
-                                        <label for="middlePart" class="sr-only"> الأوسط</label>
-                                        <select type="text" class="form-control" id="inputPlateMiddle"
-                                            placeholder="الأوسط">
-                                            <option selected disabled>-</option>
-                                            <option value="أ">أ</option>
-                                            <option value="ب">ب</option>
-                                            <option value="ت">ت</option>
-                                            <option value="ث">ث</option>
-                                            <option value="ج">ج</option>
-                                            <option value="ح">ح</option>
-                                            <option value="خ">خ</option>
-                                            <option value="د">د</option>
-                                            <option value="ذ">ذ</option>
-                                            <option value="ر">ر</option>
-                                            <option value="ز">ز</option>
-                                            <option value="س">س</option>
-                                            <option value="ش">ش</option>
-                                            <option value="ص">ص</option>
-                                            <option value="ض">ض</option>
-                                            <option value="ط">ط</option>
-                                            <option value="ظ">ظ</option>
-                                            <option value="ع">ع</option>
-                                            <option value="غ">غ</option>
-                                            <option value="ف">ف</option>
-                                            <option value="ق">ق</option>
-                                            <option value="ك">ك</option>
-                                            <option value="ل">ل</option>
-                                            <option value="م">م</option>
-                                            <option value="ن">ن</option>
-                                            <option value="ه">ه</option>
-                                            <option value="و">و</option>
-                                            <option value="ي">ي</option>
-                                        </select>
-                                    </div>
-                                    <!-- end of middlePart letters -->
 
-                                    <!-- start of leftPart letters -->
-                                    <div class="form-group col-md-1 mt-3">
-                                        <label for="leftPart" class="sr-only"> الأيسر</label>
-                                        <select type="text" class="form-control" id="inputPlateLeft"
-                                            placeholder="الأيسر">
-                                            <option selected disabled>-</option>
-                                            <option value="أ">أ</option>
-                                            <option value="ب">ب</option>
-                                            <option value="ت">ت</option>
-                                            <option value="ث">ث</option>
-                                            <option value="ج">ج</option>
-                                            <option value="ح">ح</option>
-                                            <option value="خ">خ</option>
-                                            <option value="د">د</option>
-                                            <option value="ذ">ذ</option>
-                                            <option value="ر">ر</option>
-                                            <option value="ز">ز</option>
-                                            <option value="س">س</option>
-                                            <option value="ش">ش</option>
-                                            <option value="ص">ص</option>
-                                            <option value="ض">ض</option>
-                                            <option value="ط">ط</option>
-                                            <option value="ظ">ظ</option>
-                                            <option value="ع">ع</option>
-                                            <option value="غ">غ</option>
-                                            <option value="ف">ف</option>
-                                            <option value="ق">ق</option>
-                                            <option value="ك">ك</option>
-                                            <option value="ل">ل</option>
-                                            <option value="م">م</option>
-                                            <option value="ن">ن</option>
-                                            <option value="ه">ه</option>
-                                            <option value="و">و</option>
-                                            <option value="ي">ي</option>
-                                        </select>
-                                    </div>
-                                    <!-- end of leftPart letters -->
+                                    <!-- Function to generate options for the dropdown -->
+                                    <script>
+                                        function generateOptions(partId) {
+                                            var dropdownOptions = "<option selected disabled>-</option>";
+                                            var letters = ["أ", "ب", "ت", "ث", "ج", "ح", "خ", "د", "ذ", "ر", "ز", "س", "ش", "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ك", "ل", "م", "ن", "ه", "و", "ي"];
 
-                                    <!-- start of number letters -->
+                                            letters.forEach(function (letter) {
+                                                dropdownOptions += `<option value="${letter}">${letter}</option>`;
+                                            });
+
+                                            document.write(`
+                                                <div class="form-group col-md-1 mt-3">
+                                                    <label for="inputPlate${partId}" class="sr-only">${partId}</label>
+                                                    <select type="text" class="form-control" placeholder="${partId}" id="inputPlate${partId}">
+                                                        ${dropdownOptions}
+                                                    </select>
+                                                </div>
+                                            `);
+                                        }
+
+                                        // Generate options for each plate part
+                                        generateOptions("Right");
+                                        generateOptions("Middle");
+                                        generateOptions("Left");
+                                    </script>
+
+                                    <!-- Number input -->
                                     <div class="form-group col-md-3 mt-3">
                                         <label for="number" class="sr-only">رقم اللوحة</label>
                                         <input type="text" class="form-control" id="inputPlatenumber"
                                             placeholder="رقم اللوحة" style="width: 312px;">
                                     </div>
-                                    <!-- end of number letters -->
-
                                 </div>
                             </div>
-
-
-
-
                         </div>
+                        <!-- End of alphapetic options in dropdown menue -->
 
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
@@ -764,6 +657,7 @@ otp style
                             </div>
 
                         </div>
+
 
                         <!-- Form Row        -->
                         <div class="row gx-3 mb-3">
