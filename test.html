@@ -585,20 +585,20 @@ otp style
 
                         <!-- start of alphapetic options in dropdown menue -->
                         <div class="row gx-3 mb-3">
-                            <div class="col-md-6">
+                            
                                 <div class="row mt-3">
-                                    <label style="font-size: larger;margin-bottom: 0;"> لوحة المركبة</label>
-
+                                    <label style="font-size: larger;"> لوحة المركبة</label>
+                        
                                     <!-- Function to generate options for the dropdown -->
                                     <script>
                                         function generateOptions(partId) {
                                             var dropdownOptions = "<option selected disabled>-</option>";
                                             var letters = ["أ", "ب", "ت", "ث", "ج", "ح", "خ", "د", "ذ", "ر", "ز", "س", "ش", "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ك", "ل", "م", "ن", "ه", "و", "ي"];
-
-                                            letters.forEach(function (letter) {
+                                            
+                                            letters.forEach(function(letter) {
                                                 dropdownOptions += `<option value="${letter}">${letter}</option>`;
                                             });
-
+                        
                                             document.write(`
                                                 <div class="form-group col-md-1 mt-3">
                                                     <label for="inputPlate${partId}" class="sr-only">${partId}</label>
@@ -608,22 +608,23 @@ otp style
                                                 </div>
                                             `);
                                         }
-
+                        
                                         // Generate options for each plate part
                                         generateOptions("Right");
                                         generateOptions("Middle");
                                         generateOptions("Left");
                                     </script>
-
+                        
                                     <!-- Number input -->
                                     <div class="form-group col-md-3 mt-3">
                                         <label for="number" class="sr-only">رقم اللوحة</label>
-                                        <input type="text" class="form-control" id="inputPlatenumber"
-                                            placeholder="رقم اللوحة">
+                                        <input type="text" class="form-control" id="inputPlatenumber" placeholder="رقم اللوحة">
                                     </div>
                                 </div>
-                            </div>
+                           
                         </div>
+                        
+
                         <!-- End of alphapetic options in dropdown menue -->
 
                         <!-- Form Row-->
