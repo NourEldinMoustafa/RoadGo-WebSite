@@ -49,42 +49,42 @@ function codeverify() {
         document.getElementById("save-btn").style.display = 'block';
         document.getElementById("nxt-btn").style.display = 'block';
     }).catch(function () {
-        alert("wrong code ");
+        alert("wrong code fdsd");
     })
 
 }
 /*******end OTP CODE******/
 
-fetch('https://localhost:44302/api/City', {
-    method: 'GET'
-})
-    .then(response => response.json())
-    .then(data => {
-        fillSelectOptions(data, "inputCity");
-    })
-    .catch(error => console.error('Error fetching data:', error));
+// fetch('https://localhost:44302/api/City', {
+//     method: 'GET'
+// })
+//     .then(response => response.json())
+//     .then(data => {
+//         fillSelectOptions(data, "inputCity");
+//     })
+//     .catch(error => console.error('Error fetching data:', error));
 
 
 
 
-fetch('https://localhost:44302/api/VehicleModel', {
-    method: 'GET'
-})
-    .then(response => response.json())
-    .then(data => {
-        fillSelectOptions(data, "inputVehicleModel");
-    })
-    .catch(error => console.error('Error fetching data:', error));
+// fetch('https://localhost:44302/api/VehicleModel', {
+//     method: 'GET'
+// })
+//     .then(response => response.json())
+//     .then(data => {
+//         fillSelectOptions(data, "inputVehicleModel");
+//     })
+//     .catch(error => console.error('Error fetching data:', error));
 
 
-fetch('https://localhost:44302/api/VehicleColor', {
-    method: 'GET'
-})
-    .then(response => response.json())
-    .then(data => {
-        fillSelectOptions(data, "inputVehicleColor");
-    })
-    .catch(error => console.error('Error fetching data:', error));
+// fetch('https://localhost:44302/api/VehicleColor', {
+//     method: 'GET'
+// })
+//     .then(response => response.json())
+//     .then(data => {
+//         fillSelectOptions(data, "inputVehicleColor");
+//     })
+//     .catch(error => console.error('Error fetching data:', error));
 
 
 
