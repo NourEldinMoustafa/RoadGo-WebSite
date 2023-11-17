@@ -42,7 +42,7 @@ function phoneAuth() {
 }
 // function for code verify
 function codeverify() {
-    var code = document.getElementById('verificationcode').value;
+    var code = document.getElementById('inputOTP').value;
     coderesult.confirm(code).then(function () {
         return true;
     }).catch(function () {
