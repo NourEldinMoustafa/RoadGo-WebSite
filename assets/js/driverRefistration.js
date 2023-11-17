@@ -37,7 +37,7 @@ function phoneAuth() {
         // document.getElementById('verifier').style.display = 'block';
 
     }).catch(function (error) {
-        alert(error.message);
+        console.log( error.message);
     });
 }
 // function for code verify
