@@ -37,19 +37,23 @@ function phoneAuth() {
         // document.getElementById('verifier').style.display = 'block';
 
     }).catch(function (error) {
-        console.log( error.message);
+        console.log(error.message);
     });
 }
 // function for code verify
 function codeverify() {
     var code = document.getElementById('inputOTP').value;
+    var isValid;
     coderesult.confirm(code).then(function () {
-        return true;
+        document.getElementById("third-form").style.display = 'block';
+        document.getElementById("save-btn").style.display = 'block';
+        event.target.style.display = 'none';
     }).catch(function () {
-        return false;
+        alert("wrong code ");
     })
+
 }
-/*******end OTP CODE******/ 
+/*******end OTP CODE******/
 
 fetch('https://localhost:44302/api/City', {
     method: 'GET'
@@ -107,14 +111,9 @@ document.getElementById("nxt-btn").addEventListener('click', function (event) {
         alert('enter code');
         return;
     }
-    if (codeverify() === true) {
-        document.getElementById("third-form").style.display = 'block';
-        document.getElementById("save-btn").style.display = 'block';
-        event.target.style.display = 'none';
-    }
-    else {
-        alert("wrong code");
-    }
+    codeverify()
+
+
 })
 
 
