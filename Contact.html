@@ -190,9 +190,9 @@
             </div>
 
             <div class="my-3">
-              <div class="loading">Loading</div>
+              <div class="loading">جاري الإرسال</div>
               <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="sent-message">تم إرسال رسالتك, شكراً لك!</div>
             </div>
 
             <div class="text-center"><button class="submit" type="submit">إرسل الان</button></div>
@@ -219,7 +219,7 @@
           // Send email to user
           emailjs.sendForm('service_252fr8z', 'template_user', this)
             .then(function () {
-              alert('Email Sent!');
+              alert('تم إرسال رسالتك!');
             }, function (error) {
               alert('An error occurred, please try again later.');
             });
