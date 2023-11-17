@@ -107,7 +107,7 @@ document.getElementById("nxt-btn").addEventListener('click', function (event) {
         alert('enter code');
         return;
     }
-    if (codeverify()) {
+    if (codeverify() === true) {
         document.getElementById("third-form").style.display = 'block';
         document.getElementById("save-btn").style.display = 'block';
         event.target.style.display = 'none';
