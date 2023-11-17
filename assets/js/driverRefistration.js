@@ -36,16 +36,13 @@ function phoneAuth() {
         coderesult = confirmationResult;
         // document.getElementById('verifier').style.display = 'block';
 
-    }).then(response => response.josn())
-        .then(data => {
-            console.log(data);
-        }).catch(function (error) {
-            alert(error.message);
-        });
+    }).catch(function (error) {
+        alert(error.message);
+    });
 }
 // function for code verify
 function codeverify() {
-    var code = document.getElementById("inputOTP").value;
+    var code = document.getElementById('verificationcode').value;
     coderesult.confirm(code).then(function () {
         return true;
     }).catch(function () {
@@ -110,16 +107,14 @@ document.getElementById("nxt-btn").addEventListener('click', function (event) {
         alert('enter code');
         return;
     }
-     if(   codeverify()){
-
-         
-         document.getElementById("third-form").style.display = 'block';
-         document.getElementById("save-btn").style.display = 'block';
-         event.target.style.display = 'none';
-        }
-        else {
-            alert("wrong code");
-        }
+    if (codeverify()) {
+        document.getElementById("third-form").style.display = 'block';
+        document.getElementById("save-btn").style.display = 'block';
+        event.target.style.display = 'none';
+    }
+    else {
+        alert("wrong code");
+    }
 })
 
 
