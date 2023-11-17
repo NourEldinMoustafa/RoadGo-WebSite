@@ -10050,11 +10050,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\my-github\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+      "projectUniqueName": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoAPI\\RoadGoAPI.csproj",
       "projectName": "RoadGoAPI",
-      "projectPath": "E:\\my-github\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+      "projectPath": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoAPI\\RoadGoAPI.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "E:\\my-github\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\obj\\",
+      "outputPath": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
