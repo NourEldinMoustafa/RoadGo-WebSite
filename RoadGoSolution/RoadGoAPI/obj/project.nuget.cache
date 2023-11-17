@@ -186,12 +186,6 @@
   ],
   "logs": [
     {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file E:\\my-github\\RoadGo-WebSite\\RoadGoSolution\\RoadGoAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
-    {
       "code": "NU1202",
       "level": "Error",
       "message": "Package Microsoft.VisualStudio.Web.CodeGeneration.Design 6.0.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.VisualStudio.Web.CodeGeneration.Design 6.0.0 does not support any target frameworks.",
