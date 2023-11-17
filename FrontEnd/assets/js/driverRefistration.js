@@ -47,7 +47,7 @@ function codeverify() {
     coderesult.confirm(code).then(function () {
         document.getElementById("third-form").style.display = 'block';
         document.getElementById("save-btn").style.display = 'block';
-        event.target.style.display = 'none';
+        document.getElementById("nxt-btn").style.display = 'block';
     }).catch(function () {
         alert("wrong code ");
     })
