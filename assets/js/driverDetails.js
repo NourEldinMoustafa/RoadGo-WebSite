@@ -61,7 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
 document.getElementById("edit-btn").addEventListener("click", function (event) {
     event.preventDefault();
     event.target.style.display = 'none';
-    document.getElementById("save-btn").style.display = 'block';
+    document.getElementById("save-btn").style.display = 'inline';
+    document.getElementById("delete-btn").style.display = 'inline';
     var inputFields = document.querySelectorAll('input, select, password, textarea');
     inputFields.forEach(function (input) {
         input.disabled = false;
@@ -71,6 +72,26 @@ document.getElementById("edit-btn").addEventListener("click", function (event) {
 
 
 
+document.getElementById("delete-btn").addEventListener("click", function (event) {
+    event.preventDefault();
+
+
+
+    fetch(`https://localhost:44302/api/Driver/${localStorage.getItem("driverid")}`, {
+        method: 'DELETE'
+    })
+        .then(response => response.json())
+        .then(data => {
+
+            alert(`تم الحذف بنجاح`);
+
+            console.log(data);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+
+    location.href = 'dashboard.html';
+
+})
 
 document.getElementById("saving-form").addEventListener("submit", function (event) {
     event.preventDefault();
@@ -79,7 +100,7 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     // if(ok === true){
 
     // }
-alert(`تريد تعديل السائق`);
+    alert(`تريد تعديل السائق`);
 
     var formData = new FormData();
 
@@ -146,7 +167,7 @@ alert(`تريد تعديل السائق`);
     })
         .then(response => response.json())
         .then(data => {
-            
+
             alert(`تم التعديل بنجاح`);
 
             console.log(data);

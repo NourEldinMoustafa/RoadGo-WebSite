@@ -1,5 +1,58 @@
-// document.getElementById("third-form").style.display= 'none';
 
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    //   apiKey: "AIzaSyC3MIN64hy_oTQfQWUHl0lID-CJkIfci0M",
+    //   authDomain: "yt-project-a29f8.firebaseapp.com",
+    //   projectId: "yt-project-a29f8",
+    //   storageBucket: "yt-project-a29f8.appspot.com",
+    //   messagingSenderId: "159898773748",
+    //   appId: "1:159898773748:web:2985334de4f06ff73356a1",
+    //   measurementId: "G-DLWR9M5SJC"
+
+    apiKey: "AIzaSyDNiidcWIPliAOnROdZr5X1o_lWTTcD4C0",
+    authDomain: "road-go-test.firebaseapp.com",
+    projectId: "road-go-test",
+    storageBucket: "road-go-test.appspot.com",
+    messagingSenderId: "115144488342",
+    appId: "1:115144488342:web:77d0d0891a88afd33399b7",
+    measurementId: "G-N1F6SF2P2L"
+};
+firebase.initializeApp(firebaseConfig);
+
+
+render();
+function render() {
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    recaptchaVerifier.render();
+}
+// function for send message
+function phoneAuth() {
+    var number = document.getElementById('inputPhone').value;
+    console.log(number);
+    firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
+
+        window.confirmationResult = confirmationResult;
+        coderesult = confirmationResult;
+        // document.getElementById('verifier').style.display = 'block';
+
+    }).then(response => response.josn())
+        .then(data => {
+            console.log(data);
+        }).catch(function (error) {
+            alert(error.message);
+        });
+}
+// function for code verify
+function codeverify() {
+    var code = document.getElementById("inputOTP").value;
+    coderesult.confirm(code).then(function () {
+        return true;
+    }).catch(function () {
+        return false;
+    })
+}
+/*******end OTP CODE******/
 
 fetch('https://localhost:44302/api/City', {
     method: 'GET'
@@ -36,20 +89,39 @@ fetch('https://localhost:44302/api/VehicleColor', {
 
 
 
+document.getElementById("check-btn").addEventListener('click', function (event) {
+    event.preventDefault();
 
+    phoneAuth();
+
+    document.getElementById("inputOTP").style.display = 'block';
+    document.getElementById("inputOTPlabel").style.display = 'block';
+    document.getElementById("nxt-btn").style.display = 'block';
+    document.getElementById("check-btn").style.display = 'none';
+
+})
 
 
 
 
 document.getElementById("nxt-btn").addEventListener('click', function (event) {
     event.preventDefault();
-    OTPwindow = window.open('OTPValidation.html', '_blank', 'width=500,height=600');
+    if (document.getElementById("inputOTP").value.length === 0 || document.getElementById("inputOTP").value === null) {
+        alert('enter code');
+        return;
+    }
+     if(   codeverify()){
 
-
-
-    document.getElementById("third-form").style.display = 'block';
-    document.getElementById("save-btn").style.display = 'block';
+         
+         document.getElementById("third-form").style.display = 'block';
+         document.getElementById("save-btn").style.display = 'block';
+         event.target.style.display = 'none';
+        }
+        else {
+            alert("wrong code");
+        }
 })
+
 
 
 document.getElementById("saving-form").addEventListener("submit", function (event) {
@@ -114,12 +186,13 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     })
         .then(response => response.json())
         .then(data => {
-
+            alert('تم التسجيل بنجاح');
             console.log(data);
         })
         .catch(error => console.error('Error fetching data:', error));
 
 });
+
 
 
 
@@ -228,3 +301,7 @@ function showSelectedImage(event, imgid) {
     }
 }
 // functions end
+
+
+
+

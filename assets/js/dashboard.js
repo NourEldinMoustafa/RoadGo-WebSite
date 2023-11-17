@@ -57,11 +57,11 @@ fetch('https://localhost:44302/api/Driver', {
 
 
 
-  
-  document.getElementById('recipient-name').addEventListener('focus',function(){
-    document.getElementById('popup-validation-label').style.display = 'none';
 
-  });
+document.getElementById('recipient-name').addEventListener('focus', function () {
+  document.getElementById('popup-validation-label').style.display = 'none';
+
+});
 
 
 
@@ -137,11 +137,13 @@ function fillSelectOptions(data, id) {
 
   var Select = document.getElementById(id);
   Select.innerHTML = ``;
+  var icon = document.createElement('i');
+  icon.classList.add('bi');
+  icon.classList.add('bi-x');
   data.forEach(data => {
     var child = document.createElement("option")
     child.textContent = data['name'];
     child.value = data['id'];
-
     Select.appendChild(child);
   });
 }
