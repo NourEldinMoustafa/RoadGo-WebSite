@@ -49,7 +49,7 @@ function codeverify() {
         return false;
     })
 }
-/*******end OTP CODE******/
+/*******end OTP CODE******/ 
 
 fetch('https://localhost:44302/api/City', {
     method: 'GET'
