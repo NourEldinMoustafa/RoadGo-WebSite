@@ -1731,7 +1731,7 @@ body {
 #formImage,
 #VehicleBackImage,
 #VehicleFrontImage {
-  opacity: 50%;
+  /* opacity: 50%; */
 }
 
 /* end editdriver page */
@@ -1743,4 +1743,20 @@ body {
 /* Dashboard */
 .ms-3 {
   margin-right: 15px;
+}
+
+
+/* sWITCH button */
+.notify-text {
+  font-size: 14px;
+}
+
+.form-check-label {
+  font-size: 20px;
+
+}
+
+#flexSwitchCheckChecked {
+  height: 30px;
+  width: 55px;
 }
