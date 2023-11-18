@@ -77,104 +77,93 @@
 
 
         </nav> -->
-        <hr class="mt-0 mb-4">
 
-        <div class="row">
 
-            <div class="col ">
 
+
+        <div class="row m-5">
+
+            <div class="col">
+
+                <div class="card w-50" id="OTPverifier"  style="display: none;">
+                    <div class="card-header fs-3" >تاكيد رقم الجوال</div>
+                    <div class="card-body">
+                        <div class="row">
+                           
+                                <div class="otp_input  mb-1" >
+                                    <label class="fs-4 mb-1" for="inputOTP">ادخل الكود</label>
+                                    <input class="form-control" id="inputOTP" type="text" >
+                                  
+                                    
+                                    <a class="small" href="" id="send-again-btn"> لم يصلك كود؟ </a>
+                                </div>
+                            </div>
+
+
+                            <button class="btn btn-primary" id="check-btn" >تحقق</button>
+                        </div>
+                    </div>
+
+
+                </div>
 
 
 
 
                 <!-- Account details card-->
-                <div class="card mb-4">
+                <div class="card mb-4" id="form-card">
                     <div class="card-header" id="driver-data">بيانات السائق</div>
                     <div class="card-body">
                         <form id="saving-form" action="index.html">
 
                             <!-- Form Row-->
                             <div class="row gx-3 mb-3">
+
                                 <div class="col-xl-3">
                                     <!-- Profile picture card-->
                                     <div class="card mb-4 mb-xl-0">
-                                        <div class="card-header">الصورة الشخصية</div>
+                                        <div class="card-header ">الصورة الشخصية</div>
                                         <div class="card-body text-center">
                                             <!-- Profile picture image-->
-                                            <button type="button" id="personalPhotobtn"
+                                            <!-- <button type="button" id="personalPhotobtn"
                                                 class="btn btn-link btn-sm btn-rounded" button type="button"
                                                 data-bs-toggle="modal" data-bs-target="#exampleModal"
                                                 data-custom-property="1" onclick="changeImgSrc(this)">
+                                            </button> -->
 
-                                                <img class="img-account-profile img-fluid  mb-2"
-                                                    src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
-                                                    id="personalPhoto">
-                                            </button>
+                                            <img class="img-account-profile img-fluid  mb-2"
+                                                src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                                                id="personalPhoto">
 
                                             <!-- Profile picture help block-->
-                                            <div class="small font-italic text-muted mb-4">JPG or PNG files should not
-                                                exceed 5 MB</div>
+                                            <div class="small font-italic text-muted mb-4">
+                                                JPG or PNG files should not exceed 5 MB
+                                            </div>
                                             <!-- Profile picture upload button-->
-                                            <input class="" id="personalPhotoFile" type="file" placeholder="تغير الصورة"
-                                                accept="image/*"
-                                                onchange="showSelectedImage(event, 'personalPhoto')"></button>
+                                            <input alt="##"  class="" id="personalPhotoFile" type="file" placeholder="تغير الصورة"
+                                                accept="image/*" onchange="showSelectedImage(event, 'personalPhoto')" >
+
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Form Group (first name)-->
-                                <div class="col-md-4">
-                                    <label class="small mb-1" for="inputFirstName">الإسم الأول</label>
-                                    <input class="form-control" id="inputFirstName" type="text"
-                                        placeholder="الإسم الأول">
-                                    <label class="small mb-1" for="inputPhone">رقم الجوال</label>
-                                    <input class="form-control" id="inputPhone" type="text" placeholder="رقم الجوال">
-                                    <div id="recaptcha-container"></div>
-
-                                    <label class="small mb-1" for="inputOTP"id="inputOTPlabel"  style="display: none;">ادخل الكود</label>
-                                    <input class="form-control" id="inputOTP" type="text" style="display: none;">
-
-                                </div>
-                                <div class="col-md-4">
-
-                                    <label class="small mb-1" for="inputLastName">اسم العائلة </label>
-                                    <input class="form-control" id="inputLastName" type="text"
-                                        placeholder="اسم العائلة">
-                                        <label class="small mb-1" for="inputPassword">كلمة المرور </label>
-                                    <input class="form-control" id="inputPassword" type="password"
-                                        placeholder="كلمة المرور">
-
-                                </div>
 
 
 
-                            <!-- Form Row        -->
+                                <div class="col-9">
+                                    <div class="row">
+                                        <div class="col-6">
+
+                                            <label class="small mb-1" for="inputFirstName">الإسم الأول</label>
+                                            <input alt="##" class="form-control" id="inputFirstName" type="text"
+                                                placeholder="الإسم الأول">
+                                            <label class="small mb-1" for="inputPhone">رقم الجوال</label>
+                                            <input alt="##" class="form-control" id="inputPhone" type="text"
+                                                placeholder="رقم الجوال">
+                                                
 
 
-                            <hr class="mb-5 ">
-                            <button class="btn btn-primary" id="check-btn">تحقق</button>
-                            <button class="btn btn-primary" id="nxt-btn" style="display: none;">التالي</button>
-                            <!---=================متطلبات هيئة النقل============-->
-                            <div class="card mb-4" id="third-form" style="display: none;">
-                                <div id="goto" class="card-header">متطلبات التسجيل</div>
-                                <div class="card-body">
-
-                                    <!-- Form Row-->
-                                    <div class="row gx-3 mb-3">
-                                        <!-- Form Group (first name)-->
-                                        <div>
-                                            <label class="small mb-1" for="inputNationalId">رقم الهوية</label>
-                                            <input class="form-control" id="inputNationalId" type="text"
-                                                placeholder="رقم الهوية">
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Form Row-->
-                                    <div class="row gx-3 mb-3">
-                                        <!-- Form Group (start city)-->
-                                        <div class="col-md-6">
                                             <label class="small mb-1" for="inputCity">المدينة</label>
-                                            <select class="form-control" id="inputCity" type="text"
+                                            <select alt="##" class="form-control" id="inputCity" type="text"
                                                 placeholder="اختر مدينتك">
                                                 <!-- Add the cities dynamically here -->
                                                 <option selected disabled>اختر مدينتك</option>
@@ -185,314 +174,333 @@
 
                                             </select>
                                         </div>
-                                        <!-- Form Group (end city)-->
+                                        <div class="col-6">
 
+                                            <label class="small mb-1" for="inputLastName">اسم العائلة </label>
+                                            <input alt="##" class="form-control" id="inputLastName" type="text"
+                                                placeholder="اسم العائلة">
 
-                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputPassword">كلمة المرور </label>
+                                            <input alt="##" class="form-control" id="inputPassword" type="password"
+                                                placeholder="كلمة المرور">
+
                                             <label class="small mb-1" for="inputGender">النوع</label>
-                                            <select class="form-control" id="inputGender" type="text"
+                                            <select alt="##" class="form-control" id="inputGender" type="text"
                                                 placeholder="اختر النوع">
                                                 <option value="" disabled selected>اختر النوع</option>
                                                 <option value="ذكر">ذكر</option>
                                                 <option value="أنثى">أنثى</option>
                                             </select>
+
                                         </div>
+
                                     </div>
 
-
-
-
-
-                                    <div class="row gx-3 mb-3">
+                                    <div class="row">
                                         <div class="col">
-                                            <div class="row mt-3">
-                                                <label style="font-size: larger;"> لوحة المركبة</label>
-                                                <!-- start of rightPart letters -->
-                                                <div class="form-group col-md-2 mt-3">
-                                                    <label for="rightPart" class="sr-only">الأيمن</label>
-                                                    <select type="text" class="form-control" placeholder="الأيمن"
-                                                        id="inputPlateRight">
-                                                        <option selected disabled>الأيمن</option>
-                                                        <option value="أ">أ</option>
-                                                        <option value="ب">ب</option>
-                                                        <option value="ت">ت</option>
-                                                        <option value="ث">ث</option>
-                                                        <option value="ج">ج</option>
-                                                        <option value="ح">ح</option>
-                                                        <option value="خ">خ</option>
-                                                        <option value="د">د</option>
-                                                        <option value="ذ">ذ</option>
-                                                        <option value="ر">ر</option>
-                                                        <option value="ز">ز</option>
-                                                        <option value="س">س</option>
-                                                        <option value="ش">ش</option>
-                                                        <option value="ص">ص</option>
-                                                        <option value="ض">ض</option>
-                                                        <option value="ط">ط</option>
-                                                        <option value="ظ">ظ</option>
-                                                        <option value="ع">ع</option>
-                                                        <option value="غ">غ</option>
-                                                        <option value="ف">ف</option>
-                                                        <option value="ق">ق</option>
-                                                        <option value="ك">ك</option>
-                                                        <option value="ل">ل</option>
-                                                        <option value="م">م</option>
-                                                        <option value="ن">ن</option>
-                                                        <option value="ه">ه</option>
-                                                        <option value="و">و</option>
-                                                        <option value="ي">ي</option>
-                                                    </select>
-                                                </div>
-                                                <!-- End of rightPart letters -->
-                                                <!-- start of middlePart letters -->
-                                                <div class="form-group col-md-2 mt-3">
-                                                    <label for="middlePart" class="sr-only"> الأوسط</label>
-                                                    <select type="text" class="form-control" id="inputPlateMiddle"
-                                                        placeholder="الأوسط">
-                                                        <option selected disabled>الأوسط</option>
-                                                        <option value="أ">أ</option>
-                                                        <option value="ب">ب</option>
-                                                        <option value="ت">ت</option>
-                                                        <option value="ث">ث</option>
-                                                        <option value="ج">ج</option>
-                                                        <option value="ح">ح</option>
-                                                        <option value="خ">خ</option>
-                                                        <option value="د">د</option>
-                                                        <option value="ذ">ذ</option>
-                                                        <option value="ر">ر</option>
-                                                        <option value="ز">ز</option>
-                                                        <option value="س">س</option>
-                                                        <option value="ش">ش</option>
-                                                        <option value="ص">ص</option>
-                                                        <option value="ض">ض</option>
-                                                        <option value="ط">ط</option>
-                                                        <option value="ظ">ظ</option>
-                                                        <option value="ع">ع</option>
-                                                        <option value="غ">غ</option>
-                                                        <option value="ف">ف</option>
-                                                        <option value="ق">ق</option>
-                                                        <option value="ك">ك</option>
-                                                        <option value="ل">ل</option>
-                                                        <option value="م">م</option>
-                                                        <option value="ن">ن</option>
-                                                        <option value="ه">ه</option>
-                                                        <option value="و">و</option>
-                                                        <option value="ي">ي</option>
-                                                    </select>
-                                                </div>
-                                                <!-- end of middlePart letters -->
 
-                                                <!-- start of leftPart letters -->
-                                                <div class="form-group col-md-2 mt-3">
-                                                    <label for="leftPart" class="sr-only"> الأيسر</label>
-                                                    <select type="text" class="form-control" id="inputPlateLeft"
-                                                        placeholder="الأيسر">
-                                                        <option selected disabled>الأيسر</option>
-                                                        <option value="أ">أ</option>
-                                                        <option value="ب">ب</option>
-                                                        <option value="ت">ت</option>
-                                                        <option value="ث">ث</option>
-                                                        <option value="ج">ج</option>
-                                                        <option value="ح">ح</option>
-                                                        <option value="خ">خ</option>
-                                                        <option value="د">د</option>
-                                                        <option value="ذ">ذ</option>
-                                                        <option value="ر">ر</option>
-                                                        <option value="ز">ز</option>
-                                                        <option value="س">س</option>
-                                                        <option value="ش">ش</option>
-                                                        <option value="ص">ص</option>
-                                                        <option value="ض">ض</option>
-                                                        <option value="ط">ط</option>
-                                                        <option value="ظ">ظ</option>
-                                                        <option value="ع">ع</option>
-                                                        <option value="غ">غ</option>
-                                                        <option value="ف">ف</option>
-                                                        <option value="ق">ق</option>
-                                                        <option value="ك">ك</option>
-                                                        <option value="ل">ل</option>
-                                                        <option value="م">م</option>
-                                                        <option value="ن">ن</option>
-                                                        <option value="ه">ه</option>
-                                                        <option value="و">و</option>
-                                                        <option value="ي">ي</option>
-                                                    </select>
-                                                </div>
-                                                <!-- end of leftPart letters -->
-
-                                                <!-- start of number letters -->
-                                                <div class="form-group col-md-6 mt-3">
-                                                    <label for="number" class="sr-only">رقم اللوحة</label>
-                                                    <input type="text" class="form-control" id="inputPlatenumber"
-                                                        placeholder="رقم اللوحة">
-                                                </div>
-                                                <!-- end of number letters -->
-
-                                            </div>
+                                            <label class="small mb-1" for="inputNationalId">رقم الهوية</label>
+                                            <input alt="##" class="form-control" id="inputNationalId" type="text"
+                                                placeholder="رقم الهوية">
                                         </div>
-
-
-
-
                                     </div>
+                                </div>
 
 
-                                    <div class="row gx-3 mb-3 mt-2">
-                                        <div class="col-md-6">
-                                            <!-- Profile picture card-->
-                                            <div class="card mb-4 mb-xl-0">
-                                                <div class="card-header">صورة الإستمارة</div>
-                                                <div class="card-body text-center">
-                                                    <!-- Profile picture image-->
-                                                    <button type="button" id="formImagebtn" button type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                        class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                                        onclick="changeImgSrc(this)">
-        
-                                                        <img class="img-fluid mb-3" src="./assets/form2.png" alt=""
-                                                            id="formImage">
-                                                    </button>
-                                                    <!-- Profile picture help block-->
-                                                    <div class="small font-italic text-muted mb-4">JPG or PNG files should not
-                                                        exceed 5 MB</div>
-                                                    <!-- Profile picture upload button-->
-                                                    <input class="" id="formImageFile" type="file" placeholder="تغير الصورة"
-                                                        accept="image/*"
-                                                        onchange="showSelectedImage(event, 'formImage')"></button>
-                                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <!-- Profile picture card-->
+                                        <div class="card mb-4 mb-xl-0">
+                                            <div class="card-header">صورة الإستمارة</div>
+                                            <div class="card-body text-center">
+                                                <!-- Profile picture image-->
+                                                <button type="button" id="formImagebtn" button type="button"
+                                                    data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                    class="btn btn-link btn-sm btn-rounded" data-custom-property=""
+                                                    onclick="changeImgSrc(this)">
+
+                                                    <img class="img-fluid mb-3" src="./assets/form2.png" alt=""
+                                                        id="formImage">
+                                                </button>
+                                                <!-- Profile picture help block-->
+                                                <div class="small font-italic text-muted mb-4">JPG or PNG files
+                                                    should
+                                                    not
+                                                    exceed 5 MB</div>
+                                                <!-- Profile picture upload button-->
+                                                <input alt="##" class="" id="formImageFile" type="file" placeholder="تغير الصورة"
+                                                    accept="image/*"
+                                                    onchange="showSelectedImage(event, 'formImage')"></button>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <!-- Profile picture card-->
-                                            <div class="card mb-4 mb-xl-0">
-                                                <div class="card-header"> صورة الرخصة</div>
-                                                <div class="card-body text-center">
-                                                    <!-- Profile picture image-->
-                                                    <button type="button" id="drivingLicenseImagebtn" button type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                        class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                                        onclick="changeImgSrc(this)">
-        
-                                                        <img class="img-fluid  mb-3" src="./assets/driving-license-icon1.png"
-                                                            alt="" id="drivingLicenseImage">
-                                                    </button>
-        
-                                                    <!-- Profile picture help block-->
-                                                    <div class="small font-italic text-muted mb-4">JPG or PNG files should not
-                                                        exceed 5 MB</div>
-                                                    <!-- Profile picture upload button-->
-                                                    <input class="" id="drivingLicenseImageFile" type="file"
-                                                        placeholder="تغير الصورة" accept="image/*"
-                                                        onchange="showSelectedImage(event, 'drivingLicenseImage')">
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-        
-        
-        
-        
-                                    </div>
-                                    <!-- Form Row-->
-                                    <div class="row gx-3 mb-3">
-                                        <!-- Form Group (last name)-->
-
-                                        <div class="col-md-6">
-                                            <label class="small mb-1" for="inputVehicleModel">موديل المركبة </label>
-                                            <select class="form-control" id="inputVehicleModel" type="text"
-                                                placeholder="اختر موديل">
-                                                <!-- Add the cities dynamically here -->
-                                                <option selected disabled>اختر موديل</option>
-
-                                                <option value="BMW">2017</option>
-
-
-                                            </select>
-                                        </div>
-                                        <!-- Form Group (last name)-->
-                                        <div class="form-group col-md-6 ">
-                                            <label for="inputVehicleColor" class="sr-only">لون المركبة</label>
-                                            <input type="text" class="form-control" id="inputVehicleColor"
-                                                placeholder="اللون">
                                         </div>
                                     </div>
 
-                                    <!-- Form Row        -->
-                                    <div class="row gx-3 mb-3">
-                                        <div class="col-md-6">
-                                            <!-- Profile picture card-->
-                                            <div class="card mb-4 mb-xl-0">
-                                                <div class="card-header">صورة المركبة من الأمام</div>
-                                                <div class="card-body text-center">
-                                                    <!-- Profile picture image-->
-                                                    <button type="button" id="VehicleFrontImagebtn" button type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                        class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                                        onclick="changeImgSrc(this)">
+                                    <div class="col-md-6">
+                                        <!-- Profile picture card-->
+                                        <div class="card mb-4 mb-xl-0">
+                                            <div class="card-header"> صورة الرخصة</div>
+                                            <div class="card-body text-center">
+                                                <!-- Profile picture image-->
+                                                <button type="button" id="drivingLicenseImagebtn" button type="button"
+                                                    data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                    class="btn btn-link btn-sm btn-rounded" data-custom-property=""
+                                                    onclick="changeImgSrc(this)">
 
-                                                        <img class="img-fluid mb-2" src="./assets/carBack.png" alt=""
-                                                            id="VehicleFrontImage">
-                                                    </button>
-                                                    <!-- Profile picture help block-->
-                                                    <div class="small font-italic text-muted mb-4">JPG or PNG no
-                                                        larger
-                                                        than 5
-                                                        MB</div>
-                                                    <!-- Profile picture upload button-->
-                                                    <input class="" id="VehicleFrontImageFile" type="file"
-                                                        placeholder="تغير الصورة" accept="image/*"
-                                                        onchange="showSelectedImage(event, 'VehicleFrontImage')"></button>
-                                                </div>
+                                                    <img class="img-fluid  mb-3"
+                                                        src="./assets/driving-license-icon1.png" alt=""
+                                                        id="drivingLicenseImage">
+                                                </button>
+
+                                                <!-- Profile picture help block-->
+                                                <div class="small font-italic text-muted mb-4">JPG or PNG files
+                                                    should
+                                                    not
+                                                    exceed 5 MB</div>
+                                                <!-- Profile picture upload button-->
+                                                <input alt="##" class="" id="drivingLicenseImageFile" type="file"
+                                                    placeholder="تغير الصورة" accept="image/*"
+                                                    onchange="showSelectedImage(event, 'drivingLicenseImage')">
+                                                </button>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <!-- Profile picture card-->
-                                            <div class="card mb-4 mb-xl-0">
-                                                <div class="card-header">صورة المركبة من الخلف</div>
-                                                <div class="card-body text-center">
-                                                    <!-- Profile picture image-->
-                                                    <button type="button" id="VehicleBackImagebtn" button type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                        class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                                        onclick="changeImgSrc(this)">
+                                    </div>
+                                </div>
 
-                                                        <img class="img-fluid  mb-2" src="./assets/carFront.png" alt=""
-                                                            id="VehicleBackImage">
+                                <div class="row gx-3 mb-3">
+                                    <div class="col">
+                                        <div class="row mt-3">
+                                            <label style="font-size: larger;"> لوحة المركبة</label>
+                                            <!-- start of rightPart letters -->
+                                            <div class="form-group col-md-2 mt-3">
+                                                <label for="rightPart" class="sr-only">الأيمن</label>
+                                                <select alt="##"  type="text" class="form-control" placeholder="الأيمن"
+                                                    id="inputPlateRight">
+                                                    <option selected disabled>الأيمن</option>
+                                                    <option value="أ">أ</option>
+                                                    <option value="ب">ب</option>
+                                                    <option value="ت">ت</option>
+                                                    <option value="ث">ث</option>
+                                                    <option value="ج">ج</option>
+                                                    <option value="ح">ح</option>
+                                                    <option value="خ">خ</option>
+                                                    <option value="د">د</option>
+                                                    <option value="ذ">ذ</option>
+                                                    <option value="ر">ر</option>
+                                                    <option value="ز">ز</option>
+                                                    <option value="س">س</option>
+                                                    <option value="ش">ش</option>
+                                                    <option value="ص">ص</option>
+                                                    <option value="ض">ض</option>
+                                                    <option value="ط">ط</option>
+                                                    <option value="ظ">ظ</option>
+                                                    <option value="ع">ع</option>
+                                                    <option value="غ">غ</option>
+                                                    <option value="ف">ف</option>
+                                                    <option value="ق">ق</option>
+                                                    <option value="ك">ك</option>
+                                                    <option value="ل">ل</option>
+                                                    <option value="م">م</option>
+                                                    <option value="ن">ن</option>
+                                                    <option value="ه">ه</option>
+                                                    <option value="و">و</option>
+                                                    <option value="ي">ي</option>
+                                                </select>
+                                            </div>
+                                            <!-- End of rightPart letters -->
+                                            <!-- start of middlePart letters -->
+                                            <div class="form-group col-md-2 mt-3">
+                                                <label for="middlePart" class="sr-only"> الأوسط</label>
+                                                <select alt="##" type="text" class="form-control" id="inputPlateMiddle"
+                                                    placeholder="الأوسط">
+                                                    <option selected disabled>الأوسط</option>
+                                                    <option value="أ">أ</option>
+                                                    <option value="ب">ب</option>
+                                                    <option value="ت">ت</option>
+                                                    <option value="ث">ث</option>
+                                                    <option value="ج">ج</option>
+                                                    <option value="ح">ح</option>
+                                                    <option value="خ">خ</option>
+                                                    <option value="د">د</option>
+                                                    <option value="ذ">ذ</option>
+                                                    <option value="ر">ر</option>
+                                                    <option value="ز">ز</option>
+                                                    <option value="س">س</option>
+                                                    <option value="ش">ش</option>
+                                                    <option value="ص">ص</option>
+                                                    <option value="ض">ض</option>
+                                                    <option value="ط">ط</option>
+                                                    <option value="ظ">ظ</option>
+                                                    <option value="ع">ع</option>
+                                                    <option value="غ">غ</option>
+                                                    <option value="ف">ف</option>
+                                                    <option value="ق">ق</option>
+                                                    <option value="ك">ك</option>
+                                                    <option value="ل">ل</option>
+                                                    <option value="م">م</option>
+                                                    <option value="ن">ن</option>
+                                                    <option value="ه">ه</option>
+                                                    <option value="و">و</option>
+                                                    <option value="ي">ي</option>
+                                                </select>
+                                            </div>
+                                            <!-- end of middlePart letters -->
 
-                                                    </button>
+                                            <!-- start of leftPart letters -->
+                                            <div class="form-group col-md-2 mt-3">
+                                                <label for="leftPart" class="sr-only"> الأيسر</label>
+                                                <select alt="##" type="text" class="form-control" id="inputPlateLeft"
+                                                    placeholder="الأيسر">
+                                                    <option selected disabled>الأيسر</option>
+                                                    <option value="أ">أ</option>
+                                                    <option value="ب">ب</option>
+                                                    <option value="ت">ت</option>
+                                                    <option value="ث">ث</option>
+                                                    <option value="ج">ج</option>
+                                                    <option value="ح">ح</option>
+                                                    <option value="خ">خ</option>
+                                                    <option value="د">د</option>
+                                                    <option value="ذ">ذ</option>
+                                                    <option value="ر">ر</option>
+                                                    <option value="ز">ز</option>
+                                                    <option value="س">س</option>
+                                                    <option value="ش">ش</option>
+                                                    <option value="ص">ص</option>
+                                                    <option value="ض">ض</option>
+                                                    <option value="ط">ط</option>
+                                                    <option value="ظ">ظ</option>
+                                                    <option value="ع">ع</option>
+                                                    <option value="غ">غ</option>
+                                                    <option value="ف">ف</option>
+                                                    <option value="ق">ق</option>
+                                                    <option value="ك">ك</option>
+                                                    <option value="ل">ل</option>
+                                                    <option value="م">م</option>
+                                                    <option value="ن">ن</option>
+                                                    <option value="ه">ه</option>
+                                                    <option value="و">و</option>
+                                                    <option value="ي">ي</option>
+                                                </select>
+                                            </div>
+                                            <!-- end of leftPart letters -->
 
-                                                    <!-- Profile picture help block-->
-                                                    <div class="small font-italic text-muted mb-4">JPG or PNG no
-                                                        larger
-                                                        than 5
-                                                        MB</div>
-                                                    <!-- Profile picture upload button-->
-                                                    <input class="" id="VehicleBackImageFile" type="file"
-                                                        placeholder="تغير الصورة" accept="image/*"
-                                                        onchange="showSelectedImage(event, 'VehicleBackImage')">
-                                                    </button>
-                                                </div>
+                                            <!-- start of number letters -->
+                                            <div class="form-group col-md-6 mt-3">
+                                                <label for="number" class="sr-only">رقم اللوحة</label>
+                                                <input alt="##" type="text" class="form-control" id="inputPlatenumber"
+                                                    placeholder="رقم اللوحة">
+                                            </div>
+                                            <!-- end of number letters -->
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                                <div class="row gx-3 mb-3">
+                                    <!-- Form Group (last name)-->
+
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputVehicleModel">موديل المركبة </label>
+                                        <select alt="##" class="form-control" id="inputVehicleModel" type="text"
+                                            placeholder="اختر موديل">
+                                            <!-- Add the cities dynamically here -->
+                                            <option selected disabled>اختر موديل</option>
+
+                                            <option value="BMW">2017</option>
+
+
+                                        </select>
+                                    </div>
+                                    <!-- Form Group (last name)-->
+                                    <div class="form-group col-md-6 ">
+                                        <label for="inputVehicleColor" class="sr-only">لون المركبة</label>
+                                        <input alt="##" type="text" class="form-control" id="inputVehicleColor"
+                                            placeholder="اللون">
+                                    </div>
+                                </div>
+
+                                <!-- Form Row        -->
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <!-- Profile picture card-->
+                                        <div class="card mb-4 mb-xl-0">
+                                            <div class="card-header">صورة المركبة من الأمام</div>
+                                            <div class="card-body text-center">
+                                                <!-- Profile picture image-->
+                                                <button type="button" id="VehicleFrontImagebtn" button type="button"
+                                                    data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                    class="btn btn-link btn-sm btn-rounded" data-custom-property=""
+                                                    onclick="changeImgSrc(this)">
+
+                                                    <img class="img-fluid mb-2" src="./assets/carBack.png" alt=""
+                                                        id="VehicleFrontImage">
+                                                </button>
+                                                <!-- Profile picture help block-->
+                                                <div class="small font-italic text-muted mb-4">JPG or PNG no
+                                                    larger
+                                                    than 5
+                                                    MB</div>
+                                                <!-- Profile picture upload button-->
+                                                <input alt="##" class="" id="VehicleFrontImageFile" type="file"
+                                                    placeholder="تغير الصورة" accept="image/*"
+                                                    onchange="showSelectedImage(event, 'VehicleFrontImage')"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <!-- Profile picture card-->
+                                        <div class="card mb-4 mb-xl-0">
+                                            <div class="card-header">صورة المركبة من الخلف</div>
+                                            <div class="card-body text-center">
+                                                <!-- Profile picture image-->
+                                                <button type="button" id="VehicleBackImagebtn" button type="button"
+                                                    data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                    class="btn btn-link btn-sm btn-rounded" data-custom-property=""
+                                                    onclick="changeImgSrc(this)">
+
+                                                    <img class="img-fluid  mb-2" src="./assets/carFront.png" alt=""
+                                                        id="VehicleBackImage">
+
+                                                </button>
+
+                                                <!-- Profile picture help block-->
+                                                <div class="small font-italic text-muted mb-4">JPG or PNG no
+                                                    larger
+                                                    than 5
+                                                    MB</div>
+                                                <!-- Profile picture upload button-->
+                                                <input alt="##" class="" id="VehicleBackImageFile" type="file"
+                                                    placeholder="تغير الصورة" accept="image/*"
+                                                    onchange="showSelectedImage(event, 'VehicleBackImage')">
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!---=================متطلبات هيئة النقل============-->
-
-                            <!-- Save changes button-->
-                            <button class="btn btn-primary" type="submit" id="save-btn"
-                                style="display: none;">تسجيل</button>
-
+                            <div id="recaptcha-container"></div>
+                            <button class="btn btn-primary" type="submit" id="save-btn">تسجيل</button>
                         </form>
+
                     </div>
                 </div>
 
 
 
 
-
             </div>
         </div>
+
+
+
+
+
+    </div>
+    </div>
     </div>
     <!-- end Bootstrap form -->
 
@@ -553,10 +561,10 @@
                 <div class="col-md-7   footer-img" dir="ltr">
 
                     <a href="https://apps.apple.com">
-                        <img class="footer-svg" src="/assets/app-store.png" alt="">
+                        <img class="footer-svg" src="assets/app-store.png" alt="">
                     </a>
                     <a href="https://play.google.com">
-                        <img class="footer-svg" src="/assets/play-store.png" alt="">
+                        <img class="footer-svg" src="assets/play-store.png" alt="">
                     </a>
                 </div>
             </div>
@@ -605,7 +613,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-auth-compat.js"></script>
     <!-- <script src="assets/js/OTP.js"></script> -->
-    <script src="assets/js/driverRefistration.js"></script>
+    <script src="assets/js/driverRegistration.js"></script>
 </body>
 
 </html>

@@ -37,17 +37,31 @@ function phoneAuth() {
         // document.getElementById('verifier').style.display = 'block';
 
     }).catch(function (error) {
-        console.log(error.message);
+        alert(error.message);
     });
 }
 // function for code verify
 function codeverify() {
     var code = document.getElementById('inputOTP').value;
-    var isValid;
+
+
+
+    alert(`تم التحقيق ${localStorage.getItem('driverRegId')}`);
     coderesult.confirm(code).then(function () {
-        document.getElementById("third-form").style.display = 'block';
-        document.getElementById("save-btn").style.display = 'block';
-        document.getElementById("nxt-btn").style.display = 'block';
+        var formData = new FormData();
+        formData.append('isTrusted', true);
+        
+        fetch(`https://localhost:44302/api/Driver/${localStorage.getItem('driverRegId')}`, {
+            method: 'PUT',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+
+        location.href = 'index.html';
     }).catch(function () {
         alert("wrong code fdsd");
     })
@@ -55,36 +69,27 @@ function codeverify() {
 }
 /*******end OTP CODE******/
 
-// fetch('https://localhost:44302/api/City', {
-//     method: 'GET'
-// })
-//     .then(response => response.json())
-//     .then(data => {
-//         fillSelectOptions(data, "inputCity");
-//     })
-//     .catch(error => console.error('Error fetching data:', error));
+fetch('https://localhost:44302/api/City', {
+    method: 'GET'
+})
+    .then(response => response.json())
+    .then(data => {
+        fillSelectOptions(data, "inputCity");
+    })
+    .catch(error => console.error('Error fetching data:', error));
 
 
 
 
-// fetch('https://localhost:44302/api/VehicleModel', {
-//     method: 'GET'
-// })
-//     .then(response => response.json())
-//     .then(data => {
-//         fillSelectOptions(data, "inputVehicleModel");
-//     })
-//     .catch(error => console.error('Error fetching data:', error));
-
-
-// fetch('https://localhost:44302/api/VehicleColor', {
-//     method: 'GET'
-// })
-//     .then(response => response.json())
-//     .then(data => {
-//         fillSelectOptions(data, "inputVehicleColor");
-//     })
-//     .catch(error => console.error('Error fetching data:', error));
+fetch('https://localhost:44302/api/VehicleModel', {
+    method: 'GET'
+})
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        fillSelectOptions(data, "inputVehicleModel");
+    })
+    .catch(error => console.error('Error fetching data:', error));
 
 
 
@@ -93,30 +98,30 @@ function codeverify() {
 document.getElementById("check-btn").addEventListener('click', function (event) {
     event.preventDefault();
 
-    phoneAuth();
 
-    document.getElementById("inputOTP").style.display = 'block';
-    document.getElementById("inputOTPlabel").style.display = 'block';
-    document.getElementById("nxt-btn").style.display = 'block';
-    document.getElementById("check-btn").style.display = 'none';
+    codeverify();
 
-})
+    document.getElementById('OTPverifier').style.display = 'block';
+    document.getElementById('Phone-con').style.display = 'none';
+});
 
 
 
 
-document.getElementById("nxt-btn").addEventListener('click', function (event) {
-    event.preventDefault();
-    if (document.getElementById("inputOTP").value.length === 0 || document.getElementById("inputOTP").value === null) {
-        alert('enter code');
-        return;
-    }
-    codeverify()
 
 
-})
+// document.getElementById("nxt-btn").addEventListener('click', function (event) {
+//     event.preventDefault();
+//     if (document.getElementById("inputOTP").value.length === 0 || document.getElementById("inputOTP").value === null) {
+//         alert('enter code');
+//         return;
+//     }
+//     codeverify()
 
 
+// })
+
+var formData = new FormData();
 
 document.getElementById("saving-form").addEventListener("submit", function (event) {
     event.preventDefault();
@@ -151,8 +156,6 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     console.log(Gender)
 
     // console.log(CityId);
-    var formData = new FormData();
-
 
     formData.append("firstName", firstName)
     formData.append("lastName", lastName)
@@ -165,13 +168,14 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     formData.append("gender", Gender)
     formData.append("cityId", CityId)
     formData.append("vehicleModelId", VehicleModel)
-    formData.append("vehicleColorId", VehicleColor)
+    formData.append("vehicleColor", VehicleColor)
     formData.append("vehiclePlateRight", PlateRight)
     formData.append("vehiclePlateMiddle", PlateMiddle)
     formData.append("vehiclePlateLeft", PlateLeft)
     formData.append("vehiclePlateNumber", Platenumber)
     formData.append("vehicleFrontImage", VehicleFrontImage)
     formData.append("vehicleBackImage", VehicleBackImage)
+    formData.append("isTrusted", false);
 
 
     fetch('https://localhost:44302/api/Driver', {
@@ -180,15 +184,29 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     })
         .then(response => response.json())
         .then(data => {
-            alert('تم التسجيل بنجاح');
-            console.log(data);
+            console.log(data)
+            localStorage.setItem('driverRegId', data['id']);
         })
         .catch(error => console.error('Error fetching data:', error));
+
+
+    console.log('ok ok');
+    phoneAuth();
+    setTimeout(() => {
+
+        document.getElementById('form-card').style.display = 'none';
+        document.getElementById('OTPverifier').style.display = 'block';
+
+    }, 1000);
+
+
 
 });
 
 
-
+document.getElementById('send-again-btn').addEventListener('click', function (event) {
+    event.preventDefault();
+})
 
 
 // functions start
@@ -295,6 +313,8 @@ function showSelectedImage(event, imgid) {
     }
 }
 // functions end
+
+
 
 
 
