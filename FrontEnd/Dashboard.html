@@ -31,9 +31,10 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  
+
   <!-- Bootsrap for toggle File -->
-  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+    rel="stylesheet">
 
 </head>
 
@@ -53,8 +54,8 @@
         <ul>
           <li><a class="nav-link scrollto" href="index.html">الرئيسية<img height="20px" style="margin-right: 5px;"
                 src="assets/Home.svg"></a></li>
-          <li><a class="nav-link scrollto" href="DriverRegistration.html">السائق<img height="20px" style="margin-right: 5px;"
-                src="assets/Road Go Icon Set/driver/driver 3.svg"></a></li>
+          <li><a class="nav-link scrollto" href="DriverRegistration.html">السائق<img height="20px"
+                style="margin-right: 5px;" src="assets/Road Go Icon Set/driver/driver 3.svg"></a></li>
           <li><a class="nav-link scrollto" href="Contact.html">تواصل معنا<img height="20px" style="margin-right: 5px;"
                 src="assets/contact us.svg"></a></li>
         </ul>
@@ -64,98 +65,107 @@
     </div>
   </header><!-- End Header -->
   <br>
-
-  <div class="row me-5">
-    <div class="col-3">
-      
-      <label class="mb-1" for="city-select">المدن</label>
-      <br>
-      <select class="form-control w-75 d-inline" id="city-select" type="text">
-        <option>dsfsdf <i class="bi bi-x"></i> </option>
-
-      </select>
-      
-        <img src="assets/plus.png"data-bs-toggle="modal" data-bs-target="#exampleModal1" style="height:25px; width: 25px;"  onclick="changeWordinPopup('المدينة')">
-        
+  <div class="container-xl">
 
 
-    </div>
+    <div class="row ">
+      <div class="col-3">
 
-    <div class="col-3">
-      <label class="mb-1" for="colors-select">الالوان</label>
-      <br>
-      <select class="form-control w-75 d-inline" id="color-select" type="text">
-        <!-- Add the cities dynamically here -->
+        <label class="mb-1" for="city-select">المدن</label>
+        <br>
+        <select class="form-control w-75 d-inline" id="city-select" type="text">
+          <option>dsfsdf <i class="bi bi-x"></i> </option>
 
+        </select>
 
-      </select>
-      <img src="assets/plus.png"data-bs-toggle="modal" data-bs-target="#exampleModal1" style="height:25px; width: 25px;"onclick="changeWordinPopup('اللون')">
-      
-    </div>
-
-    <div class="col-3">
-      <label class="mb-1" for="model-select">الموديلات</label>
-      <br>
-      <select class="form-control w-75 d-inline" id="model-select" type="text">
+        <img src="assets/plus.png" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+          style="height:25px; width: 25px;" onclick="changeWordinPopup('المدينة')">
 
 
-      </select>
-      <img src="assets/plus.png"data-bs-toggle="modal" data-bs-target="#exampleModal1" style="height:25px; width: 25px;"onclick="changeWordinPopup('الموديل')">
-      
+
+      </div>
+
+
+
+      <div class="col-3">
+        <label class="mb-1" for="model-select">الموديلات</label>
+        <br>
+        <select class="form-control w-75 d-inline" id="model-select" type="text">
+
+
+        </select>
+        <img src="assets/plus.png" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+          style="height:25px; width: 25px;" onclick="changeWordinPopup('الموديل')">
+
+
+      </div>
 
     </div>
 
-  </div>
-
-  <hr class="mb-5 mt-5">
+    <hr class="mb-5 mt-5">
 
 
-  <!-- sWITCH -->
-  <div class="form-check form-switch d-flex me-5 mb-2" >
+
+    <div class="row">
+
+      <!-- sWITCH -->
+      <!-- <div class="form-check form-switch d-flex me-5 mb-2" >
     <label class="form-check-label  ms-3" for="flexSwitchCheckChecked"> موثوق</label>
     <input class="form-check-input me-3 ms-3" type="checkbox" id="flexSwitchCheckChecked" checked>
     <label class="form-check-label me-3 ms-3" for="flexSwitchCheckChecked">غير موثوق </label>
+  </div> -->
+      <!-- sWITCH -->
+    </div>
+
+    <div class="row">
+      <table class="table table-hover align-middle mb-0 bg-white ">
+        <thead class="bg-light">
+          <tr>
+            <th>الإسم</th>
+            <th>رقم الجوال</th>
+
+            <th>رخصة القيادة</th>
+            <th>الاستمارة</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody id="drivers-table-body">
+
+
+
+
+        </tbody>
+      </table>
+
+      <div class="card-footer ">
+        <nav aria-label="...">
+          <ul class="pagination justify-content-end mb-0">
+            <li class="page-item ">
+              <a class="page-link" href="" tabindex="-1" id="prev-btn">
+                <img src="assets/right-svgrepo-com.svg" class="img-fluid" style="height: 10px;width: 10px;">
+
+                <span class="sr-only" style="color: #18c76e;">رجوع</span>
+              </a>
+            </li>
+
+            <li class="page-item">
+              <a class="page-link" href="" tabindex="1" id="nxt-btn">
+
+                <span class="sr-only" style="color: #18c76e;">التالي</span>
+                <img src="assets/left-svgrepo-com.svg" class="img-fluid" style="height: 10px;width: 10px;">
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+
+
+
+
   </div>
-  <!-- sWITCH -->
-
-  <table class="table align-middle mb-0 bg-white me-5 ms-5">
-    <thead class="bg-light">
-      <tr>
-        <th>الإسم</th>
-        <th>رقم الجوال</th>
-
-        <th>رخصة القيادة</th>
-        <th>الاستمارة</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody id="drivers-table-body">
-
-     
-
-
-    </tbody>
-  </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -190,16 +200,16 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          
+
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form>
             <div class="mb-3">
               <label for="recipient-name" class="col-form-label" id="popup-label">المدينة</label>
-              <input type="text" class="form-control" id="recipient-name" >
-              <label   id="popup-validation-label" style="color: green; display: none;">تمت الاضافة بنجاح </label>
-              
+              <input type="text" class="form-control" id="recipient-name">
+              <label id="popup-validation-label" style="color: green; display: none;">تمت الاضافة بنجاح </label>
+
             </div>
           </form>
         </div>
@@ -218,29 +228,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-      <div class="row">
-        <div class="col-md-5 d-flex justify-content-between ">
-          <nav id="navbar" class="navbar">
-            <ul>
-              <li><a class="nav-link scrollto" href="policy.html">سياسة الخصوصية<img height="20px"
-                    style="margin-right: 5px;" src="assets/privacy-policy.svg"></a></li>
-              <li><a class="nav-link scrollto" href="DriverRegistration.html">السائق<img height="20px" style="margin-right: 5px;"
-                    src="assets/Road Go Icon Set/driver/driver 3.svg"></a></li>
-              <li><a class="nav-link scrollto" href="Contact.html">تواصل معنا<img height="20px"
-                    style="margin-right: 5px;" src="assets/contact us.svg"></a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="col-md-7   footer-img" dir="ltr">
 
-          <a href="https://apps.apple.com">
-            <img class="footer-svg" src="/assets/app-store.png" alt="">
-          </a>
-          <a href="https://play.google.com">
-            <img class="footer-svg" src="/assets/play-store.png" alt="">
-          </a>
-        </div>
-      </div>
       <div class="copyright">
         &copy; Copyright <img src="assets/Road Go Pattern&Board/logo/logo 2.svg" height="10px"
           style="margin-bottom: 3px;">. All Rights Reserved
@@ -248,12 +236,12 @@
       </div>
     </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <script src="assets/js/dashboard.js"></script>
-  
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script src="assets/js/dashboard.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 </body>
 
 </html>

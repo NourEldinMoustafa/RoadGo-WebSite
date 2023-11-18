@@ -1,908 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bootstrap Order Details Table with Search Filter</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets//css/dashboardstyle.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>RoadGo</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <!-- <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
-        rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
-
-    <!-- Add Bootstrap CSS link here -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Add your other head elements here -->
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-
-        :root {
-            --primary: #32EE88;
-            --secondary: #bfc0c0;
-            --white: #fff;
-            --text-clr: #5b6475;
-            --header-clr: #25273d;
-            --next-btn-hover: #51d8af;
-            --back-btn-hover: #8b8c8c;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            list-style: none;
-            outline: none;
-            font-family: 'cairo', 'Open Sans', sans-serif;
-
-        }
-
-        body {
-            background: var(--primary);
-            color: var(--text-clr);
-            font-size: 16px;
-            position: relative;
-            width: 100%;
-            overflow-x: hidden;
-            /* To prevent horizontal scroll on smaller screens */
-            text-align: right;
-        }
-
-        .wrapper {
-            width: 750px;
-            max-width: 100%;
-            background: var(--white);
-            margin: 50px auto 0;
-            padding: 50px;
-            border-radius: 5px;
-        }
-
-        .wrapper .header {
-            margin-bottom: 35px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .wrapper .header ul {
-            display: flex;
-        }
-
-        .wrapper .header ul li {
-            margin-right: 50px;
-            position: relative;
-        }
-
-        .wrapper .header ul li:last-child {
-            margin-right: 0;
-        }
-
-        .wrapper .header ul li:before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 55px;
-            width: 100%;
-            height: 2px;
-            background: var(--secondary);
-        }
-
-        .wrapper .header ul li:last-child:before {
-            display: none;
-        }
-
-        .wrapper .header ul li div {
-            padding: 5px;
-            border-radius: 50%;
-        }
-
-        .wrapper .header ul li p {
-            width: 50px;
-            height: 50px;
-            background: var(--secondary);
-            color: var(--white);
-            text-align: center;
-            line-height: 50px;
-            border-radius: 50%;
-        }
-
-        .wrapper .header ul li.active:before {
-            background: var(--primary);
-        }
-
-        .wrapper .header ul li.active p {
-            background: var(--primary);
-        }
-
-        .wrapper .form_wrap {
-            margin-bottom: 35px;
-        }
-
-        .wrapper .form_wrap h2 {
-            color: var(--header-clr);
-            text-align: center;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .wrapper .form_wrap .input_wrap {
-            width: 350px;
-            max-width: 100%;
-            margin: 0 auto 20px;
-        }
-
-        .wrapper .form_wrap .input_wrap:last-child {
-            margin-bottom: 0;
-        }
-
-        .wrapper .form_wrap .input_wrap label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .wrapper .form_wrap .input_wrap .input {
-            border: 2px solid var(--secondary);
-            border-radius: 3px;
-            padding: 10px;
-            display: block;
-            width: 100%;
-            font-size: 16px;
-            transition: 0.5s ease;
-        }
-
-        .wrapper .form_wrap .input_wrap .input:focus {
-            border-color: var(--primary);
-        }
-
-        .wrapper .btns_wrap {
-            width: 350px;
-            max-width: 100%;
-            margin: 0 auto;
-        }
-
-        .wrapper .btns_wrap .common_btns {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .wrapper .btns_wrap .common_btns.form_1_btns {
-            justify-content: flex-end;
-        }
-
-        .wrapper .btns_wrap .common_btns button {
-            border: 0;
-            padding: 12px 15px;
-            background: var(--primary);
-            color: var(--white);
-            width: 135px;
-            justify-content: center;
-            display: flex;
-            align-items: center;
-            font-size: 16px;
-            border-radius: 3px;
-            transition: 0.5s ease;
-            cursor: pointer;
-        }
-
-        .wrapper .btns_wrap .common_btns button.btn_back {
-            background: var(--secondary);
-        }
-
-        .wrapper .btns_wrap .common_btns button.btn_next .icon {
-            display: flex;
-            margin-left: 10px;
-        }
-
-        .wrapper .btns_wrap .common_btns button.btn_back .icon {
-            display: flex;
-            margin-right: 10px;
-        }
-
-        .wrapper .btns_wrap .common_btns button.btn_next:hover,
-        .wrapper .btns_wrap .common_btns button.btn_done:hover {
-            background: var(--next-btn-hover);
-        }
-
-        .wrapper .btns_wrap .common_btns button.btn_back:hover {
-            background: var(--back-btn-hover);
-        }
-
-        .modal_wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            visibility: hidden;
-        }
-
-        .modal_wrapper .shadow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            opacity: 0;
-            transition: 0.2s ease;
-        }
-
-        .modal_wrapper .success_wrap {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -800px);
-            background: var(--white);
-            padding: 50px;
-            display: flex;
-            align-items: center;
-            border-radius: 5px;
-            transition: 0.5s ease;
-        }
-
-        .modal_wrapper .success_wrap .modal_icon {
-            margin-right: 20px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            font-weight: 700;
-        }
-
-        .modal_wrapper.active {
-            visibility: visible;
-        }
-
-        .modal_wrapper.active .shadow {
-            opacity: 1;
-        }
-
-        .modal_wrapper.active .success_wrap {
-            transform: translate(-50%, -50%);
-        }
-
-
-
-        /*
-otp style
-
-*/
-        .container {
-            width: 302px;
-            height: 175px;
-            position: absolute;
-            left: 0px;
-            right: 0px;
-            top: 0px;
-            bottom: 0px;
-            margin: auto;
-        }
-
-        #sender {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        #number,
-        #verificationcode {
-            width: calc(100% - 24px);
-            padding: 10px;
-            font-size: 20px;
-            margin-bottom: 5px;
-            outline: none;
-        }
-
-        #recaptcha-container {
-            margin-bottom: 5px;
-        }
-
-        #send,
-        #verify {
-            width: 100%;
-            height: 40px;
-            outline: none;
-        }
-
-        .p-conf,
-        .n-conf {
-            width: calc(100% - 22px);
-            border: 2px solid green;
-            border-radius: 4px;
-            padding: 8px 10px;
-            margin: 4px 0px;
-            background-color: rgba(0, 249, 12, 0.5);
-            display: none;
-        }
-
-        .n-conf {
-            border-color: red;
-            background-color: rgba(255, 0, 4, 0.5);
-        }
-
-        #entrphone {
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            line-height: 1.2;
-            text-align: center;
-        }
-
-
-        .card-header:first-child {
-            border-radius: 0.35rem 0.35rem 0 0;
-            text-align: center;
-        }
-    </style>
+<script>
+$(document).ready(function(){
+	$('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 </head>
-
-<body dir="rtl">
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-
-    <div class="wrapper">
-        <div dir="ltr" class="header">
-            <ul>
-                <li class="active form_1_progessbar">
-                    <div>
-                        <p>1</p>
-                    </div>
-                </li>
-                <li class="form_2_progessbar">
-                    <div>
-                        <p>2</p>
-                    </div>
-                </li>
-                <li class="form_3_progessbar">
-                    <div>
-                        <p>3</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="form_wrap">
-
-            <!------------------start form_1 ----------->
-
-            <div class="form_1 data_info">
-                <h5 id="entrphone">ادخل رقم جوالك:</h5>
-
-                <form>
-                    <div class="form_container">
-                        <div class="input_wrap">
-                            <div id="sender">
-                                <input style="direction: ltr;" type="text" id="number" placeholder="+966 ** *** ****">
-                                <div id="recaptcha-container"></div>
-                                <input type="button" id="send" value="Send" onClick="phoneAuth()">
-                            </div>
-                        </div>
-
-                        <div class="input_wrap">
-                            <div id="verifier" style="display: none">
-                                <input type="text" id="verificationcode" placeholder="OTP Code">
-                                <input type="button" id="verify" value="Verify" onClick="codeverify()">
-                                <div class="p-conf">Number Verified</div>
-                                <div class="n-conf">OTP ERROR</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-            <!------------------ end form_1 ----------->
-
-            <!------------------start form_2 ----------->
-            <div class="form_2 data_info" style="display: none;">
-                <h2>البيانات الشخصية</h2>
-                <div class="row gx-3 mb-3">
-                    <div class="col-xl-3">
-                        <!-- Profile picture card-->
-                        <div class="card mb-4 mb-xl-0">
-                            <div class="card-header">الصورة الشخصية</div>
-                            <div class="card-body text-center">
-                                <!-- Profile picture image-->
-                                <button type="button" id="personalPhotobtn" class="btn btn-link btn-sm btn-rounded"
-                                    button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    data-custom-property="1" onclick="changeImgSrc(this)">
-
-                                    <img class="img-account-profile img-fluid  mb-2"
-                                        src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
-                                        id="personalPhoto">
-                                </button>
-
-                                <!-- Profile picture help block-->
-                                <div class="small font-italic text-muted mb-4">JPG or PNG files should not
-                                    exceed 5 MB</div>
-                                <!-- Profile picture upload button-->
-                                <input class="" id="personalPhotoFile" type="file" placeholder="تغير الصورة"
-                                    accept="image/*" onchange="showSelectedImage(event, 'personalPhoto')"></button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Form Group (first name)-->
-                    <div class="col-md-9">
-                        <label class="small mb-1" for="inputFirstName">الإسم الأول</label>
-                        <input class="form-control" id="inputFirstName" type="text" placeholder="الإسم الأول">
-                        <label class="small mb-1" for="inputLastName">اسم العائلة </label>
-                        <input class="form-control" id="inputLastName" type="text" placeholder="اسم العائلة">
-
-                        <label class="small mb-1" for="inputPhone">رقم الجوال</label>
-                        <input class="form-control" id="inputPhone" type="text" placeholder="رقم الجوال">
-
-                        <label class="small mb-1" for="inputPassword">كلمة المرور </label>
-                        <input class="form-control" id="inputPassword" type="password" placeholder="كلمة المرور">
-                    </div>
-
-                    <div class="row gx-3 mb-3">
-                        <div class="col-md-6">
-                            <!-- Profile picture card-->
-                            <div class="card mb-4 mb-xl-0">
-                                <div class="card-header">صورة الإستمارة</div>
-                                <div class="card-body text-center">
-                                    <!-- Profile picture image-->
-                                    <button type="button" id="formImagebtn" button type="button" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal" class="btn btn-link btn-sm btn-rounded"
-                                        data-custom-property="" onclick="changeImgSrc(this)">
-
-                                        <img class="img-fluid mb-3" src="./assets/form2.png" alt="" id="formImage">
-                                    </button>
-                                    <!-- Profile picture help block-->
-                                    <div class="small font-italic text-muted mb-4">JPG or PNG files should not
-                                        exceed 5 MB</div>
-                                    <!-- Profile picture upload button-->
-                                    <input class="" id="formImageFile" type="file" placeholder="تغير الصورة"
-                                        accept="image/*" onchange="showSelectedImage(event, 'formImage')"></button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <!-- Profile picture card-->
-                            <div class="card mb-4 mb-xl-0">
-                                <div class="card-header"> صورة الرخصة</div>
-                                <div class="card-body text-center">
-                                    <!-- Profile picture image-->
-                                    <button type="button" id="drivingLicenseImagebtn" button type="button"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                        class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                        onclick="changeImgSrc(this)">
-
-                                        <img class="img-fluid  mb-3" src="./assets/driving-license-icon1.png" alt=""
-                                            id="drivingLicenseImage">
-                                    </button>
-
-                                    <!-- Profile picture help block-->
-                                    <div class="small font-italic text-muted mb-4">JPG or PNG files should not
-                                        exceed 5 MB</div>
-                                    <!-- Profile picture upload button-->
-                                    <input class="" id="drivingLicenseImageFile" type="file" placeholder="تغير الصورة"
-                                        accept="image/*" onchange="showSelectedImage(event, 'drivingLicenseImage')">
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-
+<body dir="">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <body>
+      <div class="main-content">
+        <div class="container mt-7">
+          <!-- Table -->
+          <h2 class="mb-5">Tables Example</h2><div class="row">
+    
+            <div class="col">
+              <div class="card shadow">
+                <div class="card-header border-0">
+                  <h3 class="mb-0">Card tables</h3>
                 </div>
-            </div>
-            <!------------------ end form_2 ----------->
-
-            <!------------------start form_3 ----------->
-            <div class="form_3 data_info" style="display: none;">
-                <div class="card mb-4" id="third-form">
-                    <div id="goto" class="card-header">متطلبات التسجيل</div>
-                    <div class="card-body">
-
-                        <!-- Form Row-->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (first name)-->
+                <div class="table-responsive">
+                  <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col" dir >السائق</th>
+                        <th scope="col">رقم الجوال</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Users</th>
+                        <th scope="col">Completion</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <a href="#" class="avatar rounded-circle mr-3">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/bootstrap.jpg">
+                            </a>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm">Argon Design System</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          $2,500 USD
+                        </td>
+                        <td>
+                          <span class="badge badge-dot mr-4">
+                            <i class="bg-warning"></i> pending
+                          </span>
+                        </td>
+                        <td>
+                          <div class="avatar-group">
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-2-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-2-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                            </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <span class="mr-2">60%</span>
                             <div>
-                                <label class="small mb-1" for="inputNationalId">رقم الهوية</label>
-                                <input class="form-control" id="inputNationalId" type="text" placeholder="رقم الهوية">
+                              <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                              </div>
                             </div>
-
-                        </div>
-
-                        <!-- Form Row-->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (start city)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputCity">المدينة</label>
-                                <select class="form-control" id="inputCity" type="text" placeholder="اختر مدينتك">
-                                    <option selected disabled>اختر مدينتك</option>
-                                </select>
+                          </div>
+                        </td>
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-
-                            <script>
-                                // Array of cities
-                                var cities = [
-                                    "الرياض", "جدة", "المدينة المنورة", "تبوك", "الدمام", "الاحساء", "القطيف",
-                                    "خميس مشيط", "المظيلف", "الهفوف", "المبرز", "الطائف", "نجران", "حفر الباطن",
-                                    "الجبيل", "ضباء", "الخرج", "الثقبة", "ينبع البحر", "الخبر", "عرعر", "الحوية",
-                                    "عنيزه", "سكاكا", "جيزان", "القريات", "الظهران", "الباحة", "الزلفي", "الرس",
-                                    "وادي الدواسر", "بيشه", "سيهات", "شروره", "بحره", "تاروت", "الدوادمي", "صبياء",
-                                    "بيش", "أحد رفيدة", "الفريش", "بارق", "الحوطة", "الأفلاج"
-                                ];
-
-                                // Select dropdown element
-                                var dropdown = document.getElementById("inputCity");
-
-                                // Add cities to the dropdown
-                                cities.forEach(function (city) {
-                                    var option = document.createElement("option");
-                                    option.value = city;
-                                    option.text = city;
-                                    dropdown.add(option);
-                                });
-                            </script>
-
-                            <!-- Form Group (end city)-->
-
-
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputGender">النوع</label>
-                                <select class="form-control" id="inputGender" type="text" placeholder="اختر النوع">
-                                    <option value="" disabled selected>اختر النوع</option>
-                                    <option value="ذكر">ذكر</option>
-                                    <option value="أنثى">أنثى</option>
-                                </select>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <a href="#" class="avatar rounded-circle mr-3">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/angular.jpg">
+                            </a>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm">Angular Now UI Kit PRO</span>
                             </div>
-                        </div>
-
-
-
-
-                        <!-- start of alphapetic options in dropdown menue -->
-                        <div class="row gx-3 mb-3">
-                            
-                                <div class="row mt-3">
-                                    <label style="font-size: larger;"> لوحة المركبة</label>
-                        
-                                    <!-- Function to generate options for the dropdown -->
-                                    <script>
-                                        function generateOptions(partId) {
-                                            var dropdownOptions = "<option selected disabled>-</option>";
-                                            var letters = ["أ", "ب", "ت", "ث", "ج", "ح", "خ", "د", "ذ", "ر", "ز", "س", "ش", "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ك", "ل", "م", "ن", "ه", "و", "ي"];
-                                            
-                                            letters.forEach(function(letter) {
-                                                dropdownOptions += `<option value="${letter}">${letter}</option>`;
-                                            });
-                        
-                                            document.write(`
-                                                <div class="form-group col-md-1 mt-3">
-                                                    <label for="inputPlate${partId}" class="sr-only">${partId}</label>
-                                                    <select type="text" class="form-control" placeholder="${partId}" id="inputPlate${partId}">
-                                                        ${dropdownOptions}
-                                                    </select>
-                                                </div>
-                                            `);
-                                        }
-                        
-                                        // Generate options for each plate part
-                                        generateOptions("Right");
-                                        generateOptions("Middle");
-                                        generateOptions("Left");
-                                    </script>
-                        
-                                    <!-- Number input -->
-                                    <div class="form-group col-md-3 mt-3">
-                                        <label for="number" class="sr-only">رقم اللوحة</label>
-                                        <input type="text" class="form-control" id="inputPlatenumber" placeholder="رقم اللوحة">
-                                    </div>
-                                </div>
-                           
-                        </div>
-                        
-
-                        <!-- End of alphapetic options in dropdown menue -->
-
-                        <!-- Form Row-->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (last name)-->
-
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputVehicleModel">موديل المركبة </label>
-                                <select class="form-control" id="inputVehicleModel" type="text"
-                                    placeholder="اختر موديل">
-                                    <!-- Add the cities dynamically here -->
-                                    <option selected disabled>اختر موديل</option>
-
-                                    <option value="BMW">BMW</option>
-
-
-                                </select>
+                          </div>
+                        </th>
+                        <td>
+                          $1,800 USD
+                        </td>
+                        <td>
+                          <span class="badge badge-dot">
+                            <i class="bg-success"></i> completed
+                          </span>
+                        </td>
+                        <td>
+                          <div class="avatar-group">
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-2-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-3-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                            </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <span class="mr-2">100%</span>
+                            <div>
+                              <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                              </div>
                             </div>
-                            <!-- Form Group (last name)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputVehicleColor">لون المركبة </label>
-                                <select class="form-control" id="inputVehicleColor" type="text"
-                                    placeholder="اختر اللون">
-                                    <!-- Add the cities dynamically here -->
-                                    <option selected disabled>اختر موديل</option>
-
-                                    <option value="ابيض">ابيض</option>
-
-
-                                </select>
+                          </div>
+                        </td>
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-
-                        </div>
-
-
-                        <!-- Form Row        -->
-                        <div class="row gx-3 mb-3">
-                            <div class="col-md-6">
-                                <!-- Profile picture card-->
-                                <div class="card mb-4 mb-xl-0">
-                                    <div class="card-header">صورة المركبة من الأمام</div>
-                                    <div class="card-body text-center">
-                                        <!-- Profile picture image-->
-                                        <button type="button" id="VehicleFrontImagebtn" button type="button"
-                                            data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                            class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                            onclick="changeImgSrc(this)">
-
-                                            <img class="img-fluid mb-2" src="./assets/carBack.png" alt=""
-                                                id="VehicleFrontImage">
-                                        </button>
-                                        <!-- Profile picture help block-->
-                                        <div class="small font-italic text-muted mb-4">JPG or PNG no
-                                            larger
-                                            than 5
-                                            MB</div>
-                                        <!-- Profile picture upload button-->
-                                        <input class="" id="VehicleFrontImageFile" type="file" placeholder="تغير الصورة"
-                                            accept="image/*"
-                                            onchange="showSelectedImage(event, 'VehicleFrontImage')"></button>
-                                    </div>
-                                </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <a href="#" class="avatar rounded-circle mr-3">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/sketch.jpg">
+                            </a>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm">Black Dashboard</span>
                             </div>
-                            <div class="col-md-6">
-                                <!-- Profile picture card-->
-                                <div class="card mb-4 mb-xl-0">
-                                    <div class="card-header">صورة المركبة من الخلف</div>
-                                    <div class="card-body text-center">
-                                        <!-- Profile picture image-->
-                                        <button type="button" id="VehicleBackImagebtn" button type="button"
-                                            data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                            class="btn btn-link btn-sm btn-rounded" data-custom-property=""
-                                            onclick="changeImgSrc(this)">
-
-                                            <img class="img-fluid  mb-2" src="./assets/carFront.png" alt=""
-                                                id="VehicleBackImage">
-
-                                        </button>
-
-                                        <!-- Profile picture help block-->
-                                        <div class="small font-italic text-muted mb-4">JPG or PNG no
-                                            larger
-                                            than 5
-                                            MB</div>
-                                        <!-- Profile picture upload button-->
-                                        <input class="" id="VehicleBackImageFile" type="file" placeholder="تغير الصورة"
-                                            accept="image/*" onchange="showSelectedImage(event, 'VehicleBackImage')">
-                                        </button>
-                                    </div>
-                                </div>
+                          </div>
+                        </th>
+                        <td>
+                          $3,150 USD
+                        </td>
+                        <td>
+                          <span class="badge badge-dot mr-4">
+                            <i class="bg-danger"></i> delayed
+                          </span>
+                        </td>
+                        <td>
+                          <div class="avatar-group">
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-2-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-3-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                            </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <span class="mr-2">72%</span>
+                            <div>
+                              <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%;"></div>
+                              </div>
                             </div>
-                        </div>
-                    </div>
+                          </div>
+                        </td>
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <a href="#" class="avatar rounded-circle mr-3">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/react.jpg">
+                            </a>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm">React Material Dashboard</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          $4,400 USD
+                        </td>
+                        <td>
+                          <span class="badge badge-dot">
+                            <i class="bg-info"></i> on schedule
+                          </span>
+                        </td>
+                        <td>
+                          <div class="avatar-group">
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-2-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-3-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                            </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <span class="mr-2">90%</span>
+                            <div>
+                              <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">
+                          <div class="media align-items-center">
+                            <a href="#" class="avatar rounded-circle mr-3">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/vue.jpg">
+                            </a>
+                            <div class="media-body">
+                              <span class="mb-0 text-sm">Vue Paper UI Kit PRO</span>
+                            </div>
+                          </div>
+                        </th>
+                        <td>
+                          $2,200 USD
+                        </td>
+                        <td>
+                          <span class="badge badge-dot mr-4">
+                            <i class="bg-success"></i> completed
+                          </span>
+                        </td>
+                        <td>
+                          <div class="avatar-group">
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-1-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-2-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-3-800x800.jpg" class="rounded-circle">
+                            </a>
+                            <a href="#" class="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
+                              <img alt="Image placeholder" src="https://raw.githack.com/creativetimofficial/argon-dashboard/master/assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                            </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <span class="mr-2">100%</span>
+                            <div>
+                              <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="text-right">
+                          <div class="dropdown">
+                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+                <div class="card-footer py-4">
+                  <nav aria-label="...">
+                    <ul class="pagination justify-content-end mb-0">
+                      <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">
+                          <i class="fas fa-angle-left"></i>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                      <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">
+                          <i class="fas fa-angle-right"></i>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
             </div>
-            <!------------------ end form_3 ----------->
+          </div>
+
+
 
         </div>
-        <div class="btns_wrap">
-            <div class="common_btns form_1_btns">
-                <button type="button" class="btn_next">Next <span class="icon"><ion-icon
-                            name="arrow-forward-sharp"></ion-icon></span></button>
+      </div>
+      <footer class="footer">
+        <div class="row align-items-center justify-content-xl-between">
+          <div class="col-xl-6 m-auto text-center">
+            <div class="copyright"><p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon Dashboard</a> by Creative Tim</p>
             </div>
-            <div class="common_btns form_2_btns" style="display: none;">
-                <button type="button" class="btn_back"><span class="icon"><ion-icon
-                            name="arrow-back-sharp"></ion-icon></span>Back</button>
-                <button type="button" class="btn_next">Next <span class="icon"><ion-icon
-                            name="arrow-forward-sharp"></ion-icon></span></button>
-            </div>
-            <div class="common_btns form_3_btns" style="display: none;">
-                <button type="button" class="btn_back"><span class="icon"><ion-icon
-                            name="arrow-back-sharp"></ion-icon></span>Back</button>
-                <button type="button" class="btn_done">Done</button>
-            </div>
+          </div>
         </div>
-    </div>
-
-    <div class="modal_wrapper">
-        <div class="shadow"></div>
-        <div class="success_wrap">
-            <span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
-            <p>You have successfully completed the process.</p>
-        </div>
-    </div>
-
-    <!-- start Bootstrap JS and Popper.js script links here -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-Uo7be1v8p8FtFkzqKv/2DlJR9QOp6Qmj8Lv+slz9UZlHRLIqyUNwF68WYUnnq9sN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
-    <!-- end Bootstrap JS and Popper.js script links here -->
-
-    <script>
-        var form_1 = document.querySelector(".form_1");
-        var form_2 = document.querySelector(".form_2");
-        var form_3 = document.querySelector(".form_3");
-
-
-        var form_1_btns = document.querySelector(".form_1_btns");
-        var form_2_btns = document.querySelector(".form_2_btns");
-        var form_3_btns = document.querySelector(".form_3_btns");
-
-
-        var form_1_next_btn = document.querySelector(".form_1_btns .btn_next");
-        var form_2_back_btn = document.querySelector(".form_2_btns .btn_back");
-        var form_2_next_btn = document.querySelector(".form_2_btns .btn_next");
-        var form_3_back_btn = document.querySelector(".form_3_btns .btn_back");
-
-        var form_2_progessbar = document.querySelector(".form_2_progessbar");
-        var form_3_progessbar = document.querySelector(".form_3_progessbar");
-
-        var btn_done = document.querySelector(".btn_done");
-        var modal_wrapper = document.querySelector(".modal_wrapper");
-        var shadow = document.querySelector(".shadow");
-
-        form_1_next_btn.addEventListener("click", function () {
-            form_1.style.display = "none";
-            form_2.style.display = "block";
-
-            form_1_btns.style.display = "none";
-            form_2_btns.style.display = "flex";
-
-            form_2_progessbar.classList.add("active");
-        });
-
-        form_2_back_btn.addEventListener("click", function () {
-            form_1.style.display = "block";
-            form_2.style.display = "none";
-
-            form_1_btns.style.display = "flex";
-            form_2_btns.style.display = "none";
-
-            form_2_progessbar.classList.remove("active");
-        });
-
-        form_2_next_btn.addEventListener("click", function () {
-            form_2.style.display = "none";
-            form_3.style.display = "block";
-
-            form_3_btns.style.display = "flex";
-            form_2_btns.style.display = "none";
-
-            form_3_progessbar.classList.add("active");
-        });
-
-        form_3_back_btn.addEventListener("click", function () {
-            form_2.style.display = "block";
-            form_3.style.display = "none";
-
-            form_3_btns.style.display = "none";
-            form_2_btns.style.display = "flex";
-
-            form_3_progessbar.classList.remove("active");
-        });
-
-        btn_done.addEventListener("click", function () {
-            modal_wrapper.classList.add("active");
-        })
-
-        shadow.addEventListener("click", function () {
-            modal_wrapper.classList.remove("active");
-        })  
-    </script>
-
-
-
-    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-auth-compat.js"></script>
-    <script>
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            //   apiKey: "AIzaSyC3MIN64hy_oTQfQWUHl0lID-CJkIfci0M",
-            //   authDomain: "yt-project-a29f8.firebaseapp.com",
-            //   projectId: "yt-project-a29f8",
-            //   storageBucket: "yt-project-a29f8.appspot.com",
-            //   messagingSenderId: "159898773748",
-            //   appId: "1:159898773748:web:2985334de4f06ff73356a1",
-            //   measurementId: "G-DLWR9M5SJC"
-
-            apiKey: "AIzaSyDNiidcWIPliAOnROdZr5X1o_lWTTcD4C0",
-            authDomain: "road-go-test.firebaseapp.com",
-            projectId: "road-go-test",
-            storageBucket: "road-go-test.appspot.com",
-            messagingSenderId: "115144488342",
-            appId: "1:115144488342:web:77d0d0891a88afd33399b7",
-            measurementId: "G-N1F6SF2P2L"
-        };
-        firebase.initializeApp(firebaseConfig);
-
-
-        render();
-        function render() {
-            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-            recaptchaVerifier.render();
-        }
-        // function for send message
-        function phoneAuth() {
-            var number = document.getElementById('number').value;
-            firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
-                window.confirmationResult = confirmationResult;
-                coderesult = confirmationResult;
-                document.getElementById('sender').style.display = 'none';
-                document.getElementById('verifier').style.display = 'block';
-            }).catch(function (error) {
-                alert(error.message);
-            });
-        }
-        // function for code verify
-        function codeverify() {
-            var code = document.getElementById('verificationcode').value;
-            coderesult.confirm(code).then(function () {
-                document.getElementsByClassName('p-conf')[0].style.display = 'block';
-                document.getElementsByClassName('n-conf')[0].style.display = 'none';
-            }).catch(function () {
-                document.getElementsByClassName('p-conf')[0].style.display = 'none';
-                document.getElementsByClassName('n-conf')[0].style.display = 'block';
-            })
-        }
-    </script>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <!--end Pop Model -->
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+      </footer>
+    </body>
+    
 </body>
-
 </html>
