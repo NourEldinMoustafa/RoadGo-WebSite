@@ -140,7 +140,7 @@
                                                 JPG or PNG files should not exceed 5 MB
                                             </div>
                                             <!-- Profile picture upload button-->
-                                            <input alt="##"  class="" id="personalPhotoFile" type="file" placeholder="تغير الصورة"
+                                            <input required  class="" id="personalPhotoFile" type="file" placeholder="تغير الصورة"
                                                 accept="image/*" onchange="showSelectedImage(event, 'personalPhoto')" >
 
                                         </div>
@@ -154,16 +154,16 @@
                                         <div class="col-6">
 
                                             <label class="small mb-1" for="inputFirstName">الإسم الأول</label>
-                                            <input alt="##" class="form-control" id="inputFirstName" type="text"
+                                            <input required class="form-control" id="inputFirstName" type="text"
                                                 placeholder="الإسم الأول">
                                             <label class="small mb-1" for="inputPhone">رقم الجوال</label>
-                                            <input alt="##" class="form-control" id="inputPhone" type="text"
+                                            <input required class="form-control" id="inputPhone" type="text"
                                                 placeholder="رقم الجوال">
                                                 
 
 
                                             <label class="small mb-1" for="inputCity">المدينة</label>
-                                            <select alt="##" class="form-control" id="inputCity" type="text"
+                                            <select required class="form-control" id="inputCity" type="text"
                                                 placeholder="اختر مدينتك">
                                                 <!-- Add the cities dynamically here -->
                                                 <option selected disabled>اختر مدينتك</option>
@@ -177,15 +177,15 @@
                                         <div class="col-6">
 
                                             <label class="small mb-1" for="inputLastName">اسم العائلة </label>
-                                            <input alt="##" class="form-control" id="inputLastName" type="text"
+                                            <input required class="form-control" id="inputLastName" type="text"
                                                 placeholder="اسم العائلة">
 
                                             <label class="small mb-1" for="inputPassword">كلمة المرور </label>
-                                            <input alt="##" class="form-control" id="inputPassword" type="password"
+                                            <input required class="form-control" id="inputPassword" type="password"
                                                 placeholder="كلمة المرور">
 
                                             <label class="small mb-1" for="inputGender">النوع</label>
-                                            <select alt="##" class="form-control" id="inputGender" type="text"
+                                            <select required class="form-control" id="inputGender" type="text"
                                                 placeholder="اختر النوع">
                                                 <option value="" disabled selected>اختر النوع</option>
                                                 <option value="ذكر">ذكر</option>
@@ -200,7 +200,7 @@
                                         <div class="col">
 
                                             <label class="small mb-1" for="inputNationalId">رقم الهوية</label>
-                                            <input alt="##" class="form-control" id="inputNationalId" type="text"
+                                            <input required class="form-control" id="inputNationalId" type="text"
                                                 placeholder="رقم الهوية">
                                         </div>
                                     </div>
@@ -229,7 +229,7 @@
                                                     not
                                                     exceed 5 MB</div>
                                                 <!-- Profile picture upload button-->
-                                                <input alt="##" class="" id="formImageFile" type="file" placeholder="تغير الصورة"
+                                                <input required class="" id="formImageFile" type="file" placeholder="تغير الصورة"
                                                     accept="image/*"
                                                     onchange="showSelectedImage(event, 'formImage')"></button>
                                             </div>
@@ -258,7 +258,7 @@
                                                     not
                                                     exceed 5 MB</div>
                                                 <!-- Profile picture upload button-->
-                                                <input alt="##" class="" id="drivingLicenseImageFile" type="file"
+                                                <input required class="" id="drivingLicenseImageFile" type="file"
                                                     placeholder="تغير الصورة" accept="image/*"
                                                     onchange="showSelectedImage(event, 'drivingLicenseImage')">
                                                 </button>
@@ -274,7 +274,7 @@
                                             <!-- start of rightPart letters -->
                                             <div class="form-group col-md-2 mt-3">
                                                 <label for="rightPart" class="sr-only">الأيمن</label>
-                                                <select alt="##"  type="text" class="form-control" placeholder="الأيمن"
+                                                <select required  type="text" class="form-control" placeholder="الأيمن"
                                                     id="inputPlateRight">
                                                     <option selected disabled>الأيمن</option>
                                                     <option value="أ">أ</option>
@@ -311,7 +311,7 @@
                                             <!-- start of middlePart letters -->
                                             <div class="form-group col-md-2 mt-3">
                                                 <label for="middlePart" class="sr-only"> الأوسط</label>
-                                                <select alt="##" type="text" class="form-control" id="inputPlateMiddle"
+                                                <select required type="text" class="form-control" id="inputPlateMiddle"
                                                     placeholder="الأوسط">
                                                     <option selected disabled>الأوسط</option>
                                                     <option value="أ">أ</option>
@@ -349,7 +349,7 @@
                                             <!-- start of leftPart letters -->
                                             <div class="form-group col-md-2 mt-3">
                                                 <label for="leftPart" class="sr-only"> الأيسر</label>
-                                                <select alt="##" type="text" class="form-control" id="inputPlateLeft"
+                                                <select required type="text" class="form-control" id="inputPlateLeft"
                                                     placeholder="الأيسر">
                                                     <option selected disabled>الأيسر</option>
                                                     <option value="أ">أ</option>
@@ -387,7 +387,7 @@
                                             <!-- start of number letters -->
                                             <div class="form-group col-md-6 mt-3">
                                                 <label for="number" class="sr-only">رقم اللوحة</label>
-                                                <input alt="##" type="text" class="form-control" id="inputPlatenumber"
+                                                <input required type="text" class="form-control" id="inputPlatenumber"
                                                     placeholder="رقم اللوحة">
                                             </div>
                                             <!-- end of number letters -->
@@ -405,7 +405,7 @@
 
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputVehicleModel">موديل المركبة </label>
-                                        <select alt="##" class="form-control" id="inputVehicleModel" type="text"
+                                        <select required class="form-control" id="inputVehicleModel" type="text"
                                             placeholder="اختر موديل">
                                             <!-- Add the cities dynamically here -->
                                             <option selected disabled>اختر موديل</option>
@@ -418,7 +418,7 @@
                                     <!-- Form Group (last name)-->
                                     <div class="form-group col-md-6 ">
                                         <label for="inputVehicleColor" class="sr-only">لون المركبة</label>
-                                        <input alt="##" type="text" class="form-control" id="inputVehicleColor"
+                                        <input required type="text" class="form-control" id="inputVehicleColor"
                                             placeholder="اللون">
                                     </div>
                                 </div>
@@ -445,7 +445,7 @@
                                                     than 5
                                                     MB</div>
                                                 <!-- Profile picture upload button-->
-                                                <input alt="##" class="" id="VehicleFrontImageFile" type="file"
+                                                <input required class="" id="VehicleFrontImageFile" type="file"
                                                     placeholder="تغير الصورة" accept="image/*"
                                                     onchange="showSelectedImage(event, 'VehicleFrontImage')"></button>
                                             </div>
@@ -473,7 +473,7 @@
                                                     than 5
                                                     MB</div>
                                                 <!-- Profile picture upload button-->
-                                                <input alt="##" class="" id="VehicleBackImageFile" type="file"
+                                                <input required class="" id="VehicleBackImageFile" type="file"
                                                     placeholder="تغير الصورة" accept="image/*"
                                                     onchange="showSelectedImage(event, 'VehicleBackImage')">
                                                 </button>

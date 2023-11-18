@@ -50,18 +50,18 @@ function codeverify() {
     coderesult.confirm(code).then(function () {
         var formData = new FormData();
         formData.append('isTrusted', true);
-        
+
         fetch(`https://localhost:44302/api/Driver/${localStorage.getItem('driverRegId')}`, {
             method: 'PUT',
             body: formData
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                console.log(data['isTrusted']);
             })
             .catch(error => console.error('Error fetching data:', error));
 
-        location.href = 'index.html';
+        // location.href = 'index.html';
     }).catch(function () {
         alert("wrong code fdsd");
     })
