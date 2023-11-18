@@ -87,7 +87,15 @@ fetch('https://localhost:44302/api/VehicleModel', {
     .then(response => response.json())
     .then(data => {
         console.log(data)
-        fillSelectOptions(data, "inputVehicleModel");
+        var Select = document.getElementById('inputVehicleModel');
+        Select.innerHTML = ``;
+        data.forEach(data => {
+            var child = document.createElement("option")
+            child.textContent = data['year'];
+            child.value = data['id'];
+
+            Select.appendChild(child);
+        });
     })
     .catch(error => console.error('Error fetching data:', error));
 
@@ -212,7 +220,6 @@ document.getElementById('send-again-btn').addEventListener('click', function (ev
 // functions start
 
 function fillSelectOptions(data, id) {
-
     var Select = document.getElementById(id);
     Select.innerHTML = ``;
     data.forEach(data => {

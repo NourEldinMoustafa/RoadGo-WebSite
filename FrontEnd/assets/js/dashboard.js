@@ -25,54 +25,37 @@ function fillModels() {
   })
     .then(response => response.json())
     .then(data => {
-      fillSelectOptions(data, "model-select");
+
+      var Select = document.getElementById('model-select');
+      Select.innerHTML = ``;
+      data.forEach(data => {
+        var child = document.createElement("option")
+        child.textContent = data['year'];
+        child.value = data['id'];
+
+        Select.appendChild(child);
+      });
     })
     .catch(error => console.error('Error fetching data:', error));
 
 }
 
-var drivers;
+
 fetch('https://localhost:44302/api/Driver', {
   method: 'GET'
 }) // Replace with your server endpoint
   .then(response => response.json())
   .then(data => {
-    drivers = data;
-
-    displayDrivers();
+    console.log(data);
+    displayDrivers(data);
   })
   .catch(error => console.error('Error fetching data:', error));
 
-var start = 0;
-var end = 5;
-// Assuming you have a total number of drivers and a current driver index
-let totalDrivers = 23; // Adjust this based on your total number of drivers
-let currentDriverIndex = 20;
-
-document.getElementById('prev-btn').addEventListener('click', function(event) {
-    event.preventDefault();
-    skipDrivers(-5);
-});
-
-document.getElementById('nxt-btn').addEventListener('click', function(event) {
-    event.preventDefault();
-    skipDrivers(5);
-});
-
-function skipDrivers(offset) {
-    const newDriverIndex = currentDriverIndex + offset;
-
-    // Ensure the new index stays within bounds
-    currentDriverIndex = Math.max(0, Math.min(newDriverIndex, totalDrivers - 1));
-
-    // Update the content on the page based on the new index
-    updatePageContent();
-}
 
 function updatePageContent() {
-    // Implement the logic to update your page content based on the currentDriverIndex
-    // For example, you can fetch and display information about the drivers.
-    console.log('Updating page content for driver index:', currentDriverIndex);
+  // Implement the logic to update your page content based on the currentDriverIndex
+  // For example, you can fetch and display information about the drivers.
+  console.log('Updating page content for driver index:', currentDriverIndex);
 }
 
 
@@ -89,14 +72,14 @@ document.getElementById('popoup-add-btn').addEventListener('click', function (ev
   const name = document.getElementById('recipient-name').value;
   document.getElementById('recipient-name').value = ''
 
-  var formdata = new FormData();
-  formdata.append('name', name);
+
 
 
   const str = document.getElementById('popup-label').innerText;
   console.log(str);
   if (str === 'المدينة') {
-
+    var formdata = new FormData();
+    formdata.append('name', name);
     fetch('https://localhost:44302/api/city', {
       method: 'POST',
       body: formdata
@@ -111,6 +94,8 @@ document.getElementById('popoup-add-btn').addEventListener('click', function (ev
 
   }
   else if (str === 'الموديل') {
+    var formdata = new FormData();
+    formdata.append('year', name);
     fetch('https://localhost:44302/api/VehicleModel', {
       method: 'POST',
       body: formdata
@@ -157,13 +142,15 @@ function fillSelectOptions(data, id) {
 
 
 
-function displayDrivers() {
+function displayDrivers(drivers) {
   // drivers is a json object
   var str = ``;
 
   document.getElementById("drivers-table-body").innerHTML = '';
-  for (var i = start; i < end; i++) {
+
+  for (var i = 0; i < drivers.length; i++) {
     var element = drivers[i];
+    console.log(element)
     str = `      <tr>
         <td>
           <div class="d-flex align-items-center">
@@ -200,14 +187,14 @@ function displayDrivers() {
         </td>
 
         <td>
+        <input type='checkbox'>
+        
+        </td>
+        <td>
           <button style="color: #18c76e; type="button" class="btn btn-link btn-sm btn-rounded"   data-custom-property="${element["id"]}" onClick="viewEditPage(this)">
             تفاصيل
           </button>
         </td>
-
-        <td>
-     
-      </td>
       </tr>`
 
     document.getElementById("drivers-table-body").innerHTML += str;
