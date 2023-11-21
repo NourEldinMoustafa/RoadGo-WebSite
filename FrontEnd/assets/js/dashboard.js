@@ -14,10 +14,86 @@ function fillCities() {
       fillSelectOptions(data, "city-select");
     })
     .catch(error => console.error('Error fetching data:', error));
+}
+
+function fillCities() {
+  fetch('https://localhost:44302/api/City', {
+    method: 'GET'
+  })
+    .then(response => response.json())
+    .then(data => {
+      displayCitiesInTable(data);
+    })
+    .catch(error => console.error('Error fetching data:', error));
+}
 
 
+//***************************************** */
+function fillCities() {
+  fetch('https://localhost:44302/api/City', {
+    method: 'GET'
+  })
+    .then(response => response.json())
+    .then(data => {
+      displayCitiesInTable(data);
+    })
+    .catch(error => console.error('An error occurred while fetching data:', error));
+}
+
+function displayCitiesInTable(cities) {
+  const tableBody = document.getElementById('cities-table-body');
+
+  // Clear previous content in the table body
+  tableBody.innerHTML = '';
+
+  cities.forEach(city => {
+    const row = tableBody.insertRow();
+
+    // const cityIdCell = row.insertCell();
+    // cityIdCell.textContent = city.id;
+
+    const cityNameCell = row.insertCell();
+    cityNameCell.textContent = city.name;
+
+    const actionCell = row.insertCell();
+
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'حذف';
+    deleteButton.onclick = function () {
+      deleteCity(city.id, row);
+    };
+    const updateButton = document.createElement('button');
+    updateButton.textContent = 'تعديل';
+    updateButton.onclick = function () {
+      updateCity(city.id, cityNameCell);
+    };
+    actionCell.appendChild(deleteButton);
+    // actionCell.appendChild(updateButton);
+
+  });
 
 }
+
+function deleteCity(cityId, row) {
+  fetch(`https://localhost:44302/api/City/${cityId}`, {
+    method: 'DELETE'
+  })
+    .then(() => {
+      const table = document.getElementById('cities-table');
+      table.deleteRow(row.rowIndex);
+    })
+    .catch(error => console.error('An error occurred while deleting city:', error));
+
+}
+
+
+
+//***************************************** */
+
+
+
+
+
 fillModels();
 function fillModels() {
   fetch('https://localhost:44302/api/VehicleModel', {
@@ -25,9 +101,6 @@ function fillModels() {
   })
     .then(response => response.json())
     .then(data => {
-
-
-
       var Select = document.getElementById('model-select');
       Select.innerHTML = ``;
       data.forEach(data => {
@@ -44,6 +117,67 @@ function fillModels() {
 }
 
 
+//***************************************** */
+function fillModels() {
+  fetch('https://localhost:44302/api/VehicleModel', {
+    method: 'GET'
+  })
+    .then(response => response.json())
+    .then(data => {
+      displayModelsInTable(data);
+    })
+    .catch(error => console.error('Error fetching data:', error));
+}
+
+function displayModelsInTable(models) {
+  const tableBody = document.getElementById('models-table-body');
+
+  // Clear previous content in the table body
+  tableBody.innerHTML = '';
+
+  models.forEach(model => {
+    const row = tableBody.insertRow();
+
+    // const modelIdCell = row.insertCell();
+    // modelIdCell.textContent = model.id;
+
+    const yearCell = row.insertCell();
+    yearCell.textContent = model.year;
+
+    const actionCell = row.insertCell();
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'حذف';
+    deleteButton.onclick = function () {
+      deleteModel(model.id, row);
+    };
+
+    const updateButton = document.createElement('button');
+    updateButton.textContent = 'تعديل';
+    updateButton.onclick = function () {
+      updateModel(model.id, row);
+    };
+
+    actionCell.appendChild(deleteButton);
+    // actionCell.appendChild(updateButton);
+  });
+}
+
+function deleteModel(modelId, row) {
+  fetch(`https://localhost:44302/api/VehicleModel/${modelId}`, {
+    method: 'DELETE'
+  })
+    .then(() => {
+      const table = document.getElementById('models-table');
+      table.deleteRow(row.rowIndex);
+    })
+    .catch(error => console.error('Error deleting model:', error));
+}
+
+
+
+
+
+//***************************************** */
 
 fetch('https://localhost:44302/api/Driver', {
   method: 'GET'
@@ -277,7 +411,7 @@ function filterTableByIsTrusted() {
 
   // Loop through each row and show/hide based on the selected value
   for (let i = 0; i < rows.length; i++) {
-    rows[i].style.display='';
+    rows[i].style.display = '';
     const cell = rows[i].getElementsByTagName('td')[4];
     const img = cell.getElementsByTagName('img')[0];
     console.log(selectedValue);

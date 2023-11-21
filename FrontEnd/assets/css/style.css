@@ -1692,6 +1692,28 @@ body {
   overflow: hidden;
 }
 
+.form-control1,
+.dataTable-input {
+  width: 80%;
+  padding: 0.875rem -0.25rem !important;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #69707a;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #c5ccd6;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* border-radius: 0.35rem; */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  /* height:50px; */
+  /*new added */
+  height: calc(1.5em + 1.75rem + 2px) !important;
+  border-radius: 0.85rem !important;
+}
+
 .form-control,
 .dataTable-input {
   display: block;
@@ -1714,7 +1736,27 @@ body {
   height: calc(1.5em + 1.75rem + 2px) !important;
   border-radius: 0.85rem !important;
 }
-
+.form-control2,
+.dataTable-input {
+  width: 68%;
+  padding: 0.875rem -0.25rem !important;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #69707a;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #c5ccd6;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* border-radius: 0.35rem; */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  /* height:50px; */
+  /*new added */
+  height: calc(1.5em + 1.75rem + 2px) !important;
+  border-radius: 0.85rem !important;
+}
 
 .nav-borders .nav-link.active {
   color: #0061f2;
@@ -1823,4 +1865,44 @@ body {
   /* margin: 40px; */
   font-family: Arial;
   text-align: center;
+}
+
+
+#cities-table button {
+  background-color: #008bba; /* Green */
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#cities-table button:first-child {
+  background-color: #f33d3d;
+}
+#cities-table button:first-child:hover {
+  background-color: #cf3232;
+}
+#models-table button {
+  background-color: #008bba; /* Green */
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#models-table button:first-child {
+  background-color: #f33d3d;
+}
+#models-table button:first-child:hover {
+  background-color: #cf3232;
 }
