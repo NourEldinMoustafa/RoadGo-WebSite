@@ -1,5 +1,6 @@
 const driverid = localStorage.getItem('driverRegId');
 const driverphone = localStorage.getItem('driverphone');
+console.log(driverphone);
 document.getElementById('four-digits').innerText = driverphone.substring(driverphone.length - 4);
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -20,6 +21,7 @@ const firebaseConfig = {
     appId: "1:115144488342:web:77d0d0891a88afd33399b7",
     measurementId: "G-N1F6SF2P2L"
 };
+
 firebase.initializeApp(firebaseConfig);
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -105,6 +107,7 @@ function codeverify(code) {
 
 // phoneAuth(`+966${driverphone}`);
 phoneAuth(`${driverphone}`);
+
 document.getElementById('submit-btn').addEventListener('click', function (event) {
     event.preventDefault();
     // Example of using the OTPInput function and getting the values

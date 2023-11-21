@@ -26,46 +26,47 @@ function render() {
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
     recaptchaVerifier.render();
 }
-// function for send message
-function phoneAuth(phoneNumber) {
 
-    console.log(phoneNumber);
-    firebase.auth().signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier).then(function (confirmationResult) {
+// // function for send message
+// function phoneAuth(phoneNumber) {
 
-        window.confirmationResult = confirmationResult;
-        coderesult = confirmationResult;
-        console.log('ok');
+//     console.log(phoneNumber);
+//     firebase.auth().signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier).then(function (confirmationResult) {
 
-    }).catch(function (error) {
-        console.log('not ok');
+//         window.confirmationResult = confirmationResult;
+//         coderesult = confirmationResult;
+//         console.log('ok');
 
-        alert(error.message);
-    });
-}
+//     }).catch(function (error) {
+//         console.log('not ok');
 
-// function for code verify
-function codeverify(code) {
+//         alert(error.message);
+//     });
+// }
 
-    coderesult.confirm(code).then(function () {
-        var formData = new FormData();
-        formData.append('isTrusted', true);
+// // function for code verify
+// function codeverify(code) {
 
-        fetch(`https://localhost:44302/api/Driver/${localStorage.getItem('driverRegId')}`, {
-            method: 'PUT',
-            body: formData
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data['isTrusted']);
-            })
-            .catch(error => console.error('Error fetching data:', error));
+//     coderesult.confirm(code).then(function () {
+//         var formData = new FormData();
+//         formData.append('isTrusted', true);
 
-        // location.href = 'index.html';
-    }).catch(function () {
-        alert("wrong code");
-    })
+//         fetch(`https://localhost:44302/api/Driver/${localStorage.getItem('driverRegId')}`, {
+//             method: 'PUT',
+//             body: formData
+//         })
+//             .then(response => response.json())
+//             .then(data => {
+//                 console.log(data['isTrusted']);
+//             })
+//             .catch(error => console.error('Error fetching data:', error));
 
-}
+//         // location.href = 'index.html';
+//     }).catch(function () {
+//         alert("wrong code");
+//     })
+
+// }
 /*******end OTP CODE******/
 
 fetch('https://localhost:44302/api/City', {
@@ -98,8 +99,6 @@ fetch('https://localhost:44302/api/VehicleModel', {
     })
     .catch(error => console.error('Error fetching data:', error));
 
-
-    console.log(    phoneAuth("+966"+'560681889'));
 
 var x = 1;
 console.log(x++);
@@ -191,7 +190,7 @@ document.getElementById("saving-form").addEventListener("submit", function (even
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            localStorage.setItem('driverRegId', data['id']); 
+            localStorage.setItem('driverRegId', data['id']);
 
             localStorage.setItem(`driverphone`, data['phone']);
             return true;
@@ -277,7 +276,7 @@ function validatePhone() {
         return false;
     }
     // } else if (!phoneRegex.test(phoneInput.value.trim())) {
-        // phoneInput.focus();
+    // phoneInput.focus();
 
     //     phoneLabel.innerText = 'يجب ان يكون رقم سعودي';
     //     return false;
@@ -424,7 +423,7 @@ function validateVehicleFrontImage() {
     const vehicleFrontImageInput = document.getElementById('VehicleFrontImageFile');
     const vehicleFrontImageLabel = document.getElementById('VehicleFrontImageValidation');
 
-    return  validateImageFile(vehicleFrontImageInput, maxFileSize, vehicleFrontImageLabel, genralErrorMessage);
+    return validateImageFile(vehicleFrontImageInput, maxFileSize, vehicleFrontImageLabel, genralErrorMessage);
 }
 function validateVehicleBackImage() {
 
