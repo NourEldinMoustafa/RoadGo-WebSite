@@ -108,10 +108,6 @@ document.getElementById("saving-form").addEventListener("submit", function (even
 
     var ok = true;
     // ok= validateForm();
-    ok &= validatePlateNumber();
-    console.log(ok)
-    ok &= validateVehicleColor();
-    console.log(ok)
     ok &= validateFirstName();
     console.log(ok)
     ok &= validateLastName();
@@ -121,6 +117,10 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     ok &= validatePhone();
     console.log(ok)
     ok &= validateNationalId();
+    console.log(ok)
+    ok &= validatePlateNumber();
+    console.log(ok)
+    ok &= validateVehicleColor();
     console.log(ok)
     ok &= validateDrivingLicenseImage();
     console.log(ok)
@@ -233,9 +233,11 @@ function validateFirstName() {
 
     if (firstNameInput.value.trim() === '') {
         firstNameLabel.innerText = 'الإسم الأول مطلوب';
+        firstNameInput.focus();
         return false;
     } else if (!hasArabicLetters(firstNameInput.value.trim())) {
         firstNameLabel.innerText = 'يجب أن يكون الاسم المركبة باللغة العربية';
+        firstNameInput.focus();
         return false;
     } else {
         console.log(x++);
@@ -250,9 +252,12 @@ function validateLastName() {
 
     if (lastNameInput.value.trim() === '') {
         lastNameLabel.innerText = 'اسم العائلة مطلوب';
+        lastNameInput.focus();
+
         return false;
     } else if (!hasArabicLetters(lastNameInput.value.trim())) {
         lastNameLabel.innerText = 'يجب أن يكون الاسم المركبة باللغة العربية';
+        lastNameInput.focus();
         return false;
     } else {
         console.log(x++);
@@ -267,12 +272,17 @@ function validatePhone() {
     const phoneRegex = /^(05|5)(5|0|3|6|4|9|1|8|7)([0-9]{7})$/;
 
     if (phoneInput.value.trim() === '') {
+        phoneInput.focus();
         phoneLabel.innerText = 'رقم الجوال مطلوب';
         return false;
-    } else if (!phoneRegex.test(phoneInput.value.trim())) {
-        phoneLabel.innerText = 'يجب ان يكون رقم سعودي';
-        return false;
-    } else {
+    }
+    // } else if (!phoneRegex.test(phoneInput.value.trim())) {
+        // phoneInput.focus();
+
+    //     phoneLabel.innerText = 'يجب ان يكون رقم سعودي';
+    //     return false;
+    // } 
+    else {
         console.log(x++);
         phoneLabel.innerText = ''; // Clear the validation message
         return true;

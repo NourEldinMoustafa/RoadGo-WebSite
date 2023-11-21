@@ -101,12 +101,14 @@ function codeverify(code) {
     })
 
 }
-phoneAuth(`+966${driverphone}`);
+
+
+// phoneAuth(`+966${driverphone}`);
+phoneAuth(`${driverphone}`);
 document.getElementById('submit-btn').addEventListener('click', function (event) {
     event.preventDefault();
     // Example of using the OTPInput function and getting the values
     const otpCode = OTPInputValue();
-
     // Log the values for testing
     codeverify(otpCode);
 
@@ -115,5 +117,7 @@ document.getElementById('submit-btn').addEventListener('click', function (event)
 document.getElementById('resend-btn').addEventListener('click', function (event) {
     event.preventDefault();
 
-    phoneAuth(`+966${driverphone}`);
+    // phoneAuth(`+966${driverphone}`);
+    phoneAuth(`${driverphone}`);
+
 });
