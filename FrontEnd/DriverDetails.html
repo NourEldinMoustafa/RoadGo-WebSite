@@ -69,14 +69,7 @@
 
     <!-- start Bootstrap edit form -->
     <div class="container-xl px-4 mt-4">
-        <!-- Account page navigation-->
-        <!-- <nav class="nav nav-borders sticky-top">
-            <a class="nav-link active ms-0" href="#driver-data"onclick="activate()" id="a-driver-data" >بيانات السائق</a>
 
-            <a class="nav-link" href="#goto" onclick="activate()" id="a-reg-data">متطلبات التسجيل</a>
-
-
-        </nav> -->
         <hr class="mt-0 mb-4">
         <div class="row">
 
@@ -126,6 +119,12 @@
 
                                     <label class="small mb-1" for="inputPhone">رقم الجوال</label>
                                     <input class="form-control" id="inputPhone" type="text" placeholder="رقم الجوال">
+                                    <input type="radio" name="isTrusted-radio" value="true" id="trusted-chechbox"
+                                        class="ms-1"><label for="trusted-chechbox">موثق</label>
+                                    <input type="radio" name="isTrusted-radio" value="false" id="not-trusted-chechbox"
+                                        class="ms-1"><label for="trusted-chechbox">غير موثف</label>
+                                    <br>
+
 
                                     <label class="small mb-1" for="inputPassword">كلمة المرور </label>
                                     <input class="form-control" id="inputPassword" type="password"
@@ -196,10 +195,10 @@
                             </div>
 
 
-                            <hr class="mb-5 m">
+                            <!-- <hr class="mb-5 m"> -->
                             <!---=================متطلبات هيئة النقل============-->
                             <div class="card mb-4" id="third-form">
-                                <div id="goto" class="card-header">متطلبات التسجيل</div>
+
                                 <div class="card-body">
 
                                     <!-- Form Row-->
@@ -282,7 +281,7 @@
                                         </div>
                                     </div>
 
-                        
+
 
 
 
@@ -293,8 +292,8 @@
                                                 <!-- start of rightPart letters -->
                                                 <div class="form-group col-md-2 mt-3">
                                                     <label for="rightPart" class="sr-only">الأيمن</label>
-                                                    <select type="text" class="form-control" 
-                                                        placeholder="الأيمن" id="inputPlateRight">
+                                                    <select type="text" class="form-control" placeholder="الأيمن"
+                                                        id="inputPlateRight">
                                                         <option selected disabled>الأيمن</option>
                                                         <option value="أ">أ</option>
                                                         <option value="ب">ب</option>
@@ -331,7 +330,7 @@
                                                 <div class="form-group col-md-2 mt-3">
                                                     <label for="middlePart" class="sr-only"> الأوسط</label>
                                                     <select type="text" class="form-control" id="inputPlateMiddle"
-                                                        placeholder="الأوسط" >
+                                                        placeholder="الأوسط">
                                                         <option selected disabled>الأوسط</option>
                                                         <option value="أ">أ</option>
                                                         <option value="ب">ب</option>
@@ -369,7 +368,7 @@
                                                 <div class="form-group col-md-2 mt-3">
                                                     <label for="leftPart" class="sr-only"> الأيسر</label>
                                                     <select type="text" class="form-control" id="inputPlateLeft"
-                                                        placeholder="الأيسر" >
+                                                        placeholder="الأيسر">
                                                         <option selected disabled>الأيسر</option>
                                                         <option value="أ">أ</option>
                                                         <option value="ب">ب</option>
@@ -407,7 +406,7 @@
                                                 <div class="form-group col-md-6 mt-3">
                                                     <label for="number" class="sr-only">رقم اللوحة</label>
                                                     <input type="text" class="form-control" id="inputPlatenumber"
-                                                        placeholder="رقم اللوحة" >
+                                                        placeholder="رقم اللوحة">
                                                 </div>
                                                 <!-- end of number letters -->
 
@@ -415,7 +414,7 @@
                                         </div>
 
 
-                                      
+
 
                                     </div>
 
@@ -429,26 +428,20 @@
                                                 placeholder="اختر موديل">
                                                 <!-- Add the cities dynamically here -->
                                                 <option selected disabled>اختر موديل</option>
-                                                
+
                                                 <option value="BMW">BMW</option>
-                                               
+
 
                                             </select>
+
                                         </div>
                                         <!-- Form Group (last name)-->
                                         <div class="col-md-6">
                                             <label class="small mb-1" for="inputVehicleColor">لون المركبة </label>
-                                            <select class="form-control" id="inputVehicleColor" type="text"
-                                                placeholder="اختر اللون">
-                                                <!-- Add the cities dynamically here -->
-                                                <option selected disabled>اختر موديل</option>
-                                                
-                                                <option value="ابيض">ابيض</option>
-                                               
-
-                                            </select>
+                                            <input type="text" class="form-control" id="inputVehicleColor"
+                                                placeholder="اللون">
                                         </div>
-                                        
+
                                     </div>
 
                                     <!-- Form Row        -->
@@ -516,9 +509,21 @@
                             <!-- Save changes button-->
                             <button class="btn btn-primary" type="submit" id="edit-btn">تعديل</button>
 
-                            <button class="btn btn-primary " type="submit" id="save-btn" style="display: none;">حفظ</button>
-                            <button class="btn btn-danger" type="submit" id="delete-btn" style="display: none;">حذف</button>
 
+                            <button class="btn btn-primary " type="submit" id="save-btn" style="display: none;"> حفظ
+
+                            </button>
+
+
+                            <button class="btn btn-danger" type="submit" id="delete-btn"
+                                style="display: none;">حذف</button>
+                            <div class="col-6">
+
+                                <div class="alert alert-success mt-2" id="update-alert" role="alert" style="display: none;">
+                                    تم التعديل بنجاح 
+                                </div>
+                               
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -569,23 +574,24 @@
 
 
 
-      <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5 d-flex justify-content-between ">
-          <nav id="navbar" class="navbar">
-            <ul>
-              <li><a class="nav-link scrollto" href="policy.html">سياسة الخصوصية<img height="20px"
-                    style="margin-right: 5px;" src="assets/privacy-policy.svg"></a></li>
-              <li><a class="nav-link scrollto" href="DriverRegistration.html">السائق<img height="20px" style="margin-right: 5px;"
-                    src="assets/Road Go Icon Set/driver/driver 3.svg"></a></li>
-              <li><a class="nav-link scrollto" href="Contact.html">تواصل معنا<img height="20px"
-                    style="margin-right: 5px;" src="assets/contact us.svg"></a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="col-md-7   footer-img" dir="ltr">
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 d-flex justify-content-between ">
+                    <nav id="navbar" class="navbar">
+                        <ul>
+                            <li><a class="nav-link scrollto" href="policy.html">سياسة الخصوصية<img height="20px"
+                                        style="margin-right: 5px;" src="assets/privacy-policy.svg"></a></li>
+                            <li><a class="nav-link scrollto" href="DriverRegistration.html">السائق<img height="20px"
+                                        style="margin-right: 5px;"
+                                        src="assets/Road Go Icon Set/driver/driver 3.svg"></a></li>
+                            <li><a class="nav-link scrollto" href="Contact.html">تواصل معنا<img height="20px"
+                                        style="margin-right: 5px;" src="assets/contact us.svg"></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- <div class="col-md-7   footer-img" dir="ltr">
 
           <a href="https://apps.apple.com">
             <img class="footer-svg" src="/assets/app-store.png" alt="">
@@ -593,16 +599,16 @@
           <a href="https://play.google.com">
             <img class="footer-svg" src="/assets/play-store.png" alt="">
           </a>
-        </div>
-      </div>
-      <div class="copyright">
-        &copy; Copyright <img src="assets/Road Go Pattern&Board/logo/logo 2.svg" height="10px"
-          style="margin-bottom: 3px;">. All Rights Reserved
+        </div> -->
+            </div>
+            <div class="copyright">
+                &copy; Copyright <img src="assets/Road Go Pattern&Board/logo/logo 2.svg" height="10px"
+                    style="margin-bottom: 3px;">. All Rights Reserved
 
-      </div>
-    </div>
-    <!--start whatsapp icone -->
-    <div class="fab">
+            </div>
+        </div>
+        <!--start whatsapp icone -->
+        <!-- <div class="fab">
       <a href="https://api.whatsapp.com/send?phone=+966550703269&text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C+%D8%A3%D9%86%D8%A7+%D9%85%D9%87%D8%AA%D9%85+%D8%A8%D8%A7%D9%84%D8%B9%D9%85%D9%84+%D9%85%D8%B9%D9%83%D9%85.+%D9%84%D9%82%D8%AF+%D8%B1%D8%A3%D9%8A%D8%AA+%D8%A5%D8%B9%D9%84%D8%A7%D9%86%D9%83%D9%85+%D9%88%D8%A7%D8%B1%D8%BA%D8%A8+%D9%81%D9%8A+%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84+%D9%85%D8%B9%D9%83%D9%85&oq=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C+%D8%A3%D9%86%D8%A7+%D9%85%D9%87%D8%AA%D9%85+%D8%A8%D8%A7%D9%84%D8%B9%D9%85%D9%84+%D9%85%D8%B9%D9%83%D9%85.+%D9%84%D9%82%D8%AF+%D8%B1%D8%A3%D9%8A%D8%AA+%D8%A5%D8%B9%D9%84%D8%A7%D9%86%D9%83%D9%85+%D9%88%D8%A7%D8%B1%D8%BA%D8%A8+%D9%81%D9%8A+%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84+%D9%85%D8%B9%D9%83%D9%85&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg80gEIMTczNmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8"
         target="_blank" class="fab__button">
         <i class="lp-icon">
@@ -615,10 +621,10 @@
         <div class="pulse pulse-2"></div>
         <div class="pulse pulse-3"></div>
       </div>
-    </div>
-    <!--end whatsapp icone-->
+    </div> -->
+        <!--end whatsapp icone-->
 
-  </footer><!-- End Footer -->
+    </footer><!-- End Footer -->
 
 
 

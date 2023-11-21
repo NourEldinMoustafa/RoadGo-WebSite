@@ -13,23 +13,21 @@ fetch('https://localhost:44302/api/City', {
 
 
 
-
 fetch('https://localhost:44302/api/VehicleModel', {
     method: 'GET'
 })
     .then(response => response.json())
     .then(data => {
-        fillSelectOptions(data, "inputVehicleModel");
-    })
-    .catch(error => console.error('Error fetching data:', error));
 
+        var Select = document.getElementById('inputVehicleModel');
+        Select.innerHTML = ``;
+        data.forEach(data => {
+            var child = document.createElement("option")
+            child.textContent = data['year'];
+            child.value = data['id'];
 
-fetch('https://localhost:44302/api/VehicleColor', {
-    method: 'GET'
-})
-    .then(response => response.json())
-    .then(data => {
-        fillSelectOptions(data, "inputVehicleColor");
+            Select.appendChild(child);
+        });
     })
     .catch(error => console.error('Error fetching data:', error));
 
@@ -75,21 +73,17 @@ document.getElementById("edit-btn").addEventListener("click", function (event) {
 document.getElementById("delete-btn").addEventListener("click", function (event) {
     event.preventDefault();
 
-
-
     fetch(`https://localhost:44302/api/Driver/${localStorage.getItem("driverid")}`, {
         method: 'DELETE'
     })
         .then(response => response.json())
         .then(data => {
 
-            alert(`تم الحذف بنجاح`);
 
-            console.log(data);
+            location.href = 'dashboard.html';
         })
         .catch(error => console.error('Error fetching data:', error));
 
-    location.href = 'dashboard.html';
 
 })
 
@@ -100,7 +94,7 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     // if(ok === true){
 
     // }
-    alert(`تريد تعديل السائق`);
+
 
     var formData = new FormData();
 
@@ -139,24 +133,43 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     const VehicleModel = document.getElementById("inputVehicleModel").value;
     const VehicleColor = document.getElementById("inputVehicleColor").value;
 
+    const genderRadios = document.getElementsByName('isTrusted-radio');
+
+    // Loop through radio buttons to find the selected one
+    let isTrusted;
+    for (const radio of genderRadios) {
+        if (radio.checked) {
+            isTrusted = radio.value;
+            break;
+        }
+    }
+
+    console.log(isTrusted);
+    if (isTrusted === "true") {
+        formData.append("isTrusted", true);
+    }
+    else
+        formData.append("isTrusted", false);
 
 
 
 
 
-    formData.append("firstName", firstName)
-    formData.append("lastName", lastName)
-    formData.append("phone", phone)
-    formData.append("password", password)
-    formData.append("nationalId", NationalId)
-    formData.append("gender", Gender)
-    formData.append("cityId", CityId)
-    formData.append("vehicleModelId", VehicleModel)
-    formData.append("vehicleColorId", VehicleColor)
-    formData.append("vehiclePlateRight", PlateRight)
-    formData.append("vehiclePlateMiddle", PlateMiddle)
-    formData.append("vehiclePlateLeft", PlateLeft)
-    formData.append("vehiclePlateNumber", Platenumber)
+
+
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("phone", phone);
+    formData.append("password", password);
+    formData.append("nationalId", NationalId);
+    formData.append("gender", Gender);
+    formData.append("cityId", CityId);
+    formData.append("vehicleModelId", VehicleModel);
+    formData.append("vehicleColor", VehicleColor);
+    formData.append("vehiclePlateRight", PlateRight);
+    formData.append("vehiclePlateMiddle", PlateMiddle);
+    formData.append("vehiclePlateLeft", PlateLeft);
+    formData.append("vehiclePlateNumber", Platenumber);
 
 
 
@@ -168,9 +181,8 @@ document.getElementById("saving-form").addEventListener("submit", function (even
         .then(response => response.json())
         .then(data => {
 
-            alert(`تم التعديل بنجاح`);
+            document.getElementById('update-alert').style.display = 'block';
 
-            console.log(data);
         })
         .catch(error => console.error('Error fetching data:', error));
 
@@ -229,7 +241,7 @@ function displayDriver(driver) {
     document.getElementById("inputPlatenumber").value = driver["vehiclePlateNumber"];
 
     document.getElementById("inputVehicleModel").value = driver["vehicleModelId"];
-    document.getElementById("inputVehicleColor").value = driver["vehicleColorId"];
+    document.getElementById("inputVehicleColor").value = driver["vehicleColor"];
 
 
     document.getElementById("drivingLicenseImage").src = `data:image/jpeg;base64,${driver.drivingLicenseImage}`;
@@ -238,6 +250,11 @@ function displayDriver(driver) {
 
     document.getElementById("VehicleFrontImage").src = `data:image/jpeg;base64,  ${driver.vehicleFrontImage}`;
     document.getElementById("VehicleBackImage").src = `data:image/jpeg;base64,  ${driver.vehicleBackImage}`;
+
+    if (driver['isTrusted'])
+        document.getElementById('trusted-chechbox').checked = true;
+    else
+        document.getElementById('not-trusted-chechbox').checked = true;
 
 }
 

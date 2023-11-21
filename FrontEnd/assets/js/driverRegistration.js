@@ -27,26 +27,25 @@ function render() {
     recaptchaVerifier.render();
 }
 // function for send message
-function phoneAuth() {
-    var number = document.getElementById('inputPhone').value;
-    console.log(number);
-    firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
+function phoneAuth(phoneNumber) {
+
+    console.log(phoneNumber);
+    firebase.auth().signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier).then(function (confirmationResult) {
 
         window.confirmationResult = confirmationResult;
         coderesult = confirmationResult;
-        // document.getElementById('verifier').style.display = 'block';
+        console.log('ok');
 
     }).catch(function (error) {
+        console.log('not ok');
+
         alert(error.message);
     });
 }
+
 // function for code verify
-function codeverify() {
-    var code = document.getElementById('inputOTP').value;
+function codeverify(code) {
 
-
-
-    alert(`تم التحقيق ${localStorage.getItem('driverRegId')}`);
     coderesult.confirm(code).then(function () {
         var formData = new FormData();
         formData.append('isTrusted', true);
@@ -63,7 +62,7 @@ function codeverify() {
 
         // location.href = 'index.html';
     }).catch(function () {
-        alert("wrong code fdsd");
+        alert("wrong code");
     })
 
 }
@@ -100,44 +99,42 @@ fetch('https://localhost:44302/api/VehicleModel', {
     .catch(error => console.error('Error fetching data:', error));
 
 
+    console.log(    phoneAuth("+966"+'560681889'));
 
-
-
-document.getElementById("check-btn").addEventListener('click', function (event) {
-    event.preventDefault();
-
-
-    codeverify();
-
-    document.getElementById('OTPverifier').style.display = 'block';
-    document.getElementById('Phone-con').style.display = 'none';
-});
-
-
-
-
-
-
-// document.getElementById("nxt-btn").addEventListener('click', function (event) {
-//     event.preventDefault();
-//     if (document.getElementById("inputOTP").value.length === 0 || document.getElementById("inputOTP").value === null) {
-//         alert('enter code');
-//         return;
-//     }
-//     codeverify()
-
-
-// })
-
-var formData = new FormData();
-
+var x = 1;
+console.log(x++);
 document.getElementById("saving-form").addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // var ok = inputvalidation();
-    // if(ok === true){
+    var ok = true;
+    // ok= validateForm();
+    ok &= validatePlateNumber();
+    console.log(ok)
+    ok &= validateVehicleColor();
+    console.log(ok)
+    ok &= validateFirstName();
+    console.log(ok)
+    ok &= validateLastName();
+    console.log(ok)
+    ok &= validatePassword();
+    console.log(ok)
+    ok &= validatePhone();
+    console.log(ok)
+    ok &= validateNationalId();
+    console.log(ok)
+    ok &= validateDrivingLicenseImage();
+    console.log(ok)
+    ok &= validateFormImage();
+    console.log(ok)
+    ok &= validateVehicleBackImage();
+    console.log(ok)
+    ok &= validateVehicleFrontImage();
+    console.log(ok)
+    ok &= validatePersonalPhoto();
+    console.log(ok)
 
-    // }
+    if (!ok) return ok;
+
 
     const personalphotofile = document.getElementById("personalPhotoFile").files[0];
     const formImageFile = document.getElementById("formImageFile").files[0];
@@ -164,6 +161,7 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     console.log(Gender)
 
     // console.log(CityId);
+    var formData = new FormData();
 
     formData.append("firstName", firstName)
     formData.append("lastName", lastName)
@@ -193,28 +191,25 @@ document.getElementById("saving-form").addEventListener("submit", function (even
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            localStorage.setItem('driverRegId', data['id']);
+            localStorage.setItem('driverRegId', data['id']); 
+
+            localStorage.setItem(`driverphone`, data['phone']);
+            return true;
+
         })
-        .catch(error => console.error('Error fetching data:', error));
+        .catch(error => {
+            alert('Error fetching data:', error);
+            return false;
+        })
 
 
-    console.log('ok ok');
-    phoneAuth();
     setTimeout(() => {
+        location.href = 'OTPValidation.html';
+    }, 500);
 
-        document.getElementById('form-card').style.display = 'none';
-        document.getElementById('OTPverifier').style.display = 'block';
-
-    }, 1000);
-
-
-
+    return true;
 });
 
-
-document.getElementById('send-again-btn').addEventListener('click', function (event) {
-    event.preventDefault();
-})
 
 
 // functions start
@@ -231,63 +226,300 @@ function fillSelectOptions(data, id) {
     });
 }
 
-function inputvalidation() {
-    const personalphotofile = document.getElementById("personalPhotoFile");
-    if (personalphotofile.files.length === 0) {
-        // show to end user somthing
 
+function validateFirstName() {
+    const firstNameInput = document.getElementById('inputFirstName');
+    const firstNameLabel = document.getElementById('firstNameValidation');
+
+    if (firstNameInput.value.trim() === '') {
+        firstNameLabel.innerText = 'الإسم الأول مطلوب';
         return false;
-    }
-
-    const firstName = document.getElementById("inputFirstName").value;
-    if (firstName.length === 0) {
-        // show to end user somthing
-
+    } else if (!hasArabicLetters(firstNameInput.value.trim())) {
+        firstNameLabel.innerText = 'يجب أن يكون الاسم المركبة باللغة العربية';
         return false;
+    } else {
+        console.log(x++);
+        firstNameLabel.innerText = ''; // Clear the validation message
+        return true;
     }
+}
 
-    const lastName = document.getElementById("inputLastName").value;
-    if (lastName.length === 0) {
-        // show to end user somthing
+function validateLastName() {
+    const lastNameInput = document.getElementById('inputLastName');
+    const lastNameLabel = document.getElementById('lastNameValidation');
 
+    if (lastNameInput.value.trim() === '') {
+        lastNameLabel.innerText = 'اسم العائلة مطلوب';
         return false;
-    }
-
-    //refrance: https://gist.github.com/homaily/8672499
-    const phoneRegex = /^(009665|9665|\+9665|05|5)(5|0|3|6|4|9|1|8|7)([0-9]{7})$/;
-
-    const phone = document.getElementById('inputPhone').value;
-    if (!phoneRegex.test(phone)) {
-        // show to end user somthing
-
+    } else if (!hasArabicLetters(lastNameInput.value.trim())) {
+        lastNameLabel.innerText = 'يجب أن يكون الاسم المركبة باللغة العربية';
         return false;
+    } else {
+        console.log(x++);
+        lastNameLabel.innerText = ''; // Clear the validation message
+        return true;
     }
+}
 
+function validatePhone() {
+    const phoneInput = document.getElementById('inputPhone');
+    const phoneLabel = document.getElementById('phoneValidation');
+    const phoneRegex = /^(05|5)(5|0|3|6|4|9|1|8|7)([0-9]{7})$/;
 
-    // This regular expression enforces the following criteria for a password:
-    // At least one lowercase letter.
-    // At least one uppercase letter.
-    // At least one digit.
-    // Minimum length of 8 characters.
+    if (phoneInput.value.trim() === '') {
+        phoneLabel.innerText = 'رقم الجوال مطلوب';
+        return false;
+    } else if (!phoneRegex.test(phoneInput.value.trim())) {
+        phoneLabel.innerText = 'يجب ان يكون رقم سعودي';
+        return false;
+    } else {
+        console.log(x++);
+        phoneLabel.innerText = ''; // Clear the validation message
+        return true;
+    }
+}
 
+function validateNationalId() {
+    const nationalIdInput = document.getElementById('inputNationalId');
+    const nationalIdLabel = document.getElementById('nationalIdValidation');
+
+    if (nationalIdInput.value.trim() === '') {
+        nationalIdLabel.innerText = 'رقم الهوية مطلوب';
+        return false;
+    } else if (nationalIdInput.value.trim().length !== 14) {
+        nationalIdLabel.innerText = 'رقم الهوية يجب أن يكون 14 رقم';
+        return false;
+    } else {
+        console.log(x++);
+        nationalIdLabel.innerText = ''; // Clear the validation message
+        return true;
+    }
+}
+
+function validatePassword() {
+    const passwordInput = document.getElementById('inputPassword');
+    const passwordLabel = document.getElementById('passwordValidation');
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
-    const password = document.getElementById("inputPassword").value;
+    if (passwordInput.value.trim() === '') {
+        passwordLabel.innerText = 'كلمة المرور مطلوبة';
+        return false;
+    } else if (!passwordRegex.test(passwordInput.value.trim())) {
+        passwordLabel.innerText = 'كلمة المرور غير صالحة';
+        return false;
+    } else {
+        console.log(x++);
+        passwordLabel.innerText = ''; // Clear the validation message
+        return true;
+    }
+}
 
-    if (!passwordRegex.test(password)) {
-        // show to end user somthing
+function validateVehicleColor() {
+    const vehicleColorInput = document.getElementById('inputVehicleColor');
+    const vehicleColorLabel = document.getElementById('vehicleColorValidation');
+    if (vehicleColorInput.value.trim() === '') {
+        vehicleColorLabel.innerText = 'لون المركبة مطلوب';
+        return false;
+    } else if (!hasArabicLetters(vehicleColorInput.value.trim())) {
+        vehicleColorLabel.innerText = 'يجب أن يكون لون المركبة باللغة العربية';
+        return false;
+    } else {
+        console.log(x++);
+        vehicleColorLabel.innerText = ''; // Clear the validation message
+        return true;
+    }
+}
+
+function validatePlateNumber() {
+    const plateNumberInput = document.getElementById('inputPlatenumber');
+    const plateNumberLabel = document.getElementById('plateNumberValidation');
+    const plateNumberRegex = /^[0-9]{3}$/;
 
 
+    if (plateNumberInput.value.trim() === '') {
+        plateNumberLabel.innerText = 'رقم اللوحة مطلوب';
+        return false;
+    } else if (!plateNumberRegex.test(plateNumberInput.value.trim())) {
+        plateNumberLabel.innerText = 'رقم اللوحة يجب أن يتكون من 3 أرقام';
+        return false;
+    } else {
+        console.log(x++);
+        plateNumberLabel.innerText = ''; // Clear the validation message
+        console.log(x++);
+
+        return true;
+    }
+}
+function hasArabicLetters(input) {
+    // Arabic Unicode range for letters
+    const arabicRegex = /[\u0600-\u06FF]/;
+
+    return arabicRegex.test(input);
+}
+
+
+// ...
+function validateImageFile(fileInput, maxFileSizeInBytes, labelElement, errorMessage) {
+    const file = fileInput.files[0];
+
+    if (!file) {
+        labelElement.innerText = errorMessage || 'الصورة مطلوبة';
         return false;
     }
 
+    if (file.size > maxFileSizeInBytes) {
+        labelElement.innerText = errorMessage || 'حجم الصورة يجب أن لا يتجاوز 5 ميجابايت';
+        return false;
+    }
 
-
-
-
+    console.log(x++);
+    labelElement.innerText = ''; // Clear the validation message
     return true;
+}
+const genralErrorMessage = 'يرجى تحميل صورة بحجم أقل من 5 ميجابايت';
+const maxFileSize = 5 * 1024 * 1024;
+function validatePersonalPhoto() {
+
+    // Example for Personal Photo
+    const personalPhotoInput = document.getElementById('personalPhotoFile');
+    const personalPhotoLabel = document.getElementById('personalPhotoValidation');
+
+    return validateImageFile(personalPhotoInput, maxFileSize, personalPhotoLabel, genralErrorMessage);
+}
+function validateFormImage() {
+
+    // Example for Personal Photo
+    const formImageInput = document.getElementById('formImageFile');
+    const formImageLabel = document.getElementById('formImageValidation');
+
+    return validateImageFile(formImageInput, maxFileSize, formImageLabel, genralErrorMessage);
 
 }
+function validateDrivingLicenseImage() {
+
+
+    // Example for Driving License Image
+    const drivingLicenseImageInput = document.getElementById('drivingLicenseImageFile');
+    const drivingLicenseImageLabel = document.getElementById('drivingLicenseImageValidation');
+
+
+
+    return validateImageFile(drivingLicenseImageInput, maxFileSize, drivingLicenseImageLabel, genralErrorMessage);
+}
+
+function validateVehicleFrontImage() {
+
+    // Repeat this pattern for other image file inputs
+    // Example for Vehicle Front Image
+    const vehicleFrontImageInput = document.getElementById('VehicleFrontImageFile');
+    const vehicleFrontImageLabel = document.getElementById('VehicleFrontImageValidation');
+
+    return  validateImageFile(vehicleFrontImageInput, maxFileSize, vehicleFrontImageLabel, genralErrorMessage);
+}
+function validateVehicleBackImage() {
+
+    // Example for Vehicle Back Image
+    const vehicleBackImageInput = document.getElementById('VehicleBackImageFile');
+    const vehicleBackImageLabel = document.getElementById('VehicleBackImageValidation');
+
+
+    return validateImageFile(vehicleBackImageInput, maxFileSize, vehicleBackImageLabel, genralErrorMessage);
+}
+
+
+
+
+
+
+
+function validateForm() {
+    // Personal Information Section
+    var firstName = document.getElementById('inputFirstName').value;
+    var lastName = document.getElementById('inputLastName').value;
+    var phone = document.getElementById('inputPhone').value;
+    var city = document.getElementById('inputCity').value;
+    var password = document.getElementById('inputPassword').value;
+    var gender = document.getElementById('inputGender').value;
+    var nationalId = document.getElementById('inputNationalId').value;
+
+    // Vehicle Information Section
+    var plateRight = document.getElementById('inputPlateRight').value;
+    var plateMiddle = document.getElementById('inputPlateMiddle').value;
+    var plateLeft = document.getElementById('inputPlateLeft').value;
+    var plateNumber = document.getElementById('inputPlatenumber').value;
+    var vehicleModel = document.getElementById('inputVehicleModel').value;
+    var vehicleColor = document.getElementById('inputVehicleColor').value;
+
+    // Images
+    var personalPhoto = document.getElementById('personalPhotoFile').files[0];
+    var formImage = document.getElementById('formImageFile').files[0];
+    var drivingLicenseImage = document.getElementById('drivingLicenseImageFile').files[0];
+    var vehicleFrontImage = document.getElementById('VehicleFrontImageFile').files[0];
+    var vehicleBackImage = document.getElementById('VehicleBackImageFile').files[0];
+
+    // Regex Patterns
+    var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    var phoneRegex = /^(009665|9665|\+9665|05|5)(5|0|3|6|4|9|1|8|7)([0-9]{7})$/;
+
+    // Check if required fields are empty
+    if (
+        firstName === '' || lastName === '' || phone === '' || city === '' ||
+        password === '' || gender === '' || nationalId === '' ||
+        plateRight === '' || plateMiddle === '' || plateLeft === '' ||
+        plateNumber === '' || vehicleModel === '' || vehicleColor === '' ||
+        personalPhoto === undefined || formImage === undefined ||
+        drivingLicenseImage === undefined || vehicleFrontImage === undefined ||
+        vehicleBackImage === undefined
+    ) {
+        document.getElementById('validation-label').innerText = ' يرجى إدخال الاسم الاول';
+        return false;
+    }
+
+    // Validate Password using Regex
+    if (!passwordRegex.test(password)) {
+        alert('Password must contain at least one lowercase letter, one uppercase letter, one digit, and be at least 8 characters long.');
+        return false;
+    }
+
+    // Validate Phone using Regex
+    if (!phoneRegex.test(phone)) {
+        alert('Invalid phone number format. Please enter a valid Saudi Arabian phone number.');
+        return false;
+    }
+
+    // Validate National ID length
+    if (nationalId.length !== 14) {
+        alert('National ID must be 14 digits long.');
+        return false;
+    }
+
+    // Validate Plate Number length
+    if (plateNumber.length !== 3) {
+        alert('Plate Number must be 3 characters long.');
+        return false;
+    }
+
+    // Validate Image Sizes (not greater than 5MB)
+    var maxSize = 5 * 1024 * 1024; // 5MB
+    if (
+        personalPhoto.size > maxSize || formImage.size > maxSize ||
+        drivingLicenseImage.size > maxSize || vehicleFrontImage.size > maxSize ||
+        vehicleBackImage.size > maxSize
+    ) {
+        alert('Image size should not exceed 5MB.');
+        return false;
+    }
+
+    // Validate Arabic Characters for FirstName, LastName, and Color
+    var arabicRegex = /^[\u0600-\u06FF\s]+$/;
+    if (!arabicRegex.test(firstName) || !arabicRegex.test(lastName) || !arabicRegex.test(vehicleColor)) {
+        alert('First Name, Last Name, and Color must contain only Arabic characters.');
+        return false;
+    }
+
+    return true;
+}
+
 
 
 
@@ -313,7 +545,7 @@ function showSelectedImage(event, imgid) {
         reader.onload = function (e) {
             const previewImage = document.getElementById(imgid);
             previewImage.src = e.target.result;
-            document.getElementById(imgid + "btn").dataset.customProperty = e.target.result;
+            // document.getElementById(imgid + "btn").dataset.customProperty = e.target.result;
         };
 
         reader.readAsDataURL(fileInput.files[0]);

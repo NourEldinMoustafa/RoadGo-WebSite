@@ -28,7 +28,7 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
@@ -78,7 +78,7 @@
 
         </select>
 
-        <img src="assets/plus.png" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+        <img src="assets/plus.png" data-bs-toggle="modal" data-bs-target="#take-input-model"
           style="height:25px; width: 25px;" onclick="changeWordinPopup('المدينة')">
 
 
@@ -94,9 +94,12 @@
 
 
         </select>
-        <img src="assets/plus.png" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+        <img src="assets/plus.png" data-bs-toggle="modal" data-bs-target="#take-input-model"
           style="height:25px; width: 25px;" onclick="changeWordinPopup('الموديل')">
 
+
+        <img src="assets/icons8-close.svg" data-bs-toggle="modal" data-bs-target="#delete-model"
+          style="height:25px; width: 25px;" onclick="changeWordinPopup('احذف')">
 
       </div>
 
@@ -106,16 +109,31 @@
 
 
 
-    <div class="row">
 
-      <!-- sWITCH -->
-      <!-- <div class="form-check form-switch d-flex me-5 mb-2" >
-    <label class="form-check-label  ms-3" for="flexSwitchCheckChecked"> موثوق</label>
-    <input class="form-check-input me-3 ms-3" type="checkbox" id="flexSwitchCheckChecked" checked>
-    <label class="form-check-label me-3 ms-3" for="flexSwitchCheckChecked">غير موثوق </label>
-  </div> -->
-      <!-- sWITCH -->
+    <div class=" row">
+      <div class="col-4">
+
+        <select class="form-control ml-2 " id="isTrusted-select">
+          <option selected value="1">الكل</option>
+          <option value="2">الموثقون</option>
+          <option value="3">غير الموثقون</option>
+          
+        </select>
+      </div>
+      <div class="col-lg-3">
+        
+        
+        <input id="phone" class=" form-control" type="search" placeholder="الجوال" aria-label="Search">
+
+      </div>
+      <div class="col-1">
+        <button class="btn btn-outline-success " id="search-btn">ابحث</button>
+      </div>
+      
     </div>
+
+
+
 
     <div class="row">
       <table class="table table-hover align-middle mb-0 bg-white ">
@@ -197,7 +215,7 @@
 
 
   <!-- start model take input-->
-  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal fade" id="take-input-model" tabindex="-1" aria-labelledby="take-input-model" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -223,7 +241,45 @@
   </div>
   <!-- end model take input-->
 
+  <!-- start model display all cities and car model-->
+  <div class="modal fade" id="delete-model" tabindex="-1" aria-labelledby="delete-model" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
 
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label" id="popup-label">المدن</label>
+
+              <div class="h-50  border border-dark p-3">
+                <span class="border rounded bg-dark bg-gradient text-dark mt-2 mb-2 me-1 bg-light-subtle"
+                  id="mather-span">مكة<span class="me-3 p-3" id="city-span">&times</span></span>
+
+                <span class="border rounded bg-dark bg-gradient text-dark mt-2 mb-2 me-1 bg-light-subtle"
+                  id="mather-span1">مكة<span class="me-3 p-3" id="city-span1">&times</span></span>
+
+
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <script>
+          document.getElementById('city-span').onclick = function () {
+            document.getElementById('mather-span').remove('city-span');
+          }
+        </script>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
+          <button type="button" class="btn btn-primary" id="delete-model-save-btn">حفظ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end model take input-->
 
 
   <!-- ======= Footer ======= -->
@@ -243,6 +299,9 @@
     <script src="assets/js/dashboard.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script
 </body>
 
 </html>

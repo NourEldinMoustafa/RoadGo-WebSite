@@ -26,11 +26,14 @@ function fillModels() {
     .then(response => response.json())
     .then(data => {
 
+
+
       var Select = document.getElementById('model-select');
       Select.innerHTML = ``;
       data.forEach(data => {
         var child = document.createElement("option")
         child.textContent = data['year'];
+
         child.value = data['id'];
 
         Select.appendChild(child);
@@ -41,22 +44,16 @@ function fillModels() {
 }
 
 
+
 fetch('https://localhost:44302/api/Driver', {
   method: 'GET'
 }) // Replace with your server endpoint
   .then(response => response.json())
   .then(data => {
-    console.log(data);
+
     displayDrivers(data);
   })
   .catch(error => console.error('Error fetching data:', error));
-
-
-function updatePageContent() {
-  // Implement the logic to update your page content based on the currentDriverIndex
-  // For example, you can fetch and display information about the drivers.
-  console.log('Updating page content for driver index:', currentDriverIndex);
-}
 
 
 
@@ -150,9 +147,8 @@ function displayDrivers(drivers) {
 
   for (var i = 0; i < drivers.length; i++) {
     var element = drivers[i];
-    console.log(element)
     str = `      <tr>
-        <td>
+    <td>
           <div class="d-flex align-items-center">
           
           <img
@@ -161,93 +157,65 @@ function displayDrivers(drivers) {
           style="width: 100px; height: 100px"
           class="rounded-circle"
           data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="data:image/jpeg;base64,  ${element.personalPhoto}"
-           onClick="changeImgSrc(this)" />
-
+          onClick="changeImgSrc(this)" />
+          
           <div class="ms-3">
-              <p class="fw-bold mb-1">${element["firstName"]} ${element["lastName"]}  </p> <!-- من ال api هيجي داتا-->
-              
-            </div>
+          <p class="fw-bold mb-1">${element["firstName"]} ${element["lastName"]}  </p> <!-- من ال api هيجي داتا-->
+          
           </div>
-        </td>
-        <td>
+          </div>
+          </td>
+          <td>
           <p class="fw-normal mb-1">${element["phone"]}</p>
-        </td>
-
-
-        <td>
-        <i class="bi bi-eye" style="font-size: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="data:image/jpeg;base64, ${element.drivingLicenseImage}" onClick="changeImgSrc(this)"></i>
+          </td>
+          
+          
+          <td>
+          <i class="bi bi-eye" style="font-size: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="data:image/jpeg;base64, ${element.drivingLicenseImage}" onClick="changeImgSrc(this)"></i>
 
         </td>
         
-
+        
         <td>
 
         <i class="bi bi-eye" style="font-size: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="data:image/jpeg;base64, ${element.formImage}" onClick="changeImgSrc(this)"></i>
-
+        
         </td>
-
-        <td>
-        <input type='checkbox'>
+        
+        `
+    if (element['isTrusted']) {
+      var nxtstr = `
+          <td>
+        <img src='assets/correct-icon.svg' style='width:20px; hight:20px;'>
         
         </td>
         <td>
-          <button style="color: #18c76e; type="button" class="btn btn-link btn-sm btn-rounded"   data-custom-property="${element["id"]}" onClick="viewEditPage(this)">
+        <button style="color: #18c76e; type="button" class="btn btn-link btn-sm btn-rounded"   data-custom-property="${element["id"]}" onClick="viewEditPage(this)">
             تفاصيل
-          </button>
-        </td>
-      </tr>`
+            </button>
+            </td>
+            </tr>`
+      str += nxtstr;
+    }
+    else {
+      var nxtstr = `
+            <td>
+            <img src='assets/red-x-wrong-icon.svg' style='width:15px; hight:15px;'>
 
+            
+            </td>
+            <td>
+            <button style="color: #18c76e; type="button" class="btn btn-link btn-sm btn-rounded"   data-custom-property="${element["id"]}" onClick="viewEditPage(this)">
+                تفاصيل
+                </button>
+                </td>
+                </tr>`
+      str += nxtstr;
+
+    }
     document.getElementById("drivers-table-body").innerHTML += str;
+
   }
-  // drivers.forEach(element => {
-  //   str = `      <tr>
-  //       <td>
-  //         <div class="d-flex align-items-center">
-
-  //         <img
-  //         src="data:image/jpeg;base64,  ${element.personalPhoto}"
-  //         alt=""
-  //         style="width: 100px; height: 100px"
-  //         class="rounded-circle"
-  //         data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="data:image/jpeg;base64,  ${element.personalPhoto}"
-  //          onClick="changeImgSrc(this)" />
-
-  //         <div class="ms-3">
-  //             <p class="fw-bold mb-1">${element["firstName"]} ${element["lastName"]}  </p> <!-- من ال api هيجي داتا-->
-
-  //           </div>
-  //         </div>
-  //       </td>
-  //       <td>
-  //         <p class="fw-normal mb-1">${element["phone"]}</p>
-  //       </td>
-
-
-  //       <td>
-  //       <i class="bi bi-eye" style="font-size: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="data:image/jpeg;base64, ${element.drivingLicenseImage}" onClick="changeImgSrc(this)"></i>
-
-  //       </td>
-
-
-  //       <td>
-
-  //       <i class="bi bi-eye" style="font-size: 30px;" data-bs-toggle="modal" data-bs-target="#exampleModal" data-custom-property="data:image/jpeg;base64, ${element.formImage}" onClick="changeImgSrc(this)"></i>
-
-  //       </td>
-
-  //       <td>
-  //         <button type="button" class="btn btn-link btn-sm btn-rounded"   data-custom-property="${element["id"]}" onClick="viewEditPage(this)">
-  //           تفاصيل
-  //         </button>
-  //       </td>
-
-  //       <td>
-
-  //     </td>
-  //     </tr>`
-
-  //   document.getElementById("drivers-table-body").innerHTML += str;
-  // });
 
 }
 
@@ -264,6 +232,79 @@ function viewEditPage(btn) {
 }
 
 
+function searchByPhoneNumber() {
+  // Get the input value (phone number)
+  const phoneNumber = document.getElementById('phone').value.trim();
+
+  // Get the table and table body
+  const table = document.getElementById('drivers-table');
+  const tableBody = document.getElementById('drivers-table-body');
+
+  // Get all rows in the table body
+  const rows = tableBody.getElementsByTagName('tr');
+
+  // Loop through each row
+  for (let i = 0; i < rows.length; i++) {
+    // Get the cell in the "رقم الجوال" column (assuming it's the second column, adjust as needed)
+    const cell = rows[i].getElementsByTagName('td')[1];
+
+    // Check if the cell contains the searched phone number
+    if (cell) {
+      const cellText = cell.textContent || cell.innerText;
+      const match = cellText.includes(phoneNumber);
+
+      // Show/hide the row based on the match
+      rows[i].style.display = match ? '' : 'none';
+    }
+  }
+}
+
+// Attach the search function to the button click event
+document.getElementById('search-btn').addEventListener('click', searchByPhoneNumber);
+
+
+
+function filterTableByIsTrusted() {
+
+  // Get the selected value of the isTrusted dropdown
+  const selectedValue = document.getElementById('isTrusted-select').value;
+
+  // Get all rows in the table
+  const tableBody = document.getElementById('drivers-table-body');
+
+  // Get all rows in the table body
+  const rows = tableBody.getElementsByTagName('tr');
+
+  // Loop through each row and show/hide based on the selected value
+  for (let i = 0; i < rows.length; i++) {
+    rows[i].style.display='';
+    const cell = rows[i].getElementsByTagName('td')[4];
+    const img = cell.getElementsByTagName('img')[0];
+    console.log(selectedValue);
+    console.log(img.src);
+    // Check if the cell contains the src=assets/correct-icon.svg
+
+    if (selectedValue === '3') {
+      if (img.src === 'http://127.0.0.1:5500/FrontEnd/assets/correct-icon.svg') {
+
+        rows[i].style.display = 'none';
+      }
+    }
+    else if (selectedValue === '2') {
+      if (img.src === 'http://127.0.0.1:5500/FrontEnd/assets/red-x-wrong-icon.svg') {
+
+        rows[i].style.display = 'none';
+      }
+    }
+    else rows[i].style.display = '';
+
+
+
+  }
+}
+
+// Attach the filter function to the select change event
+document.getElementById('isTrusted-select').addEventListener('change', filterTableByIsTrusted);
 /*end zezo work */
 
 

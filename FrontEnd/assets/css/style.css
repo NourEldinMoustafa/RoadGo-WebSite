@@ -1687,7 +1687,8 @@ body {
   background-color: rgba(33, 40, 50, 0.03);
   border-bottom: 1px solid rgba(33, 40, 50, 0.125);
 }
-.card-body{
+
+.card-body {
   overflow: hidden;
 }
 
@@ -1710,8 +1711,8 @@ body {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   /* height:50px; */
   /*new added */
-  height: calc(1.5em + 1.75rem + 2px)!important;
-  border-radius: 0.85rem!important;
+  height: calc(1.5em + 1.75rem + 2px) !important;
+  border-radius: 0.85rem !important;
 }
 
 
@@ -1766,4 +1767,60 @@ body {
 #flexSwitchCheckChecked {
   height: 30px;
   width: 55px;
+}
+
+
+
+
+
+
+
+/*==========reg form==============*/
+
+.validation-message {
+  color: red;
+  font-size: 12px;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  z-index: 2;
+  width: 150px;
+  color: black;
+  font-size: 13px;
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 10px 15px 10px 15px;
+}
+
+.tooltip-text::before {
+  content: "";
+  position: absolute;
+  transform: rotate(45deg);
+  background-color: #eee;
+  padding: 5px;
+  z-index: 1;
+}
+
+.hover-text:hover .tooltip-text {
+  visibility: visible;
+}
+
+#left {
+  top: -8px;
+  right: 120%;
+}
+
+#left::before {
+  top: 7%;
+  left: 94%;
+}
+
+.hover-text {
+  position: relative;
+  display: inline-block;
+  /* margin: 40px; */
+  font-family: Arial;
+  text-align: center;
 }
