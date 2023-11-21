@@ -1,4 +1,6 @@
-
+const driverid = localStorage.getItem('driverRegId');
+const driverphone = localStorage.getItem('driverphone');
+document.getElementById('four-digits').innerText = driverphone.substring(driverphone.length - 4);
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -20,32 +22,98 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
+document.addEventListener("DOMContentLoaded", function (event) {
+    function OTPInput() {
+        const inputs = document.querySelectorAll('input');
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].addEventListener('keydown', function (event) {
+                if (event.key === "Backspace") {
+                    inputs[i].value = '';
+                    if (i !== 0) inputs[i - 1].focus();
+                }
+                else {
+                    if (i === inputs.length - 1 && inputs[i].value !== '') {
+                        return true;
+                    }
+                    else if (event.keyCode > 47 && event.keyCode < 58) {
+                        inputs[i].value = event.key;
+                        if (i !== inputs.length - 1) inputs[i + 1].focus();
+                        event.preventDefault();
+                    }
+                    else if (event.keyCode > 64 && event.keyCode < 91) {
+                        inputs[i].value = String.fromCharCode(event.keyCode);
 
-render();
-function render() {
-    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-    recaptchaVerifier.render();
+                        if (i !== inputs.length - 1)
+                            inputs[i + 1].focus(); event.preventDefault();
+                    }
+                }
+            });
+        }
+    }
+    OTPInput();
+
+
+});
+function OTPInputValue() {
+    const inputs = document.querySelectorAll('input');
+    var otpValues = Array();
+
+    for (let i = 0; i < inputs.length; i++) {
+        otpValues.push(inputs[i].value);
+    }
+
+    return otpValues.join('').toString();
 }
-// function for send message
-function phoneAuth() {
-    var number = document.getElementById('number').value;
-    firebase.auth().signInWithPhoneNumber(number, window.recaptchaVerifier).then(function (confirmationResult) {
+function phoneAuth(phoneNumber) {
+
+    console.log(phoneNumber);
+    firebase.auth().signInWithPhoneNumber(phoneNumber, window.recaptchaVerifier).then(function (confirmationResult) {
+
         window.confirmationResult = confirmationResult;
         coderesult = confirmationResult;
-        document.getElementById('sender').style.display = 'none';
-        document.getElementById('verifier').style.display = 'block';
+        console.log('ok');
+
     }).catch(function (error) {
+
         alert(error.message);
     });
 }
-// function for code verify
-function codeverify() {
-    var code = document.getElementById('verificationcode').value;
+
+function codeverify(code) {
+
     coderesult.confirm(code).then(function () {
-        document.getElementsByClassName('p-conf')[0].style.display = 'block';
-        document.getElementsByClassName('n-conf')[0].style.display = 'none';
+        var formData = new FormData();
+        formData.append('isTrusted', true);
+
+        fetch(`https://localhost:44302/api/Driver/${driverid}`, {
+            method: 'PUT',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data['isTrusted']);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+
+        // location.href = 'index.html';
     }).catch(function () {
-        document.getElementsByClassName('p-conf')[0].style.display = 'none';
-        document.getElementsByClassName('n-conf')[0].style.display = 'block';
+        alert("wrong code");
     })
+
 }
+phoneAuth(`+966${driverphone}`);
+document.getElementById('submit-btn').addEventListener('click', function (event) {
+    event.preventDefault();
+    // Example of using the OTPInput function and getting the values
+    const otpCode = OTPInputValue();
+
+    // Log the values for testing
+    codeverify(otpCode);
+
+});
+
+document.getElementById('resend-btn').addEventListener('click', function (event) {
+    event.preventDefault();
+
+    phoneAuth(`+966${driverphone}`);
+});
