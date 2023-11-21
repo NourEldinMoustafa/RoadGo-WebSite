@@ -1,29 +1,9 @@
 const driverid = localStorage.getItem('driverRegId');
 const driverphone = localStorage.getItem('driverphone');
 console.log(driverphone);
+
+
 document.getElementById('four-digits').innerText = driverphone.substring(driverphone.length - 4);
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    //   apiKey: "AIzaSyC3MIN64hy_oTQfQWUHl0lID-CJkIfci0M",
-    //   authDomain: "yt-project-a29f8.firebaseapp.com",
-    //   projectId: "yt-project-a29f8",
-    //   storageBucket: "yt-project-a29f8.appspot.com",
-    //   messagingSenderId: "159898773748",
-    //   appId: "1:159898773748:web:2985334de4f06ff73356a1",
-    //   measurementId: "G-DLWR9M5SJC"
-
-    apiKey: "AIzaSyDNiidcWIPliAOnROdZr5X1o_lWTTcD4C0",
-    authDomain: "road-go-test.firebaseapp.com",
-    projectId: "road-go-test",
-    storageBucket: "road-go-test.appspot.com",
-    messagingSenderId: "115144488342",
-    appId: "1:115144488342:web:77d0d0891a88afd33399b7",
-    measurementId: "G-N1F6SF2P2L"
-};
-
-firebase.initializeApp(firebaseConfig);
-
 document.addEventListener("DOMContentLoaded", function (event) {
     function OTPInput() {
         const inputs = document.querySelectorAll('input');
@@ -66,6 +46,30 @@ function OTPInputValue() {
 
     return otpValues.join('').toString();
 }
+
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    //   apiKey: "AIzaSyC3MIN64hy_oTQfQWUHl0lID-CJkIfci0M",
+    //   authDomain: "yt-project-a29f8.firebaseapp.com",
+    //   projectId: "yt-project-a29f8",
+    //   storageBucket: "yt-project-a29f8.appspot.com",
+    //   messagingSenderId: "159898773748",
+    //   appId: "1:159898773748:web:2985334de4f06ff73356a1",
+    //   measurementId: "G-DLWR9M5SJC"
+
+    apiKey: "AIzaSyDNiidcWIPliAOnROdZr5X1o_lWTTcD4C0",
+    authDomain: "road-go-test.firebaseapp.com",
+    projectId: "road-go-test",
+    storageBucket: "road-go-test.appspot.com",
+    messagingSenderId: "115144488342",
+    appId: "1:115144488342:web:77d0d0891a88afd33399b7",
+    measurementId: "G-N1F6SF2P2L"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+
 function phoneAuth(phoneNumber) {
 
     console.log(phoneNumber);
