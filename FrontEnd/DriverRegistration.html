@@ -96,14 +96,19 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-9">
+                     <div class="col-md-9">
                         <div class="row">
-                           <div class="col-6">
+                           <div class="col-md-6">
                               <div>
                                  <label class="small mb-1" for="inputFirstName">الإسم الأول</label>
                                  <input class="form-control" id="inputFirstName" type="text" placeholder="الإسم الأول">
                                  <div class="validation-message" id="firstNameValidation">
                                  </div>
+                              </div>
+                              <label class="small mb-1" for="inputLastName">اسم العائلة </label>
+                              <input class="form-control" id="inputLastName" type="text" placeholder="اسم العائلة">
+                              <div style="color: red; font-size: 12px;" class="validation-message"
+                                 id="lastNameValidation">
                               </div>
                               <div class="">
                                  <label class="small mb-1 " for="inputPhone">رقم الجوال</label>
@@ -113,6 +118,9 @@
                                     style="color: red; font-size: 12px; display: block; ">
                                  </div>
                               </div>
+                             
+                           </div>
+                           <div class="col-md-6">
                               <label class="small mb-1" for="inputCity">المدينة</label>
                               <select class="form-control" id="inputCity" type="text" placeholder="اختر مدينتك">
                                  <!-- Add the cities dynamically here -->
@@ -121,13 +129,14 @@
                                  <option value="المدينة المنورة">المدينة المنورة</option>
                                  <option value="تبوك">تبوك</option>
                               </select>
-                           </div>
-                           <div class="col-6">
-                              <label class="small mb-1" for="inputLastName">اسم العائلة </label>
-                              <input class="form-control" id="inputLastName" type="text" placeholder="اسم العائلة">
-                              <div style="color: red; font-size: 12px;" class="validation-message"
-                                 id="lastNameValidation">
-                              </div>
+                             
+                             
+                       
+                              <label class="small mb-1" for="inputGender">النوع</label>
+                              <select class="form-control" id="inputGender" type="text" placeholder="اختر النوع">
+                                 <option value="ذكر">ذكر</option>
+                                 <option value="أنثى">أنثى</option>
+                              </select>
                               <label class="small mb-1" for="inputPassword">كلمة المرور </label>
                               <input class="form-control" id="inputPassword" type="password" placeholder="كلمة المرور">
                               <div style="color: red; font-size: 12px;" class="hover-text">
@@ -139,12 +148,6 @@
                               <div class="validation-message" id="passwordValidation"
                                  style='color: red; font-size: 12px; display: inline;'>
                               </div>
-                              <br>
-                              <label class="small mb-1" for="inputGender">النوع</label>
-                              <select class="form-control" id="inputGender" type="text" placeholder="اختر النوع">
-                                 <option value="ذكر">ذكر</option>
-                                 <option value="أنثى">أنثى</option>
-                              </select>
                            </div>
                         </div>
                         <div class="row">
