@@ -188,7 +188,7 @@
             </div>
 
             <div class="my-3">
-              <div class="loading">جاري الإرسال</div>
+              <!-- <div class="loading">جاري الإرسال</div> اخفيتها--> 
               <div class="error-message"></div>
               <div class="sent-message">تم إرسال رسالتك, شكراً لك!</div>
             </div>
@@ -203,9 +203,18 @@
       </div>
       <!-- start of the form script to send email to js -->
       <script type="text/javascript">
+        // Function to hide the loading element
+        function hideLoadingElement() {
+          var loadingElement = document.querySelector('.loading');
+          if (loadingElement) {
+            loadingElement.style.display = 'none';
+          }
+        }
+      
         const contactForm = document.getElementById('contact-form');
         contactForm.addEventListener('submit', function (event) {
           event.preventDefault();
+      
           // Send email to admin
           emailjs.sendForm('service_252fr8z', 'template_admin', this)
             .then(function () {
@@ -213,16 +222,24 @@
             }, function (error) {
               console.error('An error occurred while sending email to admin:', error);
             });
-
+      
           // Send email to user
           emailjs.sendForm('service_252fr8z', 'template_user', this)
             .then(function () {
-              alert('تم إرسال رسالتك!');
+              setTimeout(function () {
+                alert('تم إرسال رسالتك!');
+                // Hide the loading element after displaying the success alert
+                hideLoadingElement();
+              }, 100);
             }, function (error) {
+              // Hide the loading element in case of an error
+              hideLoadingElement();
               alert('An error occurred, please try again later.');
             });
         });
       </script>
+      
+      
       <!-- end of the form script to send email to js -->
     </section><!-- End Contact Section -->
   </main><!-- End #main -->
