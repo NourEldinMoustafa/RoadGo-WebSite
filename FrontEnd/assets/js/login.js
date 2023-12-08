@@ -3,7 +3,7 @@ document.getElementsByTagName('form')[0].addEventListener('submit', function (ev
     var password = document.getElementById('password').value;
     var username = document.getElementById('username').value;
     console.log(username, password)
-    fetch(`https://localhost:44302/api/User`, {
+    fetch(`http://nashed123-001-site1.anytempurl.com/api/User`, {
         method: 'GET',
     })
         .then(response => response.json())

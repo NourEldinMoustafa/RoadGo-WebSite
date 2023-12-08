@@ -6,7 +6,7 @@ declare fetch
 
 fillCities()
 function fillCities() {
-  fetch('https://localhost:44302/api/City', {
+  fetch('http://nashed123-001-site1.anytempurl.com/api/City', {
     method: 'GET'
   })
     .then(response => response.json())
@@ -17,7 +17,7 @@ function fillCities() {
 }
 
 function fillCities() {
-  fetch('https://localhost:44302/api/City', {
+  fetch('http://nashed123-001-site1.anytempurl.com/api/City', {
     method: 'GET'
   })
     .then(response => response.json())
@@ -30,7 +30,7 @@ function fillCities() {
 
 //***************************************** */
 function fillCities() {
-  fetch('https://localhost:44302/api/City', {
+  fetch('http://nashed123-001-site1.anytempurl.com/api/City', {
     method: 'GET'
   })
     .then(response => response.json())
@@ -75,7 +75,7 @@ function displayCitiesInTable(cities) {
 }
 
 function deleteCity(cityId, row) {
-  fetch(`https://localhost:44302/api/City/${cityId}`, {
+  fetch(`http://nashed123-001-site1.anytempurl.com/api/City/${cityId}`, {
     method: 'DELETE'
   })
     .then(() => {
@@ -96,7 +96,7 @@ function deleteCity(cityId, row) {
 
 fillModels();
 function fillModels() {
-  fetch('https://localhost:44302/api/VehicleModel', {
+  fetch('http://nashed123-001-site1.anytempurl.com/api/VehicleModel', {
     method: 'GET'
   })
     .then(response => response.json())
@@ -119,7 +119,7 @@ function fillModels() {
 
 //***************************************** */
 function fillModels() {
-  fetch('https://localhost:44302/api/VehicleModel', {
+  fetch('http://nashed123-001-site1.anytempurl.com/api/VehicleModel', {
     method: 'GET'
   })
     .then(response => response.json())
@@ -163,7 +163,7 @@ function displayModelsInTable(models) {
 }
 
 function deleteModel(modelId, row) {
-  fetch(`https://localhost:44302/api/VehicleModel/${modelId}`, {
+  fetch(`http://nashed123-001-site1.anytempurl.com/api/VehicleModel/${modelId}`, {
     method: 'DELETE'
   })
     .then(() => {
@@ -179,7 +179,7 @@ function deleteModel(modelId, row) {
 
 //***************************************** */
 
-fetch('https://localhost:44302/api/Driver', {
+fetch('http://nashed123-001-site1.anytempurl.com/api/Driver', {
   method: 'GET'
 }) // Replace with your server endpoint
   .then(response => response.json())
@@ -211,7 +211,7 @@ document.getElementById('popoup-add-btn').addEventListener('click', function (ev
   if (str === 'المدينة') {
     var formdata = new FormData();
     formdata.append('name', name);
-    fetch('https://localhost:44302/api/city', {
+    fetch('http://nashed123-001-site1.anytempurl.com/api/city', {
       method: 'POST',
       body: formdata
     }) // Replace with your server endpoint
@@ -227,7 +227,7 @@ document.getElementById('popoup-add-btn').addEventListener('click', function (ev
   else if (str === 'الموديل') {
     var formdata = new FormData();
     formdata.append('year', name);
-    fetch('https://localhost:44302/api/VehicleModel', {
+    fetch('http://nashed123-001-site1.anytempurl.com/api/VehicleModel', {
       method: 'POST',
       body: formdata
     }) // Replace with your server endpoint

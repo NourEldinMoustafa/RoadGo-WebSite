@@ -2,7 +2,7 @@
 
 
 
-fetch('https://localhost:44302/api/City', {
+fetch('http://nashed123-001-site1.anytempurl.com/api/City', {
     method: 'GET'
 })
     .then(response => response.json())
@@ -13,7 +13,7 @@ fetch('https://localhost:44302/api/City', {
 
 
 
-fetch('https://localhost:44302/api/VehicleModel', {
+fetch('http://nashed123-001-site1.anytempurl.com/api/VehicleModel', {
     method: 'GET'
 })
     .then(response => response.json())
@@ -33,7 +33,7 @@ fetch('https://localhost:44302/api/VehicleModel', {
 
 
 
-fetch(`https://localhost:44302/api/Driver/${localStorage.getItem("driverid")}`)
+fetch(`http://nashed123-001-site1.anytempurl.com/api/Driver/${localStorage.getItem("driverid")}`)
     .then(response => response.json())
     .then(data => {
         displayDriver(data);
@@ -73,7 +73,7 @@ document.getElementById("edit-btn").addEventListener("click", function (event) {
 document.getElementById("delete-btn").addEventListener("click", function (event) {
     event.preventDefault();
 
-    fetch(`https://localhost:44302/api/Driver/${localStorage.getItem("driverid")}`, {
+    fetch(`http://nashed123-001-site1.anytempurl.com/api/Driver/${localStorage.getItem("driverid")}`, {
         method: 'DELETE'
     })
         .then(response => response.json())
@@ -174,7 +174,7 @@ document.getElementById("saving-form").addEventListener("submit", function (even
 
 
 
-    fetch(`https://localhost:44302/api/Driver/${localStorage.getItem("driverid")}`, {
+    fetch(`http://nashed123-001-site1.anytempurl.com/api/Driver/${localStorage.getItem("driverid")}`, {
         method: 'PUT',
         body: formData
     })

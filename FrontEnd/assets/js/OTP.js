@@ -91,7 +91,7 @@ function codeverify(code) {
         var formData = new FormData();
         formData.append('isTrusted', true);
 
-        fetch(`https://localhost:44302/api/Driver/${driverid}`, {
+        fetch(`http://nashed123-001-site1.anytempurl.com/api/Driver/${driverid}`, {
             method: 'PUT',
             body: formData
         })

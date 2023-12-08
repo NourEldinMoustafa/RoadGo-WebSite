@@ -51,7 +51,7 @@ function render() {
 //         var formData = new FormData();
 //         formData.append('isTrusted', true);
 
-//         fetch(`https://localhost:44302/api/Driver/${localStorage.getItem('driverRegId')}`, {
+//         fetch(`http://nashed123-001-site1.anytempurl.com/api/Driver/${localStorage.getItem('driverRegId')}`, {
 //             method: 'PUT',
 //             body: formData
 //         })
@@ -69,7 +69,7 @@ function render() {
 // }
 /*******end OTP CODE******/
 
-fetch('https://localhost:44302/api/City', {
+fetch('http://nashed123-001-site1.anytempurl.com/api/City', {
     method: 'GET'
 })
     .then(response => response.json())
@@ -81,7 +81,7 @@ fetch('https://localhost:44302/api/City', {
 
 
 
-fetch('https://localhost:44302/api/VehicleModel', {
+fetch('http://nashed123-001-site1.anytempurl.com/api/VehicleModel', {
     method: 'GET'
 })
     .then(response => response.json())
@@ -183,7 +183,7 @@ document.getElementById("saving-form").addEventListener("submit", function (even
     formData.append("isTrusted", false);
 
 
-    fetch('https://localhost:44302/api/Driver', {
+    fetch('http://nashed123-001-site1.anytempurl.com/api/Driver', {
         method: 'POST',
         body: formData
     })
