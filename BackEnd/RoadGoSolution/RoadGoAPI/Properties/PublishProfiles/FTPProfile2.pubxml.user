@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKH98tBKIcE2sco5Z0A0pDAAAAAACAAAAAAAQZgAAAAEAACAAAADPK6knMIWuXnDpUDulXb1Q/MjnoYDy77+Ur/GP4Md3PwAAAAAOgAAAAAIAACAAAACG2SDizcE2nNHLYz+4taTElf72J0vs/F/PAFn135zxkiAAAABLMbAsQdi7/oEDwpWnMcKrvl9OjfdqDAWGgKJz/O6amkAAAAD1iIvwR1+WrdRvlBifbpK+aLChfiVNgBjwJ933jWaPomE+dIajfEWteCNc59j4zKJ0yWYUg3oApDETQaU1XAo1</EncryptedPassword>
+    <_PublishTargetUrl>ftp://road.somee.com/www.road.somee.com</_PublishTargetUrl>
+    <History>False|2023-12-08T20:22:13.7328122Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>12/07/2023 21:53:44</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
