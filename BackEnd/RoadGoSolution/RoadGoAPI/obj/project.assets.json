@@ -87,32 +87,12 @@
           "System.Text.Encoding.CodePages": "4.0.1",
           "System.Text.Json": "4.7.0",
           "System.Threading.Tasks.Dataflow": "4.9.0"
-        },
-        "compile": {
-          "lib/netcoreapp2.1/Microsoft.Build.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/Microsoft.Build.dll": {
-            "related": ".pdb;.xml"
-          }
         }
       },
       "Microsoft.Build.Framework/16.9.0": {
         "type": "package",
         "dependencies": {
           "System.Security.Permissions": "4.7.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Build.Framework.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Build.Framework.dll": {
-            "related": ".pdb;.xml"
-          }
         }
       },
       "Microsoft.Build.Tasks.Core/16.9.0": {
@@ -131,16 +111,6 @@
           "System.Security.Cryptography.Xml": "4.7.0",
           "System.Security.Permissions": "4.7.0",
           "System.Threading.Tasks.Dataflow": "4.9.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Build.Tasks.Core.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Build.Tasks.Core.dll": {
-            "related": ".pdb;.xml"
-          }
         }
       },
       "Microsoft.Build.Utilities.Core/16.9.0": {
@@ -151,16 +121,6 @@
           "System.Collections.Immutable": "5.0.0",
           "System.Security.Permissions": "4.7.0",
           "System.Text.Encoding.CodePages": "4.0.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Build.Utilities.Core.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Build.Utilities.Core.dll": {
-            "related": ".pdb;.xml"
-          }
         }
       },
       "Microsoft.CodeAnalysis.Analyzers/3.3.2": {
@@ -1012,16 +972,6 @@
           "Newtonsoft.Json": "13.0.1",
           "NuGet.ProjectModel": "5.11.0",
           "System.Collections.Immutable": "6.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.DotNet.Scaffolding.Shared.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.DotNet.Scaffolding.Shared.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.EntityFrameworkCore/6.0.0": {
@@ -1455,16 +1405,6 @@
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore": "6.0.0",
           "System.Collections.Immutable": "6.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.VisualStudio.Web.CodeGeneration.Core/6.0.0": {
@@ -1473,16 +1413,6 @@
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Templating": "6.0.0",
           "Newtonsoft.Json": "13.0.1"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.VisualStudio.Web.CodeGeneration.Design/6.0.0": {
@@ -1490,26 +1420,6 @@
         "dependencies": {
           "Microsoft.DotNet.Scaffolding.Shared": "6.0.0",
           "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": "6.0.0"
-        },
-        "compile": {
-          "lib/net6.0/dotnet-aspnet-codegenerator-design.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/dotnet-aspnet-codegenerator-design.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/win-arm/lib/net6.0/dotnet-aspnet-codegenerator-design.exe": {
-            "assetType": "runtime",
-            "rid": "win-arm"
-          },
-          "runtimes/win-arm64/lib/net6.0/dotnet-aspnet-codegenerator-design.exe": {
-            "assetType": "runtime",
-            "rid": "win-arm64"
-          }
         }
       },
       "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/6.0.0": {
@@ -1517,16 +1427,6 @@
         "dependencies": {
           "Microsoft.DotNet.Scaffolding.Shared": "6.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Core": "6.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll": {
-            "related": ".runtimeconfig.json;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll": {
-            "related": ".runtimeconfig.json;.xml"
-          }
         }
       },
       "Microsoft.VisualStudio.Web.CodeGeneration.Templating/6.0.0": {
@@ -1536,16 +1436,6 @@
           "Microsoft.CodeAnalysis.CSharp": "4.0.0",
           "Microsoft.CodeAnalysis.Razor": "6.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Utils": "6.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.VisualStudio.Web.CodeGeneration.Utils/6.0.0": {
@@ -1554,16 +1444,6 @@
           "Microsoft.CodeAnalysis.CSharp.Workspaces": "4.0.0",
           "Microsoft.DotNet.Scaffolding.Shared": "6.0.0",
           "Newtonsoft.Json": "13.0.1"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/6.0.0": {
@@ -1571,16 +1451,6 @@
         "dependencies": {
           "Microsoft.DotNet.Scaffolding.Shared": "6.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration": "6.0.0"
-        },
-        "compile": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.Win32.Primitives/4.3.0": {
@@ -1711,16 +1581,6 @@
         "type": "package",
         "dependencies": {
           "NuGet.Frameworks": "5.11.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/NuGet.Common.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/NuGet.Common.dll": {
-            "related": ".xml"
-          }
         }
       },
       "NuGet.Configuration/5.11.0": {
@@ -1728,16 +1588,6 @@
         "dependencies": {
           "NuGet.Common": "5.11.0",
           "System.Security.Cryptography.ProtectedData": "4.4.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/NuGet.Configuration.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/NuGet.Configuration.dll": {
-            "related": ".xml"
-          }
         }
       },
       "NuGet.DependencyResolver.Core/5.11.0": {
@@ -1745,16 +1595,6 @@
         "dependencies": {
           "NuGet.LibraryModel": "5.11.0",
           "NuGet.Protocol": "5.11.0"
-        },
-        "compile": {
-          "lib/net5.0/NuGet.DependencyResolver.Core.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net5.0/NuGet.DependencyResolver.Core.dll": {
-            "related": ".xml"
-          }
         }
       },
       "NuGet.Frameworks/5.11.0": {
@@ -1775,16 +1615,6 @@
         "dependencies": {
           "NuGet.Common": "5.11.0",
           "NuGet.Versioning": "5.11.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/NuGet.LibraryModel.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/NuGet.LibraryModel.dll": {
-            "related": ".xml"
-          }
         }
       },
       "NuGet.Packaging/5.11.0": {
@@ -1795,62 +1625,22 @@
           "NuGet.Versioning": "5.11.0",
           "System.Security.Cryptography.Cng": "5.0.0",
           "System.Security.Cryptography.Pkcs": "5.0.0"
-        },
-        "compile": {
-          "lib/net5.0/NuGet.Packaging.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net5.0/NuGet.Packaging.dll": {
-            "related": ".xml"
-          }
         }
       },
       "NuGet.ProjectModel/5.11.0": {
         "type": "package",
         "dependencies": {
           "NuGet.DependencyResolver.Core": "5.11.0"
-        },
-        "compile": {
-          "lib/net5.0/NuGet.ProjectModel.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net5.0/NuGet.ProjectModel.dll": {
-            "related": ".xml"
-          }
         }
       },
       "NuGet.Protocol/5.11.0": {
         "type": "package",
         "dependencies": {
           "NuGet.Packaging": "5.11.0"
-        },
-        "compile": {
-          "lib/net5.0/NuGet.Protocol.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net5.0/NuGet.Protocol.dll": {
-            "related": ".xml"
-          }
         }
       },
       "NuGet.Versioning/5.11.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NuGet.Versioning.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/NuGet.Versioning.dll": {
-            "related": ".xml"
-          }
-        }
+        "type": "package"
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
@@ -2867,17 +2657,7 @@
         }
       },
       "System.Resources.Extensions/4.6.0": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/System.Resources.Extensions.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Resources.Extensions.dll": {
-            "related": ".xml"
-          }
-        }
+        "type": "package"
       },
       "System.Resources.ResourceManager/4.3.0": {
         "type": "package",
@@ -3313,16 +3093,6 @@
         "dependencies": {
           "System.Security.Cryptography.Pkcs": "4.7.0",
           "System.Security.Permissions": "4.7.0"
-        },
-        "compile": {
-          "ref/netstandard2.0/System.Security.Cryptography.Xml.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Security.Cryptography.Xml.dll": {
-            "related": ".xml"
-          }
         }
       },
       "System.Security.Permissions/4.7.0": {
@@ -3468,17 +3238,7 @@
         }
       },
       "System.Threading.Tasks.Dataflow/4.9.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/System.Threading.Tasks.Dataflow.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.Threading.Tasks.Dataflow.dll": {
-            "related": ".xml"
-          }
-        }
+        "type": "package"
       },
       "System.Threading.Tasks.Extensions/4.5.4": {
         "type": "package",
@@ -3686,10 +3446,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "MSBuild-NuGet-Icon.png",
-        "lib/net472/Microsoft.Build.dll",
         "lib/net472/Microsoft.Build.pdb",
         "lib/net472/Microsoft.Build.xml",
-        "lib/netcoreapp2.1/Microsoft.Build.dll",
         "lib/netcoreapp2.1/Microsoft.Build.pdb",
         "lib/netcoreapp2.1/Microsoft.Build.xml",
         "microsoft.build.16.9.0.nupkg.sha512",
@@ -3705,10 +3463,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "MSBuild-NuGet-Icon.png",
-        "lib/net472/Microsoft.Build.Framework.dll",
         "lib/net472/Microsoft.Build.Framework.pdb",
         "lib/net472/Microsoft.Build.Framework.xml",
-        "lib/netstandard2.0/Microsoft.Build.Framework.dll",
         "lib/netstandard2.0/Microsoft.Build.Framework.pdb",
         "lib/netstandard2.0/Microsoft.Build.Framework.xml",
         "microsoft.build.framework.16.9.0.nupkg.sha512",
@@ -3724,10 +3480,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "MSBuild-NuGet-Icon.png",
-        "lib/net472/Microsoft.Build.Tasks.Core.dll",
         "lib/net472/Microsoft.Build.Tasks.Core.pdb",
         "lib/net472/Microsoft.Build.Tasks.Core.xml",
-        "lib/netstandard2.0/Microsoft.Build.Tasks.Core.dll",
         "lib/netstandard2.0/Microsoft.Build.Tasks.Core.pdb",
         "lib/netstandard2.0/Microsoft.Build.Tasks.Core.xml",
         "microsoft.build.tasks.core.16.9.0.nupkg.sha512",
@@ -3743,10 +3497,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "MSBuild-NuGet-Icon.png",
-        "lib/net472/Microsoft.Build.Utilities.Core.dll",
         "lib/net472/Microsoft.Build.Utilities.Core.pdb",
         "lib/net472/Microsoft.Build.Utilities.Core.xml",
-        "lib/netstandard2.0/Microsoft.Build.Utilities.Core.dll",
         "lib/netstandard2.0/Microsoft.Build.Utilities.Core.pdb",
         "lib/netstandard2.0/Microsoft.Build.Utilities.Core.xml",
         "microsoft.build.utilities.core.16.9.0.nupkg.sha512",
@@ -4616,11 +4368,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "lib/net5.0/Microsoft.DotNet.Scaffolding.Shared.dll",
         "lib/net5.0/Microsoft.DotNet.Scaffolding.Shared.xml",
-        "lib/net6.0/Microsoft.DotNet.Scaffolding.Shared.dll",
         "lib/net6.0/Microsoft.DotNet.Scaffolding.Shared.xml",
-        "lib/netcoreapp3.1/Microsoft.DotNet.Scaffolding.Shared.dll",
         "lib/netcoreapp3.1/Microsoft.DotNet.Scaffolding.Shared.xml",
         "microsoft.dotnet.scaffolding.shared.6.0.0.nupkg.sha512",
         "microsoft.dotnet.scaffolding.shared.nuspec"
@@ -5397,7 +5146,6 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.dll",
         "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.xml",
         "microsoft.visualstudio.web.codegeneration.6.0.0.nupkg.sha512",
         "microsoft.visualstudio.web.codegeneration.nuspec"
@@ -5411,7 +5159,6 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll",
         "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.xml",
         "microsoft.visualstudio.web.codegeneration.core.6.0.0.nupkg.sha512",
         "microsoft.visualstudio.web.codegeneration.core.nuspec"
@@ -5425,13 +5172,10 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "lib/net6.0/dotnet-aspnet-codegenerator-design.dll",
         "lib/net6.0/dotnet-aspnet-codegenerator-design.xml",
         "microsoft.visualstudio.web.codegeneration.design.6.0.0.nupkg.sha512",
         "microsoft.visualstudio.web.codegeneration.design.nuspec",
-        "runtimes/win-arm/lib/net6.0/dotnet-aspnet-codegenerator-design.exe",
         "runtimes/win-arm/lib/net6.0/dotnet-aspnet-codegenerator-design.xml",
-        "runtimes/win-arm64/lib/net6.0/dotnet-aspnet-codegenerator-design.exe",
         "runtimes/win-arm64/lib/net6.0/dotnet-aspnet-codegenerator-design.xml"
       ]
     },
@@ -5444,7 +5188,6 @@
         ".signature.p7s",
         "Icon.png",
         "Templates/DbContext/NewLocalDbContext.cshtml",
-        "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll",
         "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.runtimeconfig.json",
         "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.xml",
         "microsoft.visualstudio.web.codegeneration.entityframeworkcore.6.0.0.nupkg.sha512",
@@ -5459,7 +5202,6 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll",
         "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.xml",
         "microsoft.visualstudio.web.codegeneration.templating.6.0.0.nupkg.sha512",
         "microsoft.visualstudio.web.codegeneration.templating.nuspec"
@@ -5473,7 +5215,6 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll",
         "lib/net6.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.xml",
         "microsoft.visualstudio.web.codegeneration.utils.6.0.0.nupkg.sha512",
         "microsoft.visualstudio.web.codegeneration.utils.nuspec"
@@ -5580,8 +5321,6 @@
         "Templates/Identity/SupportPages._ViewStart.cshtml",
         "Templates/Identity/_LoginPartial.cshtml",
         "Templates/Identity/wwwroot/css/site.css",
-        "Templates/Identity/wwwroot/favicon.ico",
-        "Templates/Identity/wwwroot/js/site.js",
         "Templates/Identity/wwwroot/lib/bootstrap/LICENSE",
         "Templates/Identity/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
         "Templates/Identity/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
@@ -5615,29 +5354,15 @@
         "Templates/Identity/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
         "Templates/Identity/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
         "Templates/Identity/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-        "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
         "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
-        "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
         "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
-        "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
         "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
-        "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
         "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
-        "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
         "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
-        "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
         "Templates/Identity/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
         "Templates/Identity/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
-        "Templates/Identity/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
-        "Templates/Identity/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
         "Templates/Identity/wwwroot/lib/jquery-validation/LICENSE.md",
-        "Templates/Identity/wwwroot/lib/jquery-validation/dist/additional-methods.js",
-        "Templates/Identity/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
-        "Templates/Identity/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
-        "Templates/Identity/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
         "Templates/Identity/wwwroot/lib/jquery/LICENSE.txt",
-        "Templates/Identity/wwwroot/lib/jquery/dist/jquery.js",
-        "Templates/Identity/wwwroot/lib/jquery/dist/jquery.min.js",
         "Templates/Identity/wwwroot/lib/jquery/dist/jquery.min.map",
         "Templates/Identity_Versioned/Bootstrap3/Data/ApplicationDbContext.cshtml",
         "Templates/Identity_Versioned/Bootstrap3/Data/ApplicationUser.cshtml",
@@ -5721,11 +5446,9 @@
         "Templates/Identity_Versioned/Bootstrap3/SupportPages._ViewStart.cshtml",
         "Templates/Identity_Versioned/Bootstrap3/_LoginPartial.cshtml",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/css/site.css",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/favicon.ico",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/images/banner1.svg",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/images/banner2.svg",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/images/banner3.svg",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/js/site.js",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/LICENSE",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/css/bootstrap-theme.css",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/css/bootstrap-theme.css.map",
@@ -5735,25 +5458,12 @@
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.eot",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/bootstrap/dist/js/npm.js",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery-validation/LICENSE.md",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery-validation/dist/additional-methods.js",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery/LICENSE.txt",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery/dist/jquery.js",
-        "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery/dist/jquery.min.js",
         "Templates/Identity_Versioned/Bootstrap3/wwwroot/lib/jquery/dist/jquery.min.map",
         "Templates/Identity_Versioned/Bootstrap4/Data/ApplicationDbContext.cshtml",
         "Templates/Identity_Versioned/Bootstrap4/Data/ApplicationUser.cshtml",
@@ -5837,8 +5547,6 @@
         "Templates/Identity_Versioned/Bootstrap4/SupportPages._ViewStart.cshtml",
         "Templates/Identity_Versioned/Bootstrap4/_LoginPartial.cshtml",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/css/site.css",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/favicon.ico",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/js/site.js",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/LICENSE",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
@@ -5852,25 +5560,13 @@
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery-validation/LICENSE.md",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery-validation/dist/additional-methods.js",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery/LICENSE.txt",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery/dist/jquery.js",
-        "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery/dist/jquery.min.js",
         "Templates/Identity_Versioned/Bootstrap4/wwwroot/lib/jquery/dist/jquery.min.map",
         "Templates/MvcLayout/Error.cshtml",
         "Templates/MvcLayout/_Layout.cshtml",
@@ -5936,7 +5632,6 @@
         "Templates/ViewGenerator_Versioned/Bootstrap4/Empty.cshtml",
         "Templates/ViewGenerator_Versioned/Bootstrap4/List.cshtml",
         "Templates/ViewGenerator_Versioned/Bootstrap4/_ValidationScriptsPartial.cshtml",
-        "lib/net6.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll",
         "lib/net6.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.xml",
         "lib/net6.0/bootstrap3_identitygeneratorfilesconfig.json",
         "lib/net6.0/bootstrap4_identitygeneratorfilesconfig.json",
@@ -6108,11 +5803,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
-        "lib/net45/NuGet.Common.dll",
         "lib/net45/NuGet.Common.xml",
-        "lib/net472/NuGet.Common.dll",
         "lib/net472/NuGet.Common.xml",
-        "lib/netstandard2.0/NuGet.Common.dll",
         "lib/netstandard2.0/NuGet.Common.xml",
         "nuget.common.5.11.0.nupkg.sha512",
         "nuget.common.nuspec"
@@ -6126,11 +5818,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
-        "lib/net45/NuGet.Configuration.dll",
         "lib/net45/NuGet.Configuration.xml",
-        "lib/net472/NuGet.Configuration.dll",
         "lib/net472/NuGet.Configuration.xml",
-        "lib/netstandard2.0/NuGet.Configuration.dll",
         "lib/netstandard2.0/NuGet.Configuration.xml",
         "nuget.configuration.5.11.0.nupkg.sha512",
         "nuget.configuration.nuspec"
@@ -6144,11 +5833,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
-        "lib/net472/NuGet.DependencyResolver.Core.dll",
         "lib/net472/NuGet.DependencyResolver.Core.xml",
-        "lib/net5.0/NuGet.DependencyResolver.Core.dll",
         "lib/net5.0/NuGet.DependencyResolver.Core.xml",
-        "lib/netstandard2.0/NuGet.DependencyResolver.Core.dll",
         "lib/netstandard2.0/NuGet.DependencyResolver.Core.xml",
         "nuget.dependencyresolver.core.5.11.0.nupkg.sha512",
         "nuget.dependencyresolver.core.nuspec"
@@ -6180,9 +5866,7 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
-        "lib/net472/NuGet.LibraryModel.dll",
         "lib/net472/NuGet.LibraryModel.xml",
-        "lib/netstandard2.0/NuGet.LibraryModel.dll",
         "lib/netstandard2.0/NuGet.LibraryModel.xml",
         "nuget.librarymodel.5.11.0.nupkg.sha512",
         "nuget.librarymodel.nuspec"
@@ -6196,11 +5880,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
-        "lib/net472/NuGet.Packaging.dll",
         "lib/net472/NuGet.Packaging.xml",
-        "lib/net5.0/NuGet.Packaging.dll",
         "lib/net5.0/NuGet.Packaging.xml",
-        "lib/netstandard2.0/NuGet.Packaging.dll",
         "lib/netstandard2.0/NuGet.Packaging.xml",
         "nuget.packaging.5.11.0.nupkg.sha512",
         "nuget.packaging.nuspec"
@@ -6214,11 +5895,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
-        "lib/net472/NuGet.ProjectModel.dll",
         "lib/net472/NuGet.ProjectModel.xml",
-        "lib/net5.0/NuGet.ProjectModel.dll",
         "lib/net5.0/NuGet.ProjectModel.xml",
-        "lib/netstandard2.0/NuGet.ProjectModel.dll",
         "lib/netstandard2.0/NuGet.ProjectModel.xml",
         "nuget.projectmodel.5.11.0.nupkg.sha512",
         "nuget.projectmodel.nuspec"
@@ -6232,11 +5910,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
-        "lib/net472/NuGet.Protocol.dll",
         "lib/net472/NuGet.Protocol.xml",
-        "lib/net5.0/NuGet.Protocol.dll",
         "lib/net5.0/NuGet.Protocol.xml",
-        "lib/netstandard2.0/NuGet.Protocol.dll",
         "lib/netstandard2.0/NuGet.Protocol.xml",
         "nuget.protocol.5.11.0.nupkg.sha512",
         "nuget.protocol.nuspec"
@@ -6250,11 +5925,8 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
-        "lib/net45/NuGet.Versioning.dll",
         "lib/net45/NuGet.Versioning.xml",
-        "lib/net472/NuGet.Versioning.dll",
         "lib/net472/NuGet.Versioning.xml",
-        "lib/netstandard2.0/NuGet.Versioning.dll",
         "lib/netstandard2.0/NuGet.Versioning.xml",
         "nuget.versioning.5.11.0.nupkg.sha512",
         "nuget.versioning.nuspec"
@@ -8609,9 +8281,7 @@
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/netstandard2.0/System.Resources.Extensions.dll",
         "lib/netstandard2.0/System.Resources.Extensions.xml",
-        "ref/netstandard2.0/System.Resources.Extensions.dll",
         "ref/netstandard2.0/System.Resources.Extensions.xml",
         "system.resources.extensions.4.6.0.nupkg.sha512",
         "system.resources.extensions.nuspec",
@@ -9579,13 +9249,9 @@
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/System.Security.Cryptography.Xml.dll",
         "lib/net461/System.Security.Cryptography.Xml.xml",
-        "lib/netstandard2.0/System.Security.Cryptography.Xml.dll",
         "lib/netstandard2.0/System.Security.Cryptography.Xml.xml",
-        "ref/net461/System.Security.Cryptography.Xml.dll",
         "ref/net461/System.Security.Cryptography.Xml.xml",
-        "ref/netstandard2.0/System.Security.Cryptography.Xml.dll",
         "ref/netstandard2.0/System.Security.Cryptography.Xml.xml",
         "system.security.cryptography.xml.4.7.0.nupkg.sha512",
         "system.security.cryptography.xml.nuspec",
@@ -10103,13 +9769,9 @@
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/netstandard1.0/System.Threading.Tasks.Dataflow.dll",
         "lib/netstandard1.0/System.Threading.Tasks.Dataflow.xml",
-        "lib/netstandard1.1/System.Threading.Tasks.Dataflow.dll",
         "lib/netstandard1.1/System.Threading.Tasks.Dataflow.xml",
-        "lib/netstandard2.0/System.Threading.Tasks.Dataflow.dll",
         "lib/netstandard2.0/System.Threading.Tasks.Dataflow.xml",
-        "lib/portable-net45+win8+wpa81/System.Threading.Tasks.Dataflow.dll",
         "lib/portable-net45+win8+wpa81/System.Threading.Tasks.Dataflow.xml",
         "system.threading.tasks.dataflow.4.9.0.nupkg.sha512",
         "system.threading.tasks.dataflow.nuspec",
@@ -10383,16 +10045,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\User\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\compu\\.nuget\\packages\\": {}
->>>>>>> 693aa42b59697ed2175071b4f5be8ab348e70cad
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
       "projectName": "RoadGoAPI",
       "projectPath": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
@@ -10401,16 +10058,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "D:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
-      "projectName": "RoadGoAPI",
-      "projectPath": "D:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
-      "packagesPath": "C:\\Users\\compu\\.nuget\\packages\\",
-      "outputPath": "D:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\compu\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 693aa42b59697ed2175071b4f5be8ab348e70cad
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10478,12 +10125,223 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
->>>>>>> 693aa42b59697ed2175071b4f5be8ab348e70cad
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.VisualStudio.Web.CodeGeneration.Design 6.0.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.VisualStudio.Web.CodeGeneration.Design 6.0.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.VisualStudio.Web.CodeGeneration.Design",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.VisualStudio.Web.CodeGenerators.Mvc 6.0.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.VisualStudio.Web.CodeGenerators.Mvc 6.0.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.VisualStudio.Web.CodeGenerators.Mvc",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.DotNet.Scaffolding.Shared 6.0.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.DotNet.Scaffolding.Shared 6.0.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.DotNet.Scaffolding.Shared",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.VisualStudio.Web.CodeGeneration 6.0.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.VisualStudio.Web.CodeGeneration 6.0.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.VisualStudio.Web.CodeGeneration",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.Build 16.9.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.Build 16.9.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.Build",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.Build.Tasks.Core 16.9.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.Build.Tasks.Core 16.9.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.Build.Tasks.Core",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package NuGet.ProjectModel 5.11.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package NuGet.ProjectModel 5.11.0 does not support any target frameworks.",
+      "libraryId": "NuGet.ProjectModel",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore 6.0.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore 6.0.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.Build.Framework 16.9.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.Build.Framework 16.9.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.Build.Framework",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package System.Threading.Tasks.Dataflow 4.9.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package System.Threading.Tasks.Dataflow 4.9.0 does not support any target frameworks.",
+      "libraryId": "System.Threading.Tasks.Dataflow",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.Build.Utilities.Core 16.9.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.Build.Utilities.Core 16.9.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.Build.Utilities.Core",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package System.Resources.Extensions 4.6.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package System.Resources.Extensions 4.6.0 does not support any target frameworks.",
+      "libraryId": "System.Resources.Extensions",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package System.Security.Cryptography.Xml 4.7.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package System.Security.Cryptography.Xml 4.7.0 does not support any target frameworks.",
+      "libraryId": "System.Security.Cryptography.Xml",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package NuGet.DependencyResolver.Core 5.11.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package NuGet.DependencyResolver.Core 5.11.0 does not support any target frameworks.",
+      "libraryId": "NuGet.DependencyResolver.Core",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.VisualStudio.Web.CodeGeneration.Core 6.0.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.VisualStudio.Web.CodeGeneration.Core 6.0.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.VisualStudio.Web.CodeGeneration.Core",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package NuGet.LibraryModel 5.11.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package NuGet.LibraryModel 5.11.0 does not support any target frameworks.",
+      "libraryId": "NuGet.LibraryModel",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package NuGet.Protocol 5.11.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package NuGet.Protocol 5.11.0 does not support any target frameworks.",
+      "libraryId": "NuGet.Protocol",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.VisualStudio.Web.CodeGeneration.Templating 6.0.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.VisualStudio.Web.CodeGeneration.Templating 6.0.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.VisualStudio.Web.CodeGeneration.Templating",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package NuGet.Common 5.11.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package NuGet.Common 5.11.0 does not support any target frameworks.",
+      "libraryId": "NuGet.Common",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package NuGet.Versioning 5.11.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package NuGet.Versioning 5.11.0 does not support any target frameworks.",
+      "libraryId": "NuGet.Versioning",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package NuGet.Packaging 5.11.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package NuGet.Packaging 5.11.0 does not support any target frameworks.",
+      "libraryId": "NuGet.Packaging",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package Microsoft.VisualStudio.Web.CodeGeneration.Utils 6.0.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package Microsoft.VisualStudio.Web.CodeGeneration.Utils 6.0.0 does not support any target frameworks.",
+      "libraryId": "Microsoft.VisualStudio.Web.CodeGeneration.Utils",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Package NuGet.Configuration 5.11.0 is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Package NuGet.Configuration 5.11.0 does not support any target frameworks.",
+      "libraryId": "NuGet.Configuration",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

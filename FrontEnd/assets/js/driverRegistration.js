@@ -235,7 +235,7 @@ function validateFirstName() {
         firstNameInput.focus();
         return false;
     } else if (!hasArabicLetters(firstNameInput.value.trim())) {
-        firstNameLabel.innerText = 'يجب أن يكون الاسم المركبة باللغة العربية';
+        firstNameLabel.innerText = 'يجب أن يكون الاسم  باللغة العربية';
         firstNameInput.focus();
         return false;
     } else {
@@ -255,7 +255,7 @@ function validateLastName() {
 
         return false;
     } else if (!hasArabicLetters(lastNameInput.value.trim())) {
-        lastNameLabel.innerText = 'يجب أن يكون الاسم المركبة باللغة العربية';
+        lastNameLabel.innerText = 'يجب أن يكون الاسم باللغة العربية';
         lastNameInput.focus();
         return false;
     } else {
