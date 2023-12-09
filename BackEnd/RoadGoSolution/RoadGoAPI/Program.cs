@@ -17,8 +17,8 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigin", builder =>
-        builder.WithOrigins("https://road-go-test.web.app")
+    options.AddPolicy("AllowAnyOrigin", builder =>
+        builder.AllowAnyOrigin()
                .AllowAnyMethod()
                .AllowAnyHeader());
 });
@@ -36,7 +36,7 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseCors("AllowSpecificOrigin");
+app.UseCors("AllowAnyOrigin");
 app.UseAuthentication();
 app.UseAuthorization();
 
