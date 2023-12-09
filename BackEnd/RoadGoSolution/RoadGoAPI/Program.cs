@@ -17,8 +17,9 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAnyOrigin", builder =>
-        builder.AllowAnyOrigin()
+    options.AddPolicy("AllowSpecificOrigin", builder =>
+        builder.WithOrigins("https://road-go-test.web.app", "https://6573b80b458d377d7944181a--stately-daifuku-685e0c.netlify.app")
+               .AllowAnyOrigin()
                .AllowAnyMethod()
                .AllowAnyHeader());
 });
@@ -36,7 +37,7 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseCors("AllowAnyOrigin");
+app.UseCors("AllowSpecificOrigin");
 app.UseAuthentication();
 app.UseAuthorization();
 
