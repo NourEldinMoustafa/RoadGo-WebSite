@@ -10383,19 +10383,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zez32\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Freelancing\\Road Go\\Final\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+      "projectUniqueName": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
       "projectName": "RoadGoAPI",
-      "projectPath": "D:\\Freelancing\\Road Go\\Final\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
-      "packagesPath": "C:\\Users\\zez32\\.nuget\\packages\\",
-      "outputPath": "D:\\Freelancing\\Road Go\\Final\\RoadGoSolution\\RoadGoAPI\\obj\\",
+      "projectPath": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\zez32\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10455,24 +10455,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -10481,7 +10463,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
