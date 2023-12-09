@@ -1,20 +1,33 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj": {}
+=======
+    "d:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj": {}
+>>>>>>> 962dce180e51a40c3a452ba8424739e2aedd477d
   },
   "projects": {
-    "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj": {
+    "d:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+        "projectUniqueName": "d:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
         "projectName": "RoadGoAPI",
+<<<<<<< HEAD
         "projectPath": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
         "outputPath": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "projectPath": "d:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+        "packagesPath": "C:\\Users\\compu\\.nuget\\packages\\",
+        "outputPath": "d:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\compu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 962dce180e51a40c3a452ba8424739e2aedd477d
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +95,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+>>>>>>> 962dce180e51a40c3a452ba8424739e2aedd477d
         }
       }
     }

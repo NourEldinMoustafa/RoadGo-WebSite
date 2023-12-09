@@ -10045,11 +10045,16 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\User\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\compu\\.nuget\\packages\\": {}
+>>>>>>> 962dce180e51a40c3a452ba8424739e2aedd477d
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
       "projectName": "RoadGoAPI",
       "projectPath": "E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
@@ -10058,6 +10063,16 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "d:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+      "projectName": "RoadGoAPI",
+      "projectPath": "d:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+      "packagesPath": "C:\\Users\\compu\\.nuget\\packages\\",
+      "outputPath": "d:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\compu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 962dce180e51a40c3a452ba8424739e2aedd477d
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10125,7 +10140,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+>>>>>>> 962dce180e51a40c3a452ba8424739e2aedd477d
       }
     }
   },
@@ -10134,6 +10153,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problem reading the cache file E:\\my-github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     },
     {
@@ -10342,6 +10362,9 @@
       "targetGraphs": [
         "net6.0"
       ]
+=======
+      "message": "Problem reading the cache file d:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> 962dce180e51a40c3a452ba8424739e2aedd477d
     }
   ]
 }
