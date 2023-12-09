@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UrjgAhjGZtO0SUNyVCzJa+t9/5DonpZJfXx9rPaiz/f83iRpP5bRrEsYjHHA/05LFkkN8Wo0J5dv3a+5vyg2uA==",
+  "dgSpecHash": "7pZNrEPdEWpT9SaL/dbPgp+mmAqew4abLgrKHDm0/vKP+NJFHKpL9m/KORP5cjoge5aAvYSWZjNwRt8JkC8LaA==",
   "success": true,
-  "projectFilePath": "D:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
+  "projectFilePath": "d:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\RoadGoAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\compu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\compu\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
@@ -184,5 +184,12 @@
     "C:\\Users\\compu\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\compu\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file d:\\Github\\RoadGo-WebSite\\BackEnd\\RoadGoSolution\\RoadGoAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
